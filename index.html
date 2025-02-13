@@ -22,18 +22,34 @@
       href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
       type="text/css"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      type="text/css"
+    />
+    <script defer src="./js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/global.css" />
   </head>
   <body>
     <header class="header">
+      <div class="header__overlay"></div>
       <nav class="header__nav">
         <ul class="sidebar">
+          <li class="sidebar__button">
+            <button class="sidebar__close-button" aria-label="Close menu">
+              <div class="sidebar__close-icon">
+                <span class="sidebar__close-line"></span>
+                <span class="sidebar__close-line"></span>
+              </div>
+            </button>
+          </li>
           <li class="sidebar__logo">
-            <a class="sidebar__link" href="./"></a>
+            <a class="sidebar__link" href="./">
               <img
-                class="sidebar__logo-img"
+                class="sidebar__logo-img unselectable"
                 src="./images/logo/logo-dots.svg"
                 alt="Amevalue burger logo"
+                draggable="false"
             /></a>
           </li>
           <li class="sidebar__item">
@@ -60,11 +76,17 @@
         </ul>
         <ul class="header__list">
           <li class="header__logo">
-            <a class="sidebar__link" href="./"
+            <a class="header__logo-link" href="./"
               ><img
-                class="header__logo-img"
+                class="header__logo-img unselectable"
                 src="./images/logo/logo.svg"
                 alt="Amevalue logo"
+                draggable="false" />
+              <img
+                class="header__logo-img header__logo-img--blured"
+                src="./images/logo/logo.svg"
+                alt="Amevalue logo blur"
+                draggable="false"
             /></a>
           </li>
           <li class="header__list-item">
@@ -77,14 +99,138 @@
             <a class="header__link" href="#contacts">Contacts</a>
           </li>
         </ul>
-        <button class="header__burger">
+        <button class="header__burger unselectable">
           <img
             class="header__burger-icon"
             src="./images/icons/burger.svg"
             alt="Burger menu"
+            draggable="false"
+          />
+          <img
+            class="header__burger-icon header__burger-icon--blured"
+            src="./images/icons/burger.svg"
+            alt="Burger menu blur"
+            draggable="false"
           />
         </button>
       </nav>
     </header>
+    <main>
+      <section class="hero">
+        <div class="hero__content">
+          <div class="hero__container">
+            <h1 class="hero__title unselectable">Amevalue —</h1>
+            <h2 class="hero__subtitle unselectable">customer support</h2>
+            <p class="hero__text unselectable">
+              Keep your businesses running 24/7
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="why-choose-us">
+        <div class="why-choose-us__content">
+          <h2 class="why-choose-us__title">Our customers appreciate us for:</h2>
+          <button class="why-choose-us__button">Calculate your price</button>
+        </div>
+        <div class="why-choose-us__item" tabindex="0">
+          <span class="why-choose-us__item-title">Value</span>
+          <p class="why-choose-us__item-description">
+            We value each and every one of our clients, so we make sure that you
+            are satisfied and recommend us to your partners.
+          </p>
+        </div>
+        <div class="why-choose-us__item" tabindex="0">
+          <span class="why-choose-us__item-title">Price</span>
+          <p class="why-choose-us__item-description">
+            Salaries in Ukraine are lower than in Europe, so you get a very
+            motivated and experienced person almost twice as cheap.
+          </p>
+        </div>
+        <div class="why-choose-us__item" tabindex="0">
+          <span class="why-choose-us__item-title">Speed</span>
+          <p class="why-choose-us__item-description">
+            Because we provide only the best services faster than most companies
+            on the market.
+          </p>
+        </div>
+      </section>
+      <section class="services">
+        <h3 class="services__title">
+          We offer the huge list of services for your customers support:
+        </h3>
+        <p class="services__text">
+          call support — email support — live-chat support — social media
+          support — up-sell and cross-sell support (account management) —
+        </p>
+      </section>
+      <!-- GAME PLAN -->
+      <!-- Cooperation results -->
+      <section class="trusted-us">
+        <div class="trusted-us__content">
+          <h2 class="trusted-us__title">They trusted us:</h2>
+        </div>
+        <div class="trusted-us__container">
+          <div class="trusted-us__item">
+            <img src="./images/brands/anex.png" alt="Anex logo" />
+          </div>
+          <div class="trusted-us__item">
+            <img
+              src="./images/brands/lyght_living.png"
+              alt="Lyght living logo"
+            />
+          </div>
+          <div class="trusted-us__item">
+            <img
+              src="./images/brands/betten_jumbo.png"
+              alt="Betten Jumbo logo"
+            />
+          </div>
+          <div class="trusted-us__item">
+            <img src="./images/brands/wave_makers.png" alt="Wave Makers logo" />
+          </div>
+          <div class="trusted-us__item">
+            <img src="./images/brands/les_lunes.png" alt="Les Lunes logo" />
+          </div>
+          <div class="trusted-us__item">
+            <img src="./images/brands/tigres.png" alt="Tigres logo" />
+          </div>
+        </div>
+      </section>
+      <section class="clients">
+        <h3 class="clients__title">Our future clients:</h3>
+        <p class="clients__text">
+          OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+        </p>
+      </section>
+      <!-- Contacts -->
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__item">
+          <a href="/" class="footer__logo-link"
+            ><img
+              class="footer__logo-img"
+              src="./images/logo/logo-dots.svg"
+              alt="Amevalue footer logo"
+          /></a>
+        </div>
+        <div class="footer__item">
+          <a href="" class="footer__link footer__link--highlighted">Prices</a
+          ><a href="" class="footer__link footer__link--highlighted">FAQ</a>
+        </div>
+        <div class="footer__item">
+          <a href="" class="footer__link"
+            >Privacy <br />
+            policy</a
+          >
+        </div>
+        <div class="footer__item">
+          <p class="footer__text">
+            &copy; <span class="footer__year">2025</span>, all rights <br />
+            protected, Amevalue
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
