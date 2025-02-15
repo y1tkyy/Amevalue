@@ -1,4 +1,4 @@
-@use "reset.css";
+@use "../../../../styles/reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
@@ -243,7 +243,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-image: url("../images/background_map.png");
+    background-image: url("./assets/images/background_map.png");
     background-position: center center;
     background-size: 101% auto;
     background-repeat: no-repeat;
@@ -373,7 +373,7 @@ body {
     right: 392px;
     top: 294px;
     z-index: 999;
-    background: url("../images/icons/vector_39.svg") no-repeat center center;
+    background: url("../../../../images/icons/vector_39.svg") no-repeat center center;
     background-size: contain;
   }
   &__dot {

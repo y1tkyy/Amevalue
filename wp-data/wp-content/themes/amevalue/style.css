@@ -358,7 +358,7 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  background-image: url("../images/background_map.png");
+  background-image: url("./assets/images/background_map.png");
   background-position: center center;
   background-size: 101% auto;
   background-repeat: no-repeat;
@@ -481,7 +481,7 @@ body {
   right: 392px;
   top: 294px;
   z-index: 999;
-  background: url("../images/icons/vector_39.svg") no-repeat center center;
+  background: url("../../../../images/icons/vector_39.svg") no-repeat center center;
   background-size: contain;
 }
 .why-choose-us__dot {
