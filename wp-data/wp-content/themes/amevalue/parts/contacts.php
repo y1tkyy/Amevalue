@@ -54,13 +54,21 @@
         </div>
       </div>
       <div class="contacts__form">
-        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-          <input type="text" name="name" placeholder="Ваше имя" required>
-          <input type="email" name="email" placeholder="Ваш Email" required>
-          <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-          <input type="hidden" name="action" value="custom_form">
-          <button type="submit">Отправить</button>
-      </form>
+        <button class="open-popup">Открыть форму</button>
+        <div id="custom-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <form id="custom-form">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" >
+
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
       </div>
     </div>
 </section>
