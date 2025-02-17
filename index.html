@@ -28,66 +28,50 @@
       type="text/css"
     />
     <script defer src="./js/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="wp-data/wp-content/themes/amevalue/style.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/global.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__overlay"></div>
       <nav class="header__nav">
-        <ul class="sidebar">
-          <li class="sidebar__button">
-            <button class="sidebar__close-button" aria-label="Close menu">
-              <div class="sidebar__close-icon">
-                <span class="sidebar__close-line"></span>
-                <span class="sidebar__close-line"></span>
-              </div>
-            </button>
-          </li>
-          <li class="sidebar__logo">
+        <aside class="sidebar">
+          <a href="#" class="sidebar__close-button" aria-label="Close menu"></a>
+          <div class="sidebar__logo">
             <a class="sidebar__link" href="./">
               <img
                 class="sidebar__logo-img unselectable"
                 src="./images/logo/logo-dots.svg"
                 alt="Amevalue burger logo"
                 draggable="false"
-            /></a>
-          </li>
-          <li class="sidebar__item">
+              />
+            </a>
+          </div>
+          <nav class="sidebar__nav">
             <a class="sidebar__link" href="./pages/prices.html">Prices</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="./pages/faq.html">FAQ</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="#values">Values</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="#gameplan">Game plan</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="#results">Results</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="#clients">Clients</a>
-          </li>
-          <li class="sidebar__item">
             <a class="sidebar__link" href="#contacts">Contacts</a>
-          </li>
-        </ul>
+          </nav>
+        </aside>
         <ul class="header__list">
           <li class="header__logo">
-            <a class="header__logo-link" href="./"
-              ><img
+            <a class="header__logo-link" href="./">
+              <img
                 class="header__logo-img unselectable"
                 src="./images/logo/logo.svg"
                 alt="Amevalue logo"
-                draggable="false" />
+                draggable="false"
+              />
               <img
                 class="header__logo-img header__logo-img--blured"
                 src="./images/logo/logo.svg"
                 alt="Amevalue logo blur"
                 draggable="false"
-            /></a>
+              />
+            </a>
           </li>
           <li class="header__list-item">
             <a class="header__link" href="./pages/prices.html">Prices</a>
@@ -99,20 +83,7 @@
             <a class="header__link" href="#contacts">Contacts</a>
           </li>
         </ul>
-        <button class="header__burger unselectable">
-          <img
-            class="header__burger-icon"
-            src="./images/icons/burger.svg"
-            alt="Burger menu"
-            draggable="false"
-          />
-          <img
-            class="header__burger-icon header__burger-icon--blured"
-            src="./images/icons/burger.svg"
-            alt="Burger menu blur"
-            draggable="false"
-          />
-        </button>
+        <a href="#" class="header__burger unselectable"></a>
       </nav>
     </header>
     <main>
@@ -120,9 +91,8 @@
         <div class="hero__content">
           <div class="hero__container">
             <h1 class="hero__title unselectable">Amevalue —</h1>
-            <!-- prettier-ignore -->
-            <h2 class="hero__subtitle unselectable">customer support
-              outsourcing company
+            <h2 class="hero__subtitle unselectable">
+              customer support outsourcing company
             </h2>
             <p class="hero__text unselectable">
               Keep your businesses running 24/7
@@ -140,24 +110,26 @@
             <div class="why-choose-us__container unselectable">
               <div class="why-choose-us__item" tabindex="0">
                 <span class="why-choose-us__item-title">Value</span>
-                <!-- prettier-ignore -->
-                <p class="why-choose-us__item-description">We value each and every one of our clients, so we make sure that you are satisfied and recommend us to your partners.
-              </p>
+                <p class="why-choose-us__item-description">
+                  We value each and every one of our clients, so we make sure
+                  that you are satisfied and recommend us to your partners.
+                </p>
               </div>
 
               <div class="why-choose-us__item" tabindex="0">
                 <span class="why-choose-us__item-title">Price</span>
-                <!-- prettier-ignore -->
-                <p class="why-choose-us__item-description">Salaries in Ukraine are lower than in Europe, so you get a very motivated and experienced person almost twice as cheap.
-              </p>
+                <p class="why-choose-us__item-description">
+                  Salaries in Ukraine are lower than in Europe, so you get a
+                  very motivated and experienced person almost twice as cheap.
+                </p>
               </div>
 
               <div class="why-choose-us__item" tabindex="0">
                 <span class="why-choose-us__item-title">Speed</span>
-                <!-- prettier-ignore -->
-                <p class="why-choose-us__item-description">Because we provide only the best services faster than most companies
-                on the market.
-              </p>
+                <p class="why-choose-us__item-description">
+                  Because we provide only the best services faster than most
+                  companies on the market.
+                </p>
               </div>
               <div class="why-choose-us__vector"></div>
               <div class="why-choose-us__dot why-choose-us__dot--first">
@@ -175,9 +147,8 @@
       </section>
       <section class="services">
         <div class="services__wrapper">
-          <!-- prettier-ignore -->
-          <h3 class="services__title unselectable">We offer the huge list of services
-            for your customers support:
+          <h3 class="services__title unselectable">
+            We offer the huge list of services for your customers support:
           </h3>
         </div>
         <div class="services__running-line">
@@ -195,22 +166,16 @@
       </section>
       <section class="game-plan">
         <div class="game-plan__wrapper">
-          <button class="game-plan__button game-plan__button--left">
-            <img
-              src="./images/icons/arrow.svg"
-              alt="Slider button left"
-              class="game-plan__button-img"
-              draggable="false"
-            />
-          </button>
-          <button class="game-plan__button game-plan__button--right">
-            <img
-              src="./images/icons/arrow.svg"
-              alt="Slider button right"
-              class="game-plan__button-img"
-              draggable="false"
-            />
-          </button>
+          <a
+            href="#"
+            class="game-plan__button game-plan__button--left"
+            aria-label="Slider button left"
+          ></a>
+          <a
+            href="#"
+            class="game-plan__button game-plan__button--right"
+            aria-label="Slider button right"
+          ></a>
           <div class="game-plan__container">
             <h2 class="game-plan__title unselectable">Game plan:</h2>
             <div class="game-plan__item">
@@ -363,9 +328,10 @@
       <section class="trusted-us">
         <div class="trusted-us__wrapper">
           <div class="trusted-us__content">
-            <!-- prettier-ignore -->
-            <h2 class="trusted-us__title">They
-               trusted us:</h2>
+            <h2 class="trusted-us__title">
+              They <br />
+              trusted us:
+            </h2>
           </div>
           <div class="trusted-us__container">
             <div class="trusted-us__item">
@@ -421,9 +387,7 @@
       </section>
       <section class="clients">
         <div class="clients__wrapper">
-          <!-- prettier-ignore -->
-          <h3 class="clients__title unselectable">Our future clients:
-          </h3>
+          <h3 class="clients__title unselectable">Our future clients:</h3>
         </div>
         <div class="clients__running-line">
           <div class="clients__running-line-inner">

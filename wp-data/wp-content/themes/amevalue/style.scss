@@ -37,29 +37,43 @@ body {
   z-index: 99999;
   height: 111px;
   width: 100%;
-  max-width: 100%;
   display: flex;
   justify-content: center;
   background-color: rgba(245, 248, 255, 0.8) !important;
   -webkit-backdrop-filter: saturate(90%) blur(10px);
   backdrop-filter: saturate(90%) blur(10px);
+
   &__burger {
-    border: none;
     display: flex;
-    background: none;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
     margin-left: 98px;
-    &-icon {
-      width: 73px;
-      height: auto;
-      &--blured {
-        position: absolute;
-        opacity: 0.2;
-        filter: blur(4px);
-        z-index: -9;
-      }
+    width: 89px;
+    height: 21px;
+    background-image: url("../images/icons/burger.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../images/icons/burger.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.2;
+      filter: blur(4px);
+      z-index: -1;
     }
   }
+
   &__overlay {
     position: absolute;
     width: 100vw;
@@ -83,21 +97,21 @@ body {
   }
   &__list {
     display: flex;
-    max-width: 100%;
     width: 100%;
     justify-content: end;
     align-items: center;
     gap: 40px;
-    &-item {
-    }
   }
   &__logo {
     position: absolute;
     left: 6px;
     display: flex;
     align-items: center;
+
     &-link {
       display: flex;
+      position: relative;
+
       &::after {
         content: "";
         width: 10px;
@@ -136,7 +150,6 @@ body {
   }
   &__nav {
     position: relative;
-    max-width: 100%;
     width: 94%;
     display: flex;
     align-items: center;
@@ -156,20 +169,13 @@ body {
   padding: 48px 40px 38px;
   display: flex;
   flex-direction: column;
-
   transform: translate(100%, 0);
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  -o-transform: translate(100%, 0);
-
-  -webkit-transition: transform ease-in-out 0.3s;
-  -moz-transition: transform ease-in-out 0.3s;
-  -o-transition: transform ease-in-out 0.3s;
   transition: transform ease-in-out 0.3s;
 
-  &__item {
-    margin-bottom: 15px;
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
   &__link {
     text-decoration: none;
@@ -192,41 +198,41 @@ body {
     }
   }
   &__close-button {
+    display: block;
     width: 40px;
     height: 40px;
-    background: none;
+    background-image: url("../images/icons/close.svg"); // Replace with your close icon image
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    text-indent: -9999px;
     position: absolute;
     top: 7px;
     right: 5px;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-  }
-  &__close-icon {
-    width: 24px;
-    height: 20px;
-    position: relative;
-    margin: 11px 0 0 8px;
-  }
-  &__close-line {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: $primary-color;
-    left: 0;
-  }
-  &__close-line:nth-child(1) {
-    transform: rotate(45deg);
-  }
-  &__close-line:nth-child(2) {
-    transform: rotate(-45deg);
+    &::before {
+      position: absolute;
+      content: "";
+      width: 24px;
+      height: 2px;
+      top: 19px;
+      right: 8px;
+      background-color: $primary-color;
+      transform: rotate(45deg);
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 24px;
+      height: 2px;
+      top: 19px;
+      right: 8px;
+      background-color: $primary-color;
+      transform: rotate(-45deg);
+    }
   }
   &--active {
     transform: translate(0, 0);
-    -webkit-transform: translate(0, 0);
-    -moz-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
   }
 }
 
@@ -273,10 +279,9 @@ body {
     display: block;
     font-family: "Urbanist", Arial, sans-serif;
     font-weight: 400;
-    white-space: pre-line;
+    max-width: 900px;
     font-size: 96px;
     letter-spacing: -0.5px;
-    text-wrap: nowrap;
     line-height: 100px;
     opacity: 0;
     animation: fadeInSubtitle 2s cubic-bezier(0.19, 1, 0.22, 1) 1s forwards;
@@ -426,7 +431,7 @@ body {
       text-align: center;
       z-index: 99999;
       line-height: 21px;
-      white-space: pre-line;
+      width: 180px;
       color: $primary-color;
       font-size: 16px;
       font-family: "Urbanist", Arial, sans-serif;
@@ -502,7 +507,7 @@ body {
     font-size: 16px;
     font-family: "Urbanist", Arial, sans-serif;
     opacity: 0.7;
-    white-space: pre-line;
+    max-width: 240px;
   }
 
   &__running-line {
@@ -644,31 +649,30 @@ body {
   }
 
   &__button {
-    display: flex;
+    display: block;
     cursor: pointer;
     width: 60px;
     height: 60px;
-    justify-content: center;
-    align-items: center;
     position: absolute;
-    border: none;
-    background: none;
-    z-index: 999;
     bottom: 70px;
     right: 50%;
     left: 50%;
     padding: 0;
     margin: 0;
+    z-index: 999;
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../images/icons/arrow.svg");
+
     &--left {
       transform: translateX(-511px);
     }
+
     &--right {
       transform: translateX(-577px) rotate(180deg);
     }
-  }
-  &__button-img {
-    width: 60px;
-    height: 60px;
   }
 }
 
@@ -881,7 +885,7 @@ body {
     color: $primary-color;
     font-size: 50px;
     letter-spacing: -0.5px;
-    white-space: pre-line;
+    max-width: 240px;
   }
   &__wrapper {
     display: grid;
@@ -911,7 +915,6 @@ body {
     font-size: 16px;
     font-family: "Urbanist", Arial, sans-serif;
     opacity: 0.7;
-    white-space: pre-line;
   }
 
   &__running-line {

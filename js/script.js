@@ -34,9 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
     header.style.paddingRight = "";
   }
 
-  burgerButton.addEventListener("click", openMenu);
-  closeButton.addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
+  burgerButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    openMenu();
+  });
+
+  closeButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeMenu();
+  });
+
+  overlay.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeMenu();
+  });
 
   //  SLIDER
   const slider = document.querySelector(".game-plan__container");
@@ -51,14 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let velocity = 0;
   let momentumID;
 
-  leftBtn.addEventListener("click", () => {
+  leftBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     slider.scrollBy({
       left: 450,
       behavior: "smooth",
     });
   });
 
-  rightBtn.addEventListener("click", () => {
+  rightBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     slider.scrollBy({
       left: -450,
       behavior: "smooth",
