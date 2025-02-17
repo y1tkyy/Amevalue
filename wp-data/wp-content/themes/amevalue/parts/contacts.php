@@ -53,6 +53,14 @@
           /></a>
         </div>
       </div>
-      <div class="contacts__form"></div>
+      <div class="contacts__form">
+        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="Ваш Email" required>
+          <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+          <input type="hidden" name="action" value="custom_form">
+          <button type="submit">Отправить</button>
+      </form>
+      </div>
     </div>
 </section>
