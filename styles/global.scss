@@ -188,6 +188,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #000;
+    z-index: 99999999;
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -207,7 +208,7 @@ body {
     width: 660px;
     padding: 40px 45px;
     background-color: #edf2fe;
-    z-index: 1000000;
+    z-index: 999999999;
   }
 
   &__close-button {
@@ -219,7 +220,7 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1000001;
+    z-index: 999999999;
 
     &::before,
     &::after {
