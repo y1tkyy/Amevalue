@@ -1,0 +1,705 @@
+# Translation of Plugins - CMB2 - Development (trunk) in Ukrainian
+# This file is distributed under the same license as the Plugins - CMB2 - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-02-28 12:59:08+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.0\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - CMB2 - Development (trunk)\n"
+
+#: includes/types/CMB2_Type_Counter_Base.php:62
+msgid "Your text may be truncated."
+msgstr "Ваш текст може бути скорочений."
+
+#: includes/types/CMB2_Type_Counter_Base.php:57
+msgid "Characters"
+msgstr "Літер"
+
+#: includes/types/CMB2_Type_Counter_Base.php:56
+msgid "Characters left"
+msgstr "Літер залишилось"
+
+#: includes/types/CMB2_Type_Counter_Base.php:51
+msgid "Words"
+msgstr "Слова"
+
+#: includes/types/CMB2_Type_Counter_Base.php:50
+msgid "Words left"
+msgstr "Залишилося слів"
+
+#. translators: %s: register_routes()
+#: includes/shim/WP_REST_Controller.php:25
+msgid "Method '%s' must be overridden."
+msgstr "Метод '%s' має бути перевизначений."
+
+#: example-functions.php:753
+msgid "%s &mdash; Updated!"
+msgstr "%s &mdash; Оновлено!"
+
+#: includes/CMB2_Hookup_Base.php:44
+msgid "%1$s should be implemented by the extended class."
+msgstr "%1$s має бути реалізовано розширеним класом."
+
+#. Author URI of the plugin
+#: init.php
+msgid "https://cmb2.io"
+msgstr "https://cmb2.io"
+
+#. Author of the plugin
+#: init.php
+msgid "CMB2 team"
+msgstr "CMB2 команда"
+
+#. Plugin URI of the plugin
+#: init.php
+msgid "https://github.com/CMB2/CMB2"
+msgstr "https://github.com/CMB2/CMB2"
+
+#: includes/CMB2_Types.php:408
+msgid "Remove Row"
+msgstr "Видалити рядок"
+
+#: includes/CMB2_Options_Hookup.php:139
+msgid "Nothing to update."
+msgstr "Нічого оновлювати."
+
+#: includes/CMB2_Options_Hookup.php:143
+msgid "Settings updated."
+msgstr "Налаштування оновлено."
+
+#: example-functions.php:685
+msgid "Theme Options"
+msgstr "Параметри теми"
+
+#. translators: %s: name of CMB2 box (panel)
+#: includes/CMB2_Hookup.php:579
+msgid "Toggle panel: %s"
+msgstr "Панель перемикання: %s"
+
+#: includes/CMB2_Types.php:226
+msgid "Custom CMB2 field type classes must extend CMB2_Type_Base."
+msgstr "Користувацькі класи типів полів CMB2 повинні розширювати CMB2_Type_Base."
+
+#: example-functions.php:802
+msgid "Will show in REST API \"editable\" contexts only (`POST` requests)."
+msgstr "Відображатиме в REST API лише \"редаговані\" контексти (`POST` запити)."
+
+#: example-functions.php:801
+msgid "REST Editable Test Text"
+msgstr "Редагований Тест Текст REST"
+
+#: example-functions.php:795
+msgid "Will show in the REST API for this box and for pages."
+msgstr "Відображатиметься в REST API для цього поля і для сторінок."
+
+#: example-functions.php:794
+msgid "REST Test Text"
+msgstr "Текст тесту REST"
+
+#: example-functions.php:785
+msgid "REST Test Box"
+msgstr "REST Тест Box"
+
+#: includes/shim/WP_REST_Controller.php:308
+msgid "Scope under which the request is made; determines fields present in response."
+msgstr "Область, в якій виконується запит; визначає поля, присутні у відповіді."
+
+#: includes/shim/WP_REST_Controller.php:290
+msgid "Limit results to those matching a string."
+msgstr "Обмежити результати лише тими, що відповідають рядку."
+
+#: includes/shim/WP_REST_Controller.php:281
+msgid "Maximum number of items to be returned in result set."
+msgstr "Максимальна кількість елементів, що повертається у результуючому наборі."
+
+#: includes/shim/WP_REST_Controller.php:273
+msgid "Current page of the collection."
+msgstr "Поточна сторінка колекції."
+
+#: includes/shim/WP_REST_Controller.php:35
+#: includes/shim/WP_REST_Controller.php:47
+#: includes/shim/WP_REST_Controller.php:59
+#: includes/shim/WP_REST_Controller.php:71
+#: includes/shim/WP_REST_Controller.php:83
+#: includes/shim/WP_REST_Controller.php:95
+#: includes/shim/WP_REST_Controller.php:107
+#: includes/shim/WP_REST_Controller.php:119
+#: includes/shim/WP_REST_Controller.php:131
+#: includes/shim/WP_REST_Controller.php:143
+#: includes/shim/WP_REST_Controller.php:155
+#: includes/shim/WP_REST_Controller.php:168
+msgid "Method '%s' not implemented. Must be overridden in subclass."
+msgstr "Метод '%s' не реалізовано. Повинен бути перевизначений у підкласі."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:415
+msgid "Value Error for %s"
+msgstr "Значення Помилки для %s"
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:312
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:341
+msgid "No field found by that id."
+msgstr "За цим ідентифікатором не знайдено жодного поля."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:297
+msgid "CMB2 Field value cannot be modified without the object_id and object_type parameters specified."
+msgstr "CMB2 Значення поля не може бути змінено без зазначення параметрів object_id та object_type."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:236
+msgid "CMB2 Field value cannot be updated without the value parameter specified."
+msgstr "CMB2 Значення поля не може бути оновлене без вказаного значення параметра."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:33
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:36
+msgid "To view or modify the field's value, the 'object_id' and 'object_type' arguments are required."
+msgstr "Щоб переглянути або змінити значення поля, необхідні аргументи 'object_id' та 'object_type'."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:30
+msgid "When the '_rendered' argument is passed, the renderable field attributes will be returned fully rendered. By default, the names of the callback handers for the renderable attributes will be returned."
+msgstr "Коли передається аргумент '_rendered', атрибути полів, які можна відрендерити, будуть повернуті повністю відрендерити. За замовчуванням будуть повернуті імена обробників зворотного виклику для атрибутів, які можна відрендерити."
+
+#: includes/rest-api/CMB2_REST_Controller_Fields.php:27
+msgid "Includes the box object which the fields are registered to in the response."
+msgstr "Включає об'єкт box, для якого зареєстровано поля у відповіді."
+
+#: includes/rest-api/CMB2_REST_Controller_Boxes.php:122
+msgid "No boxes found."
+msgstr "Boxes не знайдено."
+
+#: includes/rest-api/CMB2_REST_Controller_Boxes.php:72
+msgid "Includes the fully rendered attributes, 'form_open', 'form_close', as well as the enqueued 'js_dependencies' script handles, and 'css_dependencies' stylesheet handles."
+msgstr "Включає повністю відрендеринговані атрибути 'form_open', 'form_close', а також дескриптори скриптів 'js_dependencies' та дескриптори таблиць стилів 'css_dependencies'."
+
+#: includes/rest-api/CMB2_REST_Controller_Boxes.php:51
+msgid "Includes the registered fields for the box in the response."
+msgstr "Включає зареєстровані поля для box у відповіді."
+
+#: includes/rest-api/CMB2_REST_Controller.php:392
+msgid "The title for the object."
+msgstr "Назва для об'єкта."
+
+#: includes/rest-api/CMB2_REST_Controller.php:385
+msgid "The id for the object."
+msgstr "Ідентифікатор об'єкта."
+
+#: includes/rest-api/CMB2_REST_Controller.php:378
+msgid "A human-readable description of the object."
+msgstr "Зрозумілий для людини опис об'єкта."
+
+#: includes/rest-api/CMB2_REST_Controller.php:300
+msgid "No box found by that id. A box needs to be registered with the \"show_in_rest\" parameter configured."
+msgstr "За цим ідентифікатором не знайдено жодного box . Потрібно зареєструвати box з налаштованим параметром \"show_in_rest\"."
+
+#: includes/rest-api/CMB2_REST_Controller.php:277
+msgid "This box does not have write permissions."
+msgstr "Цей box не має прав на запис."
+
+#: includes/rest-api/CMB2_REST_Controller.php:257
+msgid "This box does not have read permissions."
+msgstr "Ця box не має прав на читання."
+
+#: includes/CMB2_Base.php:510 includes/types/CMB2_Type_Base.php:157
+msgid "Invalid %1$s method: %2$s"
+msgstr "Невірний %1$s метод: %2$s"
+
+#: includes/CMB2_Base.php:492 includes/CMB2_Hookup_Base.php:102
+#: includes/CMB2_Options.php:247 includes/CMB2_Options_Hookup.php:369
+#: includes/types/CMB2_Type_Base.php:173
+msgid "Invalid %1$s property: %2$s"
+msgstr "Невірна%1$s властивість : %2$s"
+
+#: includes/CMB2_Base.php:459
+msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "%1$s було викликано з параметром, який є <strong>застарілим</strong> починаючи з версії %2$s і альтернативи якому немає."
+
+#: includes/CMB2_Base.php:457
+msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s! %3$s"
+msgstr "%1$s було викликано з параметром, який <strong>застарілий</strong> починаючи з версії %2$s! %3$s"
+
+#: includes/CMB2_Base.php:427
+msgid "Using the \"%1$s\" field parameter as a callback has been deprecated in favor of the \"%2$s\" parameter."
+msgstr "Використання параметра поля \"%1$s\" як зворотного виклику було скасовано на користь параметра \"%2$s\"."
+
+#: includes/CMB2_Base.php:423
+msgid "The \"%1$s\" field parameter has been deprecated in favor of the \"%2$s\" parameter."
+msgstr "Параметр поля \"%1$s\" застаріло на користь параметра \"%2$s\"."
+
+#. translators: %s: link to codex.wordpress.org/Embeds
+#: example-functions.php:449
+msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at %s."
+msgstr "Введіть URL-адресу youtube, twitter або instagram. Підтримує сервіси, перелічені в %s."
+
+#: example-functions.php:185
+msgid "Hey there, I'm a read-only field"
+msgstr "Привіт, я лише для читання"
+
+#: example-functions.php:181
+msgid "Read-only Disabled Field"
+msgstr "Вимкнене поле тільки для читання"
+
+#. translators: 1: results for. 2: link to codex.wordpress.org/Embeds
+#: includes/CMB2_Ajax.php:189 includes/helper-functions.php:107
+msgid "No oEmbed Results Found for %1$s. View more info at %2$s."
+msgstr "Для %1$s не знайдено результатів oEmbed. Подивіться більше інформації по %2$s"
+
+#: includes/CMB2_Field.php:1594
+msgid "Sorry, this field does not have a cmb_id specified."
+msgstr "На жаль, у цьому полі не вказано cmb_id."
+
+#: example-functions.php:194
+msgid "Custom Rendered Field"
+msgstr "Користувацьке рендерингове поле"
+
+#: includes/CMB2_Hookup.php:195
+msgid "Term metaboxes configuration requires a \"taxonomies\" parameter."
+msgstr "Для налаштування метабоксів термінів потрібен параметр \"taxonomies\""
+
+#: includes/CMB2_Hookup.php:191
+msgid "Term Metadata is a WordPress 4.4+ feature. Please upgrade your WordPress install."
+msgstr "Метадані термінів - це функція WordPress 4.4+. Будь ласка, оновіть вашу версію WordPress."
+
+#: example-functions.php:666
+msgid "Arbitrary Term Field"
+msgstr "Поле довільного терміну"
+
+#: example-functions.php:659
+msgid "Term Image"
+msgstr "Термін зображення"
+
+#: example-functions.php:644
+msgid "Category Metabox"
+msgstr "Категорія Metabox"
+
+#. Description of the plugin
+#: init.php
+msgid "CMB2 will create metaboxes and forms with custom fields that will blow your mind."
+msgstr "CMB2 створить метабокси та форми з кастомними полями, які просто вразять вас."
+
+#. Plugin Name of the plugin
+#: init.php
+msgid "CMB2"
+msgstr "CMB2"
+
+#: includes/helper-functions.php:308
+msgid "Save"
+msgstr "Зберегти"
+
+#: includes/types/CMB2_Type_File.php:76
+msgid "Add or Upload File"
+msgstr "Додати або завантажити файл"
+
+#: includes/types/CMB2_Type_File_List.php:41
+msgid "Add or Upload Files"
+msgstr "Додати або завантажити файли"
+
+#: includes/types/CMB2_Type_Taxonomy_Base.php:115
+msgid "No terms"
+msgstr "Ніяких умов"
+
+#: includes/CMB2_Types.php:344
+msgid "Add Row"
+msgstr "Додати рядок"
+
+#: includes/CMB2_JS.php:244
+msgid "Select / Deselect All"
+msgstr "Виділити / зняти виділення з усіх"
+
+#: includes/CMB2_JS.php:243 includes/types/CMB2_Type_File_Base.php:93
+msgid "Download"
+msgstr "Завантажити"
+
+#: includes/CMB2_Field_Display.php:454 includes/CMB2_JS.php:242
+#: includes/types/CMB2_Type_File_Base.php:90
+msgid "File:"
+msgstr "Файл:"
+
+#: includes/CMB2_JS.php:241 includes/CMB2_Types.php:408
+#: includes/types/CMB2_Type_File_Base.php:95
+msgid "Remove"
+msgstr "Видалити"
+
+#: includes/CMB2_JS.php:240 includes/types/CMB2_Type_File_Base.php:75
+msgid "Remove Image"
+msgstr "Видалити зображення"
+
+#: includes/CMB2_JS.php:239
+msgid "Use these files"
+msgstr "Використати ці файли"
+
+#: includes/CMB2_JS.php:238
+msgid "Use this file"
+msgstr "Використати цей файл"
+
+#: includes/CMB2_JS.php:232
+msgctxt "Valid formatting string, as per http://trentrichardson.com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr "HH:mm"
+
+#: includes/CMB2_JS.php:230
+msgid "Now"
+msgstr "Тепер"
+
+#: includes/CMB2_JS.php:229
+msgid "Second"
+msgstr "Секунд"
+
+#: includes/CMB2_JS.php:228
+msgid "Minute"
+msgstr "Хвилина"
+
+#: includes/CMB2_JS.php:227
+msgid "Hour"
+msgstr "Година."
+
+#: includes/CMB2_JS.php:226
+msgid "Time"
+msgstr "Час"
+
+#: includes/CMB2_JS.php:225
+msgid "Choose Time"
+msgstr "Оберіть час"
+
+#: includes/CMB2_JS.php:221 includes/CMB2_JS.php:231
+msgid "Done"
+msgstr "Зроблено"
+
+#: includes/CMB2_JS.php:220
+msgid "Today"
+msgstr "Сьогодні"
+
+#: includes/CMB2_JS.php:219
+msgid "Prev"
+msgstr "Попередній"
+
+#: includes/CMB2_JS.php:218
+msgid "Next"
+msgstr "Наступна"
+
+#: includes/CMB2_JS.php:217
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr "Січ, Лют, Бер, Квіт, Трав, Черв, Лип, Серп, Вер, Жовт, Лист, Груд"
+
+#: includes/CMB2_JS.php:216
+msgid "January, February, March, April, May, June, July, August, September, October, November, December"
+msgstr "Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень"
+
+#: includes/CMB2_JS.php:215
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr "Нд, Пн, Вт, Ср, Чт, Пт, Пт, Сб"
+
+#: includes/CMB2_JS.php:214
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr "Нд, Пн, Вт, Ср, Чт, Пт, Пт, Сб"
+
+#: includes/CMB2_JS.php:213
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr "Неділя, Понеділок, Вівторок, Середа, Четвер, П'ятниця, Субота"
+
+#: includes/CMB2_JS.php:212
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr "dd/mm/yy"
+
+#: includes/CMB2_JS.php:180
+msgid "Current Color"
+msgstr "Поточний колір"
+
+#: includes/CMB2_JS.php:179
+msgid "Select Color"
+msgstr "Вибрати колір"
+
+#: includes/CMB2_JS.php:178
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: includes/CMB2_JS.php:177 includes/CMB2_JS.php:222
+msgid "Clear"
+msgstr "Очистити"
+
+#: includes/CMB2_Field.php:1476 includes/CMB2_Field.php:1480
+msgid "None"
+msgstr "Немає"
+
+#: includes/CMB2_Field.php:1444
+msgid "Remove Group"
+msgstr "Видалити групу"
+
+#: includes/CMB2_Field.php:1443
+msgid "Add Group"
+msgstr "Додати групу"
+
+#: includes/CMB2_Ajax.php:181
+msgid "Remove Embed"
+msgstr "Видалити вбудовування"
+
+#: includes/CMB2_Ajax.php:75
+msgid "Please Try Again"
+msgstr "Будь ласка, спробуйте ще раз"
+
+#: includes/CMB2.php:626
+msgid "Click to toggle"
+msgstr "Натисніть для перемикання"
+
+#: includes/CMB2.php:207
+msgid "Metabox configuration is required to have an ID parameter."
+msgstr "Metabox конфігурація повинна мати параметр ID"
+
+#: example-functions.php:716
+msgid "Site Background Color"
+msgstr "Колір фону сайту"
+
+#: example-functions.php:625
+msgid "User Field"
+msgstr "Поле користувача"
+
+#: example-functions.php:618
+msgid "Linkedin URL"
+msgstr "Linkedin URL"
+
+#: example-functions.php:611
+msgid "Google+ URL"
+msgstr "Google+ URL"
+
+#: example-functions.php:604
+msgid "Twitter URL"
+msgstr "Twitter URL"
+
+#: example-functions.php:597
+msgid "Facebook URL"
+msgstr "Facebook URL"
+
+#: example-functions.php:590
+msgid "Avatar"
+msgstr "Аватар"
+
+#: example-functions.php:582 example-functions.php:651
+msgid "Extra Info"
+msgstr "Додаткова інформація"
+
+#: example-functions.php:575
+msgid "User Profile Metabox"
+msgstr "Профіль користувача Metabox"
+
+#: example-functions.php:557
+msgid "Image Caption"
+msgstr "Опис зображення"
+
+#: example-functions.php:551
+msgid "Entry Image"
+msgstr "Зображення вступу"
+
+#: example-functions.php:545
+msgid "Write a short description for this entry"
+msgstr "Напишіть короткий опис для цього запису"
+
+#: example-functions.php:544
+msgid "Description"
+msgstr "Опис"
+
+#: example-functions.php:537
+msgid "Entry Title"
+msgstr "Назва Вступу"
+
+#: example-functions.php:523
+msgid "Remove Entry"
+msgstr "Видалити запис"
+
+#: example-functions.php:522
+msgid "Add Another Entry"
+msgstr "Додати ще один запис"
+
+#: example-functions.php:521
+msgid "Entry {#}"
+msgstr "Вступ {#}"
+
+#: example-functions.php:519
+msgid "Generates reusable form entries"
+msgstr "Створює багаторазові записи у формі"
+
+#: example-functions.php:511
+msgid "Repeating Field Group"
+msgstr "Повторювана група поля"
+
+#: example-functions.php:481
+msgid "About Page Metabox"
+msgstr "Про Page Metabox"
+
+#: example-functions.php:446
+msgid "oEmbed"
+msgstr "oEmbed"
+
+#: example-functions.php:439
+msgid "Upload or add multiple images/attachments."
+msgstr "Завантажте або додайте кілька зображень/вкладень."
+
+#: example-functions.php:438
+msgid "Multiple Files"
+msgstr "Кілька файлів"
+
+#: example-functions.php:432
+msgid "Upload an image or enter a URL."
+msgstr "Завантажте зображення або введіть URL-адресу."
+
+#: example-functions.php:431
+msgid "Test Image"
+msgstr "Тест Зображення"
+
+#: example-functions.php:421
+msgid "Test wysiwyg"
+msgstr "Тест WYSIWYG"
+
+#: example-functions.php:415
+msgid "Check Three"
+msgstr "Перевірка три."
+
+#: example-functions.php:414
+msgid "Check Two"
+msgstr "Перевірка два."
+
+#: example-functions.php:413
+msgid "Check One"
+msgstr "Перевірка один."
+
+#: example-functions.php:407
+msgid "Test Multi Checkbox"
+msgstr "Тест декілька Checkbox"
+
+#: example-functions.php:400
+msgid "Test Checkbox"
+msgstr "Перевірити Checkbox"
+
+#: example-functions.php:391
+msgid "Test Taxonomy Multi Checkbox"
+msgstr "Тест таксономії з декількома Checkbox"
+
+#: example-functions.php:383
+msgid "Test Taxonomy Select"
+msgstr "Тест таксономії Вибору"
+
+#: example-functions.php:369
+msgid "Test Taxonomy Radio"
+msgstr "Тест таксономії радіо вибору"
+
+#: example-functions.php:357
+msgid "Test Radio"
+msgstr "Тест Радіо Вибір"
+
+#: example-functions.php:344
+msgid "Test Radio inline"
+msgstr "Тест лінії Радіо Вибору"
+
+#: example-functions.php:339 example-functions.php:352
+#: example-functions.php:364
+msgid "Option Three"
+msgstr "Третій Варіант"
+
+#: example-functions.php:338 example-functions.php:351
+#: example-functions.php:363
+msgid "Option Two"
+msgstr "Другий Варіант"
+
+#: example-functions.php:337 example-functions.php:350
+#: example-functions.php:362
+msgid "Option One"
+msgstr "Перший Варіант "
+
+#: example-functions.php:331
+msgid "Test Select"
+msgstr "Тест вибір"
+
+#: example-functions.php:325
+msgid "This is a title description"
+msgstr "Це опис заголовка"
+
+#: example-functions.php:324
+msgid "Test Title Weeeee"
+msgstr "Тест Назви Weeeee"
+
+#: example-functions.php:306
+msgid "Test Text Area for Code"
+msgstr "Тест Текстової Області для Коду"
+
+#: example-functions.php:299
+msgid "Test Text Area Small"
+msgstr "Тест Малої Області Тексту"
+
+#: example-functions.php:292
+msgid "Test Text Area"
+msgstr "Тест Текстової області"
+
+#: example-functions.php:276
+msgid "Test Color Picker"
+msgstr "Тест Палітри Кольорів"
+
+#: example-functions.php:267
+msgid "Test Money"
+msgstr "Тест Гроші"
+
+#: example-functions.php:250
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr "Тест Комбінації вибору дати/часу (мітка часу UNIX)"
+
+#: example-functions.php:242
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr "Тест Вибору Дати  (мітка часу UNIX)"
+
+#: example-functions.php:234
+msgid "Test Date Picker"
+msgstr " Тест Вибору Дати"
+
+#: example-functions.php:227 example-functions.php:228
+msgid "Time zone"
+msgstr "Часовий пояс"
+
+#: example-functions.php:219
+msgid "Test Time"
+msgstr "Тест Час"
+
+#: example-functions.php:211
+msgid "Test Text Email"
+msgstr "Тест Текста Email"
+
+#: example-functions.php:202
+msgid "Website URL"
+msgstr "Адреса веб-сайту"
+
+#: example-functions.php:174
+msgid "Test Text Medium"
+msgstr "Тест Секеднього Тексту"
+
+#: example-functions.php:161
+msgid "Test Text Small"
+msgstr "Тест Малого Тексту"
+
+#: example-functions.php:149 example-functions.php:162
+#: example-functions.php:175 example-functions.php:182
+#: example-functions.php:195 example-functions.php:203
+#: example-functions.php:212 example-functions.php:220
+#: example-functions.php:235 example-functions.php:243
+#: example-functions.php:251 example-functions.php:268
+#: example-functions.php:277 example-functions.php:293
+#: example-functions.php:300 example-functions.php:307
+#: example-functions.php:332 example-functions.php:345
+#: example-functions.php:358 example-functions.php:370
+#: example-functions.php:384 example-functions.php:392
+#: example-functions.php:401 example-functions.php:408
+#: example-functions.php:422 example-functions.php:493
+#: example-functions.php:583 example-functions.php:591
+#: example-functions.php:598 example-functions.php:605
+#: example-functions.php:612 example-functions.php:619
+#: example-functions.php:626 example-functions.php:652
+#: example-functions.php:660 example-functions.php:667
+#: example-functions.php:717
+msgid "field description (optional)"
+msgstr "опис поля (необов'язково)"
+
+#: example-functions.php:148 example-functions.php:492
+msgid "Test Text"
+msgstr "Тест Текст"
+
+#: example-functions.php:115
+msgid "Test Metabox"
+msgstr "Тест Metabox"
