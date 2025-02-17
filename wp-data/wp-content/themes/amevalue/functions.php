@@ -4,15 +4,13 @@ function my_theme_enqueue_styles() {
 }
 
 function my_custom_block_patterns() {
-    // Регистрируем паттерн блока
-    register_block_pattern(
-        'my-plugin/my-pattern', // Уникальный идентификатор
+    register_nav_menus(
         array(
-            'title' => __( 'My Custom Pattern', 'my-plugin' ), // Название паттерна
-            'content' => '<!-- wp:paragraph --><p>' . __( 'This is a custom paragraph in my pattern.', 'my-plugin' ) . '</p><!-- /wp:paragraph -->' // HTML контент для паттерна
+            'header_menu2' => 'Головне меню'
         )
     );
 }
+
 
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles', 'my_custom_block_patterns' );
