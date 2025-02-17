@@ -285,6 +285,119 @@ body {
   justify-content: space-between;
 }
 
+.promo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.promo.promo--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.promo__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.promo__container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 660px;
+  padding: 40px 45px;
+  background-color: #edf2fe;
+  z-index: 1000000;
+}
+.promo__close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000001;
+}
+.promo__close-button::before, .promo__close-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 30px;
+  height: 2px;
+  background-color: #fb596a;
+}
+.promo__close-button::before {
+  transform: rotate(45deg);
+}
+.promo__close-button::after {
+  transform: rotate(-45deg);
+}
+.promo__input {
+  width: 570px;
+  height: 60px;
+  background-color: white;
+  margin-bottom: 25px;
+}
+.promo__button {
+  width: 570px;
+  height: 54px;
+  background-color: #fb596a;
+}
+.promo__description {
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.promo__link {
+  color: rgb(20, 19, 79);
+  border-bottom: 1px solid rgb(20, 19, 79);
+  text-decoration: none;
+}
+.promo__text {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #000;
+}
+.promo__title {
+  color: #14134f;
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 400;
+  margin-bottom: 31px;
+  text-align: center;
+}
+
+.promo--active .promo__overlay {
+  opacity: 0.6;
+}
+
+.promo--active .promo__container {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
 .sidebar {
   box-sizing: border-box;
   position: fixed;
