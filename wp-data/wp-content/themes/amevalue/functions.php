@@ -34,3 +34,10 @@ function send_custom_form() {
 
 add_action('wp_ajax_send_custom_form', 'send_custom_form');
 add_action('wp_ajax_nopriv_send_custom_form', 'send_custom_form'); // Для неавторизованных пользователей
+
+function theme_enqueue_styles() {
+    // Подключаем дополнительный CSS-файл (например, в папке assets/css/)
+    wp_enqueue_style('global-style', get_template_directory_uri() . '/styles/global.css', array(), '1.0.0', 'all');
+    wp_enqueue_style('reset-style', get_template_directory_uri() . '/styles/reset.css', array(), '1.0.0', 'all');
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');

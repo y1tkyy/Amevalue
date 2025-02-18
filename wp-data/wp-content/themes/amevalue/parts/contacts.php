@@ -55,19 +55,19 @@
       </div>
       <div class="contacts__form">
         <button class="open-popup">Открыть форму</button>
-        <div id="custom-popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn">&times;</span>
-                <form id="custom-form">
-                    <label for="name">Имя:</label>
-                    <input type="text" id="name" name="name" required>
+        <div id="custom-popup" class="popup" data-form-action="<?php echo admin_url('admin-ajax.php'); ?>">
+          <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <form id="custom-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" >
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" >
 
-                    <button type="submit">Отправить</button>
-                </form>
-            </div>
+                <button type="submit">Отправить</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,6 @@
           type="text/css"
         />
         <script defer src="./js/script.js"></script>
-        <link rel="stylesheet" type="text/css" href="./styles/global.css" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
