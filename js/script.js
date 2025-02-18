@@ -49,6 +49,60 @@ document.addEventListener("DOMContentLoaded", () => {
     closeMenu();
   });
 
+  // PROMO
+  const promo = document.querySelector(".promo");
+  const promoOverlay = document.querySelector(".promo__overlay");
+  const promoClose = document.querySelector(".promo__close-button");
+  const promoOpen = document.querySelector(".promo__open-button");
+
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+  function openPromo() {
+    if (promo.classList.contains("promo--active")) return;
+
+    const scrollBarWidth = getScrollbarWidth();
+    document.body.style.maxWidth = window.innerWidth - scrollBarWidth + "px";
+    document.body.style.overflow = "hidden";
+    promo.classList.add("promo--active");
+  }
+
+  function closePromo() {
+    promo.classList.remove("promo--active");
+    document.body.style.overflow = "";
+    document.body.style.maxWidth = "";
+  }
+
+  if (promoOpen) {
+    promoOpen.addEventListener("click", function (e) {
+      e.preventDefault();
+      openPromo();
+    });
+  }
+
+  if (promoClose) {
+    promoClose.addEventListener("click", function (e) {
+      e.preventDefault();
+      closePromo();
+    });
+  }
+
+  if (promoOverlay) {
+    promoOverlay.addEventListener("click", function (e) {
+      e.preventDefault();
+      closePromo();
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && promo.classList.contains("promo--active")) {
+      closePromo();
+    }
+  });
+
+  setTimeout(openPromo, 35000); // TIME
+
   //  SLIDER
   const slider = document.querySelector(".game-plan__container");
   const leftBtn = document.querySelector(".game-plan__button--left");
@@ -146,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           id: "hero",
           element: heroElement,
-          startColor: { r: 245, g: 248, b: 255 },
+          startColor: { r: 255, g: 255, b: 255 },
           endColor: { r: 230, g: 237, b: 255 },
           dynamic: true,
         },
