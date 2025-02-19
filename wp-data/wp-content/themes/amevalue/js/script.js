@@ -104,91 +104,105 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(openPromo, 35000); // TIME
 
   //  SLIDER
-  const slider = document.querySelector(".game-plan__container");
-  const leftBtn = document.querySelector(".game-plan__button--left");
-  const rightBtn = document.querySelector(".game-plan__button--right");
+  function initSlider(slider, leftBtn, rightBtn) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let lastX;
+    let lastTime;
+    let velocity = 0;
+    let momentumID;
 
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-  let lastX;
-  let lastTime;
-  let velocity = 0;
-  let momentumID;
+    if (leftBtn) {
+      leftBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        slider.scrollBy({
+          left: 450,
+          behavior: "smooth",
+        });
+      });
+    }
 
-  leftBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    slider.scrollBy({
-      left: 450,
-      behavior: "smooth",
+    if (rightBtn) {
+      rightBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        slider.scrollBy({
+          left: -450,
+          behavior: "smooth",
+        });
+      });
+    }
+
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      slider.classList.add("active");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+      lastX = e.pageX;
+      lastTime = Date.now();
+      velocity = 0;
+      cancelAnimationFrame(momentumID);
     });
-  });
 
-  rightBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    slider.scrollBy({
-      left: -450,
-      behavior: "smooth",
+    slider.addEventListener("mouseleave", () => {
+      if (isDown) {
+        isDown = false;
+        slider.classList.remove("active");
+        startMomentum();
+      }
     });
-  });
 
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    slider.classList.add("active");
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-    lastX = e.pageX;
-    lastTime = Date.now();
-    velocity = 0;
-
-    cancelAnimationFrame(momentumID);
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    if (isDown) {
+    slider.addEventListener("mouseup", () => {
       isDown = false;
       slider.classList.remove("active");
       startMomentum();
-    }
-  });
+    });
 
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("active");
-    startMomentum();
-  });
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
 
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = x - startX;
+      slider.scrollLeft = scrollLeft - walk;
 
-    const x = e.pageX - slider.offsetLeft;
-    const walk = x - startX;
-    slider.scrollLeft = scrollLeft - walk;
-
-    const now = Date.now();
-    const dt = now - lastTime;
-    if (dt > 0) {
-      const dx = e.pageX - lastX;
-      velocity = dx / dt;
-      lastX = e.pageX;
-      lastTime = now;
-    }
-  });
-
-  function startMomentum() {
-    const friction = 0.95;
-    const minVelocity = 0.02;
-
-    function momentumStep() {
-      slider.scrollLeft -= velocity * 16;
-      velocity *= friction;
-      if (Math.abs(velocity) > minVelocity) {
-        momentumID = requestAnimationFrame(momentumStep);
+      const now = Date.now();
+      const dt = now - lastTime;
+      if (dt > 0) {
+        const dx = e.pageX - lastX;
+        velocity = dx / dt;
+        lastX = e.pageX;
+        lastTime = now;
       }
-    }
+    });
 
-    momentumStep();
+    function startMomentum() {
+      const friction = 0.95;
+      const minVelocity = 0.02;
+
+      function momentumStep() {
+        slider.scrollLeft -= velocity * 16;
+        velocity *= friction;
+        if (Math.abs(velocity) > minVelocity) {
+          momentumID = requestAnimationFrame(momentumStep);
+        }
+      }
+      momentumStep();
+    }
+  }
+
+  const oldSlider = document.querySelector(".game-plan__container");
+  const leftBtn = document.querySelector(".game-plan__button--left");
+  const rightBtn = document.querySelector(".game-plan__button--right");
+  if (oldSlider) {
+    initSlider(oldSlider, leftBtn, rightBtn);
+  }
+
+  const mobileSlider = document.querySelector(
+    ".why-choose-us-mobile__container"
+  );
+  if (mobileSlider) {
+    initSlider(mobileSlider);
   }
 
   //BACKGROUND COLOR CHANGE
@@ -263,92 +277,180 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //CURSOR
-  const cursorDot = document.createElement("div");
-  cursorDot.classList.add("cursor-dot");
-  document.body.appendChild(cursorDot);
-
-  const cursorOutline = document.createElement("div");
-  cursorOutline.classList.add("cursor-dot-outline");
-  document.body.appendChild(cursorOutline);
-
+  let customCursorInitialized = false;
+  let cursorDot = null;
+  let cursorOutline = null;
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
   let outlineX = mouseX;
   let outlineY = mouseY;
 
+  let moveHandler,
+    mousedownHandler,
+    mouseupHandler,
+    winMouseOutHandler,
+    winMouseOverHandler,
+    linkMouseOverHandler,
+    linkMouseOutHandler;
+
   const centerTransform = "translate(-50%, -50%)";
 
   function setCursorDotScale(scaleValue) {
-    cursorDot.style.transform = `${centerTransform} scale(${scaleValue})`;
+    if (cursorDot)
+      cursorDot.style.transform = `${centerTransform} scale(${scaleValue})`;
   }
 
   function setCursorOutlineScale(scaleValue) {
-    cursorOutline.style.transform = `${centerTransform} scale(${scaleValue})`;
+    if (cursorOutline)
+      cursorOutline.style.transform = `${centerTransform} scale(${scaleValue})`;
   }
 
   function setCursorOutlineOpacity(opacityValue) {
-    cursorOutline.style.opacity = opacityValue;
+    if (cursorOutline) cursorOutline.style.opacity = opacityValue;
   }
 
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorDot.style.left = `${Math.floor(mouseX)}px`;
-    cursorDot.style.top = `${Math.floor(mouseY)}px`;
-  });
+  function initCustomCursor() {
+    if (customCursorInitialized) return;
+    customCursorInitialized = true;
 
-  function animateOutline() {
-    outlineX += (mouseX - outlineX) * 0.1;
-    outlineY += (mouseY - outlineY) * 0.1;
-    cursorOutline.style.left = `${Math.floor(outlineX)}px`;
-    cursorOutline.style.top = `${Math.floor(outlineY)}px`;
-    requestAnimationFrame(animateOutline);
-  }
-  animateOutline();
+    cursorDot = document.createElement("div");
+    cursorDot.classList.add("cursor-dot");
+    document.body.appendChild(cursorDot);
 
-  document.addEventListener("mousedown", (e) => {
-    if (e.button === 0) {
-      setCursorDotScale(0.01);
-      setCursorOutlineScale(1.8);
-      setCursorOutlineOpacity("1");
-    } else if (e.button === 2) {
-      setCursorDotScale(0.7);
-      setCursorOutlineOpacity("1");
-    }
-  });
+    cursorOutline = document.createElement("div");
+    cursorOutline.classList.add("cursor-dot-outline");
+    document.body.appendChild(cursorOutline);
 
-  document.addEventListener("mouseup", () => {
-    setCursorDotScale(1);
-    setCursorOutlineOpacity("0");
-  });
+    moveHandler = function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (cursorDot) {
+        cursorDot.style.left = `${Math.floor(mouseX)}px`;
+        cursorDot.style.top = `${Math.floor(mouseY)}px`;
+      }
+    };
 
-  window.addEventListener("mouseout", (e) => {
-    if (!e.relatedTarget || e.relatedTarget.nodeName === "HTML") {
-      cursorDot.style.opacity = "0";
-      cursorOutline.style.opacity = "0";
-    }
-  });
+    mousedownHandler = function (e) {
+      if (e.button === 0) {
+        setCursorDotScale(0.01);
+        setCursorOutlineScale(1.8);
+        setCursorOutlineOpacity("1");
+      } else if (e.button === 2) {
+        setCursorDotScale(0.7);
+        setCursorOutlineOpacity("1");
+      }
+    };
 
-  window.addEventListener("mouseover", () => {
-    cursorDot.style.opacity = "1";
-  });
-
-  document.addEventListener("mouseover", (e) => {
-    const link = e.target.closest("a");
-    if (link) {
-      setCursorDotScale(0.01);
-      setCursorOutlineScale(1.8);
-      setCursorOutlineOpacity("1");
-    }
-  });
-
-  document.addEventListener("mouseout", (e) => {
-    const link = e.target.closest("a");
-    if (link) {
+    mouseupHandler = function () {
       setCursorDotScale(1);
       setCursorOutlineOpacity("0");
+    };
+
+    winMouseOutHandler = function (e) {
+      if (!e.relatedTarget || e.relatedTarget.nodeName === "HTML") {
+        if (cursorDot) cursorDot.style.opacity = "0";
+        if (cursorOutline) cursorOutline.style.opacity = "0";
+      }
+    };
+
+    winMouseOverHandler = function () {
+      if (cursorDot) cursorDot.style.opacity = "1";
+    };
+
+    linkMouseOverHandler = function (e) {
+      const link = e.target.closest("a");
+      if (link) {
+        setCursorDotScale(0.01);
+        setCursorOutlineScale(1.8);
+        setCursorOutlineOpacity("1");
+      }
+    };
+
+    linkMouseOutHandler = function (e) {
+      const link = e.target.closest("a");
+      if (link) {
+        setCursorDotScale(1);
+        setCursorOutlineOpacity("0");
+      }
+    };
+
+    document.addEventListener("mousemove", moveHandler);
+    document.addEventListener("mousedown", mousedownHandler);
+    document.addEventListener("mouseup", mouseupHandler);
+    window.addEventListener("mouseout", winMouseOutHandler);
+    window.addEventListener("mouseover", winMouseOverHandler);
+    document.addEventListener("mouseover", linkMouseOverHandler);
+    document.addEventListener("mouseout", linkMouseOutHandler);
+
+    (function animateOutline() {
+      if (!customCursorInitialized) return;
+      outlineX += (mouseX - outlineX) * 0.1;
+      outlineY += (mouseY - outlineY) * 0.1;
+      if (cursorOutline) {
+        cursorOutline.style.left = `${Math.floor(outlineX)}px`;
+        cursorOutline.style.top = `${Math.floor(outlineY)}px`;
+      }
+      requestAnimationFrame(animateOutline);
+    })();
+  }
+
+  function destroyCustomCursor() {
+    if (!customCursorInitialized) return;
+    customCursorInitialized = false;
+
+    // Remove elements
+    if (cursorDot) {
+      cursorDot.remove();
+      cursorDot = null;
     }
-  });
+    if (cursorOutline) {
+      cursorOutline.remove();
+      cursorOutline = null;
+    }
+
+    document.removeEventListener("mousemove", moveHandler);
+    document.removeEventListener("mousedown", mousedownHandler);
+    document.removeEventListener("mouseup", mouseupHandler);
+    window.removeEventListener("mouseout", winMouseOutHandler);
+    window.removeEventListener("mouseover", winMouseOverHandler);
+    document.removeEventListener("mouseover", linkMouseOverHandler);
+    document.removeEventListener("mouseout", linkMouseOutHandler);
+  }
+
+  function checkScreenWidth() {
+    if (window.innerWidth >= 1200) {
+      initCustomCursor();
+    } else {
+      destroyCustomCursor();
+    }
+  }
+
+  checkScreenWidth();
+  window.addEventListener("resize", checkScreenWidth);
+
+  // MOVE TEXT FROM SPAN TO TITLE
+  if (window.innerWidth < 1200) {
+    document.querySelectorAll(".game-plan__item").forEach(function (item) {
+      const titleEl = item.querySelector(".game-plan__item-title");
+      const daysSpan = item.querySelector(
+        ".game-plan__item-text .game-plan__item-days"
+      );
+
+      if (titleEl && daysSpan) {
+        let daysText = daysSpan.textContent.trim();
+        if (!daysText.startsWith("(")) {
+          daysText = "(" + daysText + ")";
+        }
+        titleEl.textContent = titleEl.textContent.trim() + " " + daysText;
+        daysSpan.remove();
+
+        const textEl = item.querySelector(".game-plan__item-text");
+        if (textEl && textEl.textContent.trim() === "") {
+          textEl.remove();
+        }
+      }
+    });
+  }
 
   //SCROLL ANIMATIONS
   const animatedTitles = document.querySelectorAll(
