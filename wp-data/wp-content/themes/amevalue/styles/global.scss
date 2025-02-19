@@ -11,7 +11,6 @@ body {
   margin: 0;
   max-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
   font-family: "Urbanist", Arial, sans-serif;
   line-height: normal;
   color: $primary-color;
@@ -1521,10 +1520,6 @@ body {
       font-size: 40px;
     }
 
-    &__container {
-      transform: translateX(110px);
-    }
-
     &__vector {
       width: 260px;
       right: 380px;
@@ -1900,9 +1895,6 @@ body {
       max-width: 100%;
       width: 100%;
     }
-    &__container {
-      right: -50px;
-    }
     &__title {
       max-width: 100%;
       line-height: 35px;
@@ -1992,7 +1984,7 @@ body {
       &::before {
         position: absolute;
         content: "";
-        width: 629px;
+        width: 100%;
         height: 1px;
         background-color: $primary-color;
         opacity: 0.5;
@@ -2003,7 +1995,7 @@ body {
       &::after {
         position: absolute;
         content: "";
-        width: 629px;
+        width: 100%;
         height: 1px;
         background-color: $primary-color;
         opacity: 0.5;
@@ -2111,6 +2103,40 @@ body {
       top: 90px;
       width: 95.5%;
       height: 1.22px;
+    }
+  }
+  .trusted-us {
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: fit-content;
+    padding: 10px 0 30px 0;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    &__text {
+      text-align: center;
+      br {
+        display: none;
+      }
+    }
+    &__link {
+      br {
+        display: none;
+      }
     }
   }
 }
