@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  setTimeout(openPromo, 35000); // TIME
+  setTimeout(openPromo, 35000); // TIME default: 35000
 
   //  SLIDER
   function initSlider(slider, leftBtn, rightBtn) {

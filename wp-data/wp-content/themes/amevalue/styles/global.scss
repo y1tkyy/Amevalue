@@ -205,7 +205,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 660px;
+    max-width: 660px;
+    width: 100%;
     padding: 40px 45px;
     background-color: #edf2fe;
     z-index: 999999999;
@@ -241,14 +242,16 @@ body {
   }
 
   &__input {
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     height: 60px;
     background-color: white;
     margin-bottom: 25px;
   }
 
   &__button {
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     height: 54px;
     background-color: $secondary-color;
   }
@@ -267,6 +270,7 @@ body {
   }
 
   &__text {
+    text-align: center;
     margin-top: 20px;
     font-size: 13px;
     line-height: 1.55;
@@ -1217,7 +1221,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    max-width: 200px;
+    width: 100%;
     height: 80px;
     background-color: $bg-color;
     box-shadow: 10px 10px 40px 4px rgba(140, 139, 193, 0.1);
@@ -1389,6 +1394,112 @@ body {
   &__wrapper {
     max-width: 1200px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__form {
+    width: 57%;
+  }
+  &__form-checkbox {
+    border-color: rgb(89, 88, 130);
+    height: 20px;
+    width: 20px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    margin-right: 10px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    opacity: 0.6;
+  }
+
+  &__form-group {
+    display: flex;
+    align-items: center;
+  }
+  &__form-input {
+    height: 50px;
+    max-width: 560px;
+    width: 100%;
+    font-family: "Urbanist", Arial, sans-serif;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba($primary-color, 0.3);
+    margin-bottom: 10px;
+    outline: none;
+    &::placeholder {
+      color: rgba($primary-color, 0.5);
+      font-size: 16px;
+      font-weight: 400;
+      height: 40px;
+    }
+  }
+  &__form-label {
+    display: none;
+  }
+  &__form-privacy {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(89, 88, 130);
+    a {
+      color: rgb(20, 19, 79);
+      border-bottom: 1px solid rgb(20, 19, 79);
+      box-shadow: none;
+      text-decoration: none;
+    }
+  }
+  &__form-submit {
+    margin-top: 40px;
+    padding: 0px 15px;
+    display: block;
+    width: 160px;
+    font-weight: 400;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px;
+    color: $primary-color;
+    background-color: $bg-color;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  &__form-text {
+    margin-bottom: 32px;
+    a {
+      line-height: 21px;
+      font-size: 16px;
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
+  &__form-textarea {
+    padding-top: 10px;
+    vertical-align: unset;
+    font-family: "Urbanist", Arial, sans-serif;
+    resize: none;
+    font-size: 16px;
+    font-weight: 400;
+    height: 85px;
+    max-width: 560px;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba($primary-color, 0.3);
+    &::placeholder {
+      color: rgba($primary-color, 0.5);
+      font-size: 16px;
+      font-weight: 400;
+      height: 40px;
+    }
+  }
+  &__form-title {
+    line-height: 35px;
+    color: $primary-color;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-bottom: 26px;
   }
 }
 
@@ -1441,6 +1552,11 @@ body {
 }
 
 @media (max-width: 1199px) {
+  .promo {
+    &__container {
+      max-width: 540px;
+    }
+  }
   .header {
     height: 86px;
     &__nav {
@@ -1693,7 +1809,7 @@ body {
       padding: 0 130px 0 10px;
     }
     &__item {
-      width: 180px;
+      max-width: 180px;
     }
     &__title {
       line-height: 44px;
@@ -1892,11 +2008,11 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      max-width: 100%;
+      max-width: none;
       width: 100%;
     }
     &__title {
-      max-width: 100%;
+      max-width: none;
       line-height: 35px;
       font-size: 32px;
       letter-spacing: 0px;
@@ -1908,29 +2024,29 @@ body {
     &__vector {
       width: 198px;
       height: 285px;
-      right: 450px;
+      right: 300px;
       top: 340px;
     }
     &__dot {
       &--first {
-        transform: translate(-620px, 500px);
+        transform: translate(-470px, 500px);
       }
       &--second {
-        transform: translate(-477px, 333px);
+        transform: translate(-327px, 333px);
       }
       &--third {
-        transform: translate(-445px, 430px);
+        transform: translate(-295px, 430px);
       }
     }
     &__item {
       &:nth-child(1) {
-        transform: translate(-37px, 290px);
+        transform: translate(113px, 290px);
       }
       &:nth-child(2) {
-        transform: translate(-35px, 75px);
+        transform: translate(115px, 75px);
       }
       &:nth-child(3) {
-        transform: translate(-270px, 420px);
+        transform: translate(-120px, 420px);
       }
     }
   }
@@ -1953,7 +2069,7 @@ body {
     height: 580px;
     &__wrapper {
       position: relative;
-      max-width: 100%;
+      max-width: none;
       width: 100%;
       align-items: center;
       justify-content: center;
@@ -2021,11 +2137,16 @@ body {
       width: 100%;
       display: flex;
       flex-direction: column;
-      padding: 0;
+      padding: 0 15px 0 15px;
+      box-sizing: border-box;
     }
   }
   .clients {
     margin-top: 60px;
+    &__title {
+      margin: 0;
+      margin-left: 15px;
+    }
     &__wrapper {
       max-width: 629px;
       margin: 0;
@@ -2034,6 +2155,8 @@ body {
   .contacts {
     &__wrapper {
       max-width: 629px;
+      padding: 0 15px 0 15px;
+      box-sizing: border-box;
     }
     &__content {
       margin: 0;
@@ -2044,6 +2167,26 @@ body {
       font-size: 32px;
       letter-spacing: 0px;
     }
+    &__form {
+      width: 45%;
+    }
+    &__form-title {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 26px;
+      font-size: 24px;
+      letter-spacing: 0px;
+    }
+    &__form-text {
+      max-width: 270px;
+      margin-bottom: 10px;
+    }
+    &__form-input {
+      height: 40px;
+    }
+    &__form-submit {
+      margin-top: 30px;
+    }
   }
 }
 
@@ -2053,6 +2196,15 @@ body {
   }
   .why-choose-us-mobile {
     display: block;
+    &__title {
+      margin-left: 15px;
+    }
+    &__container {
+      padding-left: 15px;
+    }
+    &__button {
+      margin-left: 15px;
+    }
   }
 }
 
@@ -2080,13 +2232,12 @@ body {
     &__subtitle {
       font-size: 6.9vw;
       line-height: 7.5vw;
-      top: -33vw;
+      top: -30vw;
       margin-right: -47vw;
     }
     &__text {
       line-height: 2.8vw;
       font-size: 2.8vw;
-      right: 0;
       margin: 0;
       &::after {
         left: -7%;
@@ -2095,7 +2246,7 @@ body {
       }
     }
     &__container {
-      transform: translate(-4.5%, 200px);
+      transform: translate(-4.5%, 150px);
     }
     &::after {
       content: "";
@@ -2107,16 +2258,312 @@ body {
   }
   .trusted-us {
     &__container {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 14px;
+      column-gap: 14px;
+    }
+    &__item {
+      height: 103px;
+    }
+    &__wrapper {
+      padding: 0 20px 0 20px;
+    }
+  }
+  .why-choose-us-mobile {
+    &__title {
+      margin-left: 20px;
+    }
+    &__container {
+      padding-left: 20px;
+    }
+    &__button {
+      margin-left: 20px;
+    }
+  }
+  .game-plan {
+    &__container {
+      padding: 100px 16px 120px 370px;
+    }
+    &__title {
+      line-height: 29px;
+      font-size: 24px;
+      letter-spacing: 0px;
+    }
+    &__item {
+      width: 300px;
+      height: 300px;
+      border-width: 40px;
+    }
+    &__item-title {
+      font-size: 20px;
+    }
+  }
+  .results {
+    height: 602px;
+    &__content {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0 25px 0 25px;
+    }
+    &__title {
+      font-size: 31px;
+    }
+    &__text {
+      padding: 15px 0 15px 0;
+      max-width: 430px;
+      font-size: 18px;
+      margin-left: 28px;
+      &::before {
+        top: 35%;
+        width: 13px;
+        height: 13px;
+        left: -28px;
+      }
+    }
+    &__button {
+      margin: 0;
+      margin-top: 42px;
+      max-width: 285px;
+      width: 100%;
+      height: 65px;
+      line-height: 1.55;
+      font-size: 21px;
+    }
+  }
+  .services {
+    &__title {
+      margin-left: 20px;
+      font-size: 18px;
+      line-height: 23px;
+      max-width: 260px;
+    }
+  }
+  .clients {
+    &__title {
+      margin-left: 20px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+  .contacts {
+    height: 874px;
+    &__wrapper {
+      flex-direction: column;
+      padding: 0 20px 0 20px;
+      position: relative;
+    }
+    &__info {
+      position: absolute;
+      padding: 0;
+      left: 250px;
+      top: 590px;
+
+      &-text {
+        line-height: 28px;
+        font-size: 20px;
+        max-width: 270px;
+      }
+    }
+    &__mail {
+      position: absolute;
+      top: 80px;
+      left: 300px;
+      font-size: 18px;
+    }
+    &__address {
+      position: absolute;
+      top: 125px;
+      left: 300px;
+      font-size: 18px;
+      max-width: 260px;
+      line-height: 23px;
+    }
+    &__telephone {
+      font-size: 26px;
+    }
+    &__title {
+      font-size: 31px;
+    }
+    &__link {
+      width: 52px;
+      height: 52px;
+      margin-right: 8px;
+      &-icon {
+        width: 28.5px;
+        height: 28.5px;
+      }
+    }
+    &__link--square {
+      .contacts__link-icon {
+        width: 45px;
+        height: 45px;
+      }
+    }
+    &__form {
+      width: 100%;
+    }
+    &__form-submit {
+      padding: 0px 15px;
+      display: block;
+      width: 208px;
+      font-size: 21px;
+      height: 65px;
+      border-radius: 40px;
+    }
+    &__form-text {
+      max-width: none;
+    }
+    &__form-title {
+      font-size: 26px;
+    }
+    &__form-text {
+      margin-top: 15px;
+      a {
+        font-size: 18px;
+      }
+    }
+    &__form-input {
+      &::placeholder {
+        font-size: 21px;
+      }
+    }
+    &__form-textarea {
+      margin-bottom: 30px;
+      &::placeholder {
+        font-size: 21px;
+      }
+    }
+    &__form-privacy {
+      font-size: 18px;
     }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 561px) {
+  .promo {
+    &__close-button {
+      z-index: 9999999999;
+
+      &::before {
+        top: 15px;
+        right: 10px;
+        width: 20px;
+        height: 2px;
+      }
+      &::after {
+        top: 15px;
+        right: 10px;
+        width: 20px;
+        height: 2px;
+      }
+    }
+    &__container {
+      border-top: 50px solid black;
+      box-sizing: border-box;
+      padding: 20px;
+      height: 100%;
+      justify-content: start;
+    }
+    &__title {
+      font-size: 28px;
+      margin-bottom: 26px;
+    }
+    &__description {
+      font-size: 18px;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    &__text {
+      font-size: 10px;
+      line-height: 1.45;
+    }
+    &__input {
+      height: 50px;
+      margin-bottom: 20px;
+    }
+  }
+  .trusted-us {
+    height: 400px;
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    &__item {
+      max-width: none;
+    }
+  }
+  .contacts {
+    height: fit-content;
+    margin-top: 100px;
+    &__content {
+      width: 100%;
+    }
+    &__mail {
+      position: static;
+    }
+    &__address {
+      position: static;
+      max-width: none;
+    }
+    &__info {
+      left: 20px;
+      bottom: 100px;
+      top: auto;
+      &-text {
+        max-width: 270px;
+      }
+    }
+    &__form {
+      padding-bottom: 200px;
+      &-submit {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 481px) {
+  .header {
+    height: 101px;
+  }
+  .hero {
+    height: 218vw;
+    &__content {
+      background-position: center calc(100% + 50px);
+      background-size: 280% auto;
+    }
+    &__container {
+      transform: translate(-4.5%, -100px);
+    }
+    &__title {
+      font-size: 15vw;
+    }
+    &__subtitle {
+      font-size: 9.6vw;
+      max-width: 350px;
+      text-wrap: wrap;
+      line-height: 10.5vw;
+      br {
+        display: none;
+      }
+    }
+    &__text {
+      font-size: 4.2vw;
+      left: 28%;
+      top: -200px;
+    }
+    &::after {
+      content: "";
+
+      top: 101px;
+      width: 95.5%;
+      height: 1.22px;
+    }
+  }
   .footer {
     height: fit-content;
-    padding: 10px 0 30px 0;
+    padding: 20px 0 30px 0;
     &__container {
       display: flex;
       flex-direction: column;
@@ -2137,6 +2584,45 @@ body {
       br {
         display: none;
       }
+    }
+  }
+  .why-choose-us-mobile {
+    &__title {
+      font-size: 34px;
+      max-width: 300px;
+      margin-left: 25px;
+    }
+    &__item {
+      width: 375px;
+      height: 375px;
+    }
+    &__container {
+      padding-left: 25px;
+    }
+    &__button {
+      margin: auto;
+      width: calc(100vw - 50px);
+      font-size: 23px;
+      line-height: 1.55;
+      font-weight: 500;
+      height: 72px;
+    }
+  }
+  .services {
+    margin-top: 50px;
+  }
+  .game-plan {
+    height: 592px;
+    &__title {
+      font-size: 35px;
+    }
+    &__item {
+      width: 433px;
+      height: 433px;
+      border-width: 60px;
+    }
+    &__item-title {
+      font-size: 29px;
     }
   }
 }

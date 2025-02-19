@@ -512,7 +512,67 @@
               /></a>
             </div>
           </div>
-          <div class="contacts__form"></div>
+          <form class="contacts__form" action="/submit-form" method="post">
+            <h2 class="contacts__form-title">Get in touch</h2>
+            <p class="contacts__form-text">
+              <a href="mailto:business@amevalue.com">
+                Amevalue — Free Up Internal resources for Core activities.
+              </a>
+            </p>
+            <div class="contacts__form-group">
+              <label for="name" class="contacts__form-label">Your name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="contacts__form-input"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="contacts__form-group">
+              <label for="question" class="contacts__form-label"
+                >Your question</label
+              >
+              <textarea
+                id="question"
+                name="question"
+                class="contacts__form-textarea"
+                placeholder="Please write your question"
+                required
+              ></textarea>
+            </div>
+            <div class="contacts__form-group">
+              <label for="contact" class="contacts__form-label"
+                >Your phone number or e-mail</label
+              >
+              <input
+                type="text"
+                id="contact"
+                name="contact"
+                class="contacts__form-input"
+                placeholder="Your phone number or e-mail"
+                required
+              />
+            </div>
+            <div class="contacts__form-group">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                class="contacts__form-checkbox"
+                required
+              />
+              <label for="privacy" class="contacts__form-privacy">
+                I agree with the terms of <a href="#">Privacy Policy</a>
+              </label>
+            </div>
+            <input
+              type="submit"
+              class="contacts__form-submit"
+              value="Contact me"
+            />
+          </form>
         </div>
       </section>
     </main>
