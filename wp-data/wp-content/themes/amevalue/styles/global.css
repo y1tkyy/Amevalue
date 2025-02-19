@@ -135,6 +135,7 @@ body {
   margin: 0;
   max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Urbanist", Arial, sans-serif;
   line-height: normal;
   color: #14134f;
@@ -1286,6 +1287,7 @@ body {
   border-radius: 20px;
 }
 .trusted-us__item-img {
+  max-width: 100%;
   height: auto;
 }
 .trusted-us__title {
@@ -1450,14 +1452,33 @@ body {
   width: 57%;
 }
 .contacts__form-checkbox {
-  border-color: rgb(89, 88, 130);
-  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 20px;
-  border: 2px solid #000;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid rgba(20, 19, 79, 0.4);
   box-sizing: border-box;
   margin-right: 10px;
-  transition: all 0.2s;
-  opacity: 0.6;
+  cursor: pointer;
+  position: relative;
+}
+.contacts__form-checkbox:checked {
+  background-color: transparent;
+  border-color: #555;
+}
+.contacts__form-checkbox:checked::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #555;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 .contacts__form-group {
   display: flex;
@@ -1584,14 +1605,11 @@ body {
   color: #14134f;
   text-decoration: none;
   line-height: 21px;
-  opacity: 0.7;
+  opacity: 1;
   font-size: 16px;
   word-break: break-all;
   display: flex;
   align-items: center;
-}
-.footer__link--highlighted {
-  opacity: 1;
 }
 .footer__text {
   color: #14134f;
@@ -2532,7 +2550,7 @@ body {
   }
   .hero__subtitle {
     font-size: 9.6vw;
-    max-width: 350px;
+    max-width: 81vw;
     text-wrap: wrap;
     line-height: 10.5vw;
   }
@@ -2610,6 +2628,164 @@ body {
   }
   .game-plan__item-title {
     font-size: 29px;
+  }
+  .results__content {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .results__title {
+    font-size: 36px;
+  }
+  .results__text {
+    font-size: 21px;
+    line-height: 27px;
+  }
+  .results__button {
+    width: 100%;
+    max-width: none;
+    line-height: 1.55;
+    font-weight: 500;
+    font-size: 24px;
+  }
+  .trusted-us__title {
+    font-size: 36px;
+    margin-bottom: 55px;
+  }
+  .trusted-us__wrapper {
+    padding: 0 25px 0 25px;
+  }
+  .trusted-us__item {
+    height: 120px;
+  }
+  .services__title {
+    margin-left: 25px;
+    font-size: 21px;
+    max-width: 312px;
+  }
+  .clients {
+    padding-top: 50px;
+  }
+  .clients__title {
+    margin-left: 25px;
+    font-size: 21px;
+  }
+  .contacts__wrapper {
+    padding: 0 25px 0 25px;
+  }
+  .contacts__title {
+    font-size: 36px;
+    margin-bottom: 55px;
+  }
+  .contacts__telephone {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  .contacts__mail {
+    font-size: 21px;
+    margin-bottom: 20px;
+  }
+  .contacts__address {
+    font-size: 21px;
+  }
+  .contacts__link {
+    width: 60px;
+    height: 60px;
+  }
+  .contacts__link-icon {
+    width: 33px;
+    height: 33px;
+  }
+  .contacts__link--square .contacts__link-icon {
+    width: 59px;
+    height: 59px;
+  }
+  .contacts__form-title {
+    margin-top: 50px;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .contacts__form-checkbox {
+    width: 30px;
+    height: 30px;
+  }
+  .contacts__form-text {
+    max-width: 270px;
+    margin-bottom: 20px;
+  }
+  .contacts__form-text a {
+    font-size: 21px;
+    line-height: 27px;
+  }
+  .contacts__form-input::-moz-placeholder {
+    font-size: 24px;
+  }
+  .contacts__form-input::placeholder {
+    font-size: 24px;
+  }
+  .contacts__form-textarea {
+    height: 120px;
+  }
+  .contacts__form-textarea::-moz-placeholder {
+    font-size: 24px;
+  }
+  .contacts__form-textarea::placeholder {
+    font-size: 24px;
+  }
+  .contacts__form-privacy {
+    font-size: 21px;
+  }
+  .contacts__info-text {
+    line-height: 27px;
+    font-size: 21px;
+  }
+  .contacts__info-link {
+    transform: translate(-5px, -10px);
+  }
+  .contacts__info-icon {
+    width: 75px;
+    height: 75px;
+  }
+  .game-plan__container {
+    padding: 100px 16px 120px 0;
+  }
+  .game-plan__title {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 373px) {
+  .contacts__form-input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .contacts__form-input::placeholder {
+    font-size: 16px;
+  }
+  .contacts__form-textarea {
+    height: 85px;
+  }
+  .contacts__form-textarea::-moz-placeholder {
+    font-size: 16px;
+  }
+  .contacts__form-textarea::placeholder {
+    font-size: 16px;
+  }
+  .hero__subtitle {
+    top: -25vw;
+    margin-right: -200px;
+    max-width: 270px;
+    right: 200px;
+  }
+  .contacts__info-text {
+    font-size: 14px;
+    max-width: 190px;
+  }
+  .trusted-us__wrapper {
+    margin-top: 200px;
+  }
+  .trusted-us {
+    margin-bottom: 100px;
+  }
+  .contacts__form-checkbox {
+    flex-shrink: 0;
   }
 }
 @keyframes fadeInTitle {

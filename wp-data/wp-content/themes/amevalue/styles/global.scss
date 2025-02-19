@@ -11,6 +11,7 @@ body {
   margin: 0;
   max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Urbanist", Arial, sans-serif;
   line-height: normal;
   color: $primary-color;
@@ -1228,6 +1229,7 @@ body {
     box-shadow: 10px 10px 40px 4px rgba(140, 139, 193, 0.1);
     border-radius: 20px;
     &-img {
+      max-width: 100%;
       height: auto;
     }
   }
@@ -1402,15 +1404,35 @@ body {
     width: 57%;
   }
   &__form-checkbox {
-    border-color: rgb(89, 88, 130);
-    height: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 20px;
-    border: 2px solid #000;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid rgba($primary-color, $alpha: 0.4);
     box-sizing: border-box;
     margin-right: 10px;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-    opacity: 0.6;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__form-checkbox:checked {
+    background-color: transparent;
+    border-color: #555;
+  }
+
+  &__form-checkbox:checked::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #555;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
   }
 
   &__form-group {
@@ -1526,14 +1548,11 @@ body {
     color: $primary-color;
     text-decoration: none;
     line-height: 21px;
-    opacity: 0.7;
+    opacity: 1;
     font-size: 16px;
     word-break: break-all;
     display: flex;
     align-items: center;
-    &--highlighted {
-      opacity: 1;
-    }
   }
   &__text {
     color: $primary-color;
@@ -2541,7 +2560,7 @@ body {
     }
     &__subtitle {
       font-size: 9.6vw;
-      max-width: 350px;
+      max-width: 81vw;
       text-wrap: wrap;
       line-height: 10.5vw;
       br {
@@ -2624,6 +2643,170 @@ body {
     &__item-title {
       font-size: 29px;
     }
+  }
+  .results {
+    &__content {
+      height: fit-content;
+    }
+    &__title {
+      font-size: 36px;
+    }
+    &__text {
+      font-size: 21px;
+      line-height: 27px;
+    }
+    &__button {
+      width: 100%;
+      max-width: none;
+      line-height: 1.55;
+      font-weight: 500;
+      font-size: 24px;
+    }
+  }
+  .trusted-us {
+    &__title {
+      font-size: 36px;
+      margin-bottom: 55px;
+    }
+    &__wrapper {
+      padding: 0 25px 0 25px;
+    }
+    &__item {
+      height: 120px;
+    }
+  }
+  .services {
+    &__title {
+      margin-left: 25px;
+      font-size: 21px;
+      max-width: 312px;
+    }
+  }
+  .clients {
+    padding-top: 50px;
+    &__title {
+      margin-left: 25px;
+      font-size: 21px;
+    }
+  }
+  .contacts {
+    &__wrapper {
+      padding: 0 25px 0 25px;
+    }
+    &__title {
+      font-size: 36px;
+      margin-bottom: 55px;
+    }
+    &__telephone {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    &__mail {
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+    &__address {
+      font-size: 21px;
+    }
+    &__link {
+      width: 60px;
+      height: 60px;
+      &-icon {
+        width: 33px;
+        height: 33px;
+      }
+      &--square {
+        .contacts__link-icon {
+          width: 59px;
+          height: 59px;
+        }
+      }
+    }
+    &__form-title {
+      margin-top: 50px;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    &__form-checkbox {
+      width: 30px;
+      height: 30px;
+    }
+    &__form-text {
+      max-width: 270px;
+      margin-bottom: 20px;
+      a {
+        font-size: 21px;
+        line-height: 27px;
+      }
+    }
+    &__form-input {
+      &::placeholder {
+        font-size: 24px;
+      }
+    }
+    &__form-textarea {
+      height: 120px;
+      &::placeholder {
+        font-size: 24px;
+      }
+    }
+    &__form-privacy {
+      font-size: 21px;
+    }
+    &__info-text {
+      line-height: 27px;
+      font-size: 21px;
+    }
+    &__info-link {
+      transform: translate(-5px, -10px);
+    }
+    &__info-icon {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  .game-plan {
+    &__container {
+      padding: 100px 16px 120px 0;
+    }
+    &__title {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media (max-width: 373px) {
+  .contacts {
+    &__form-input {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+    &__form-textarea {
+      height: 85px;
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+  .hero__subtitle {
+    top: -25vw;
+    margin-right: -200px;
+    max-width: 270px;
+    right: 200px;
+  }
+  .contacts__info-text {
+    font-size: 14px;
+    max-width: 190px;
+  }
+  .trusted-us__wrapper {
+    margin-top: 200px;
+  }
+  .trusted-us {
+    margin-bottom: 100px;
+  }
+  .contacts__form-checkbox {
+    flex-shrink: 0;
   }
 }
 
