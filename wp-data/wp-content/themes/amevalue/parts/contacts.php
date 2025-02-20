@@ -65,7 +65,7 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" >
 
-                <button type="submit">Отправить</button>
+                <button type="submit" data-action="<?php echo admin_url('admin-ajax.php'); ?>">Отправить</button>
             </form>
           </div>
         </div>

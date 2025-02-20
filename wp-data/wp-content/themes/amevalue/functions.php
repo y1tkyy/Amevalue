@@ -6,11 +6,28 @@ function my_theme_enqueue_styles() {
 function my_custom_block_patterns() {
     register_nav_menus(
         array(
-            'header_menu2' => 'Головне меню'
+            'header_menu2' => 'Головне меню',
+            'side_bur_menu' => 'Бокове меню',
+            'footer_menu' => 'Футер меню'
         )
     );
 }
 
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $class_names = !empty($item->classes) ? implode(' ', $item->classes) : '';
+        $output .= '<li class="header__list-item ' . esc_attr($class_names) . '">';
+        $output .= '<a class="header__link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+    }
+}
+
+class Custom_Walker_Side_Bar extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $class_names = !empty($item->classes) ? implode(' ', $item->classes) : '';
+        $output .= '<li class="header__list-item ' . esc_attr($class_names) . '">';
+        $output .= '<a class="header__link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+    }
+}
 
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles', 'my_custom_block_patterns' );
@@ -35,9 +52,11 @@ function send_custom_form() {
 add_action('wp_ajax_send_custom_form', 'send_custom_form');
 add_action('wp_ajax_nopriv_send_custom_form', 'send_custom_form'); // Для неавторизованных пользователей
 
-function theme_enqueue_styles() {
+function theme_enqueue_assets() {
     // Подключаем дополнительный CSS-файл (например, в папке assets/css/)
     wp_enqueue_style('global-style', get_template_directory_uri() . '/styles/global.css', array(), '1.0.0', 'all');
     wp_enqueue_style('reset-style', get_template_directory_uri() . '/styles/reset.css', array(), '1.0.0', 'all');
+
+    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
 }
-add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+add_action('wp_enqueue_scripts', 'theme_enqueue_assets');
