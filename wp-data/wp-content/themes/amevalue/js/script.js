@@ -101,7 +101,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  setTimeout(openPromo, 35000); // TIME default: 35000
+  setTimeout(openPromo, 5000);
+
+  // PROMO VALIDATION
+  const form = document.querySelector(".promo__form");
+
+  if (form) {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const sendButton = document.querySelector(".promo__button");
+
+    const nameError = document.createElement("p");
+    nameError.textContent = "Required field";
+    nameError.classList.add("promo__error-field");
+    nameError.style.display = "none";
+    nameInput.parentNode.appendChild(nameError);
+
+    const emailError = document.createElement("p");
+    emailError.textContent = "Required field";
+    emailError.classList.add("promo__error-field");
+    emailError.style.display = "none";
+    emailInput.parentNode.appendChild(emailError);
+
+    const globalError = document.createElement("div");
+    globalError.classList.add("promo__error-global");
+    globalError.style.display = "none";
+
+    // Create the error text element as a paragraph
+    const errorText = document.createElement("p");
+    errorText.textContent = "Please fill out all required fields";
+    errorText.classList.add("promo__error-text");
+
+    // Append the paragraph to the global error container
+    globalError.appendChild(errorText);
+
+    // Insert the error container into the form before the send button
+    form.insertBefore(globalError, sendButton);
+
+    form.addEventListener("submit", function (event) {
+      let isValid = true;
+
+      if (!nameInput.value.trim()) {
+        nameError.style.display = "block";
+        nameInput.classList.add("promo__input--error"); // Add error border
+        isValid = false;
+      } else {
+        nameError.style.display = "none";
+        nameInput.classList.remove("promo__input--error"); // Remove error border
+      }
+
+      if (!emailInput.value.trim()) {
+        emailError.style.display = "block";
+        emailInput.classList.add("promo__input--error"); // Add error border
+        isValid = false;
+      } else {
+        emailError.style.display = "none";
+        emailInput.classList.remove("promo__input--error"); // Remove error border
+      }
+
+      if (!isValid) {
+        event.preventDefault();
+        globalError.style.display = "block";
+      } else {
+        globalError.style.display = "none";
+      }
+    });
+  }
 
   //  SLIDER
   function initSlider(slider, leftBtn, rightBtn) {
