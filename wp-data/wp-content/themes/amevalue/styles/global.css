@@ -514,6 +514,27 @@ body {
 .sidebar__link:hover {
   color: #ff8562;
 }
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sidebar .page_item {
+  color: #14134f;
+  font-size: 32px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-style: italic;
+  outline: none;
+}
+.sidebar .page_item a {
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  color: #14134f;
+  text-decoration: none;
+}
+.sidebar .page_item a:hover {
+  color: #ff8562;
+}
 .sidebar__logo {
   margin-bottom: 16px;
 }
