@@ -52,10 +52,12 @@
         </div>
          <?php
             wp_nav_menu( array(
-              'theme_location' => 'sidebar_menu',
-              'container' => false,
-              'items_wrap' => '%3$s',
-              'menu_class'     => 'sidebar__nav',
+              'menu' => 'sidebar_menu',
+              'container' => 'nav',  // Контейнер для меню, это будет тег <nav>
+              'container_class' => 'sidebar__nav', // Класс для <nav>
+              'menu_class' => 'sidebar__list', // Класс для <ul>
+              'items_wrap' => '<ul class="%2$s">%3$s</ul>',  // Рендерит список <ul> с классом
+              'walker' => new Custom_Walker_Sidebar_Menu(), // Наш кастомный walker
             ) );
           ?>
       </aside>
@@ -78,6 +80,7 @@
         </li>
          <?php
             wp_nav_menu( array(
+            'menu' => 'Header menu',
                 'items_wrap'     => '%3$s', // Убираем <ul> (оно уже есть в верстке)
                 'container'      => false,  // Убираем контейнер <nav>
                 'menu_class'     => 'header__list-item',
