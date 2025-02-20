@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  setTimeout(openPromo, 3500); // TIME default: 35000
 
   //  SLIDER
   function initSlider(slider, leftBtn, rightBtn) {
@@ -543,4 +544,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animatedTitles.forEach((title) => observer.observe(title));
   animatedImages.forEach((image) => observer.observe(image));
+
+  // FORMS
+  // Contact
+  document.getElementById("custom-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let button = e.submitter; // Получаем кнопку, которая отправила форму
+    let action = button.getAttribute("data-actions");
+    console.log(action);
+
+    let formData = new FormData(this);
+    formData.append("action", "send_custom_form"); // Important
+
+    fetch(action, {
+      method: "POST",
+      body: formData
+    }).then(response => response.text()).then(result => {
+      alert("Форма отправлена!");
+      document.getElementById("custom-popup").style.display = "none";
+    }).catch(error => console.error(error));
+  });
 });

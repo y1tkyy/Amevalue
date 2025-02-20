@@ -409,6 +409,29 @@ body {
       color: #ff8562;
     }
   }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .page_item {
+    color: $primary-color;
+    font-size: 32px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: italic;
+    outline: none;
+
+    a {
+      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        color: #ff8562;
+      }
+    }
+  }
   &__logo {
     margin-bottom: 16px;
     &-img {
@@ -1411,8 +1434,6 @@ body {
   &__info {
     display: flex;
     align-items: center;
-  }
-  &__info-icon {
   }
   &__info-link {
     width: 50px;

@@ -1,5 +1,12 @@
 
 <footer class="footer">
+    <?php
+        wp_nav_menu( array(
+            'theme_location' => 'footer_menu', // ID, который мы зарегистрировали
+            'container'      => 'nav', // Оборачиваем меню в <nav>
+            'menu_class'     => 'header-menu2', // CSS-класс для стилизации
+        ) );
+    ?>
   <div class="footer__container">
     <div class="footer__item">
       <a href="/" class="footer__logo-link"
@@ -47,22 +54,6 @@
         }
     });
   });
-</script>
-<script>
-document.getElementById("custom-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    let formData = new FormData(this);
-    formData.append("action", "send_custom_form"); // Important
-
-    fetch("<?php echo admin_url('admin-ajax.php'); ?>", {
-        method: "POST",
-        body: formData
-    }).then(response => response.text()).then(result => {
-        alert("Форма отправлена!");
-        document.getElementById("custom-popup").style.display = "none";
-    }).catch(error => console.error(error));
-});
 </script>
 </body>
 </html>
