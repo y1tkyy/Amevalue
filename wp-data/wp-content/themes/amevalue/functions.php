@@ -3,12 +3,14 @@ function my_theme_enqueue_styles() {
     wp_enqueue_style( 'my-theme-style', get_stylesheet_uri() );
 }
 
+add_theme_support( 'menus' );
+
 function my_custom_block_patterns() {
     register_nav_menus(
         array(
-            'header_menu2' => 'Головне меню',
-            'side_bur_menu' => 'Бокове меню',
-            'footer_menu' => 'Футер меню'
+            'header_menu' => 'Header menu',
+            'sidebar_menu' => 'Sidebar Menu',
+            'footer_menu' => 'Footer Menu'
         )
     );
 }
@@ -21,11 +23,24 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-class Custom_Walker_Side_Bar extends Walker_Nav_Menu {
+class Custom_Walker_Sidebar_Menu extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-        $class_names = !empty($item->classes) ? implode(' ', $item->classes) : '';
-        $output .= '<li class="header__list-item ' . esc_attr($class_names) . '">';
-        $output .= '<a class="header__link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+        $output .= '<a href="' . esc_url($item->url) . '" class="sidebar__link">' . esc_html($item->title) . '</a>';
+    }
+
+    function end_el(&$output, $item, $depth = 0, $args = null) {
+        $output .= '</li>';
+    }
+}
+
+class Custom_Walker_Footer_Menu extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $output .= '<li class="footer__menu-item">';
+        $output .= '<a href="' . esc_url($item->url) . '" class="footer__item-link">' . esc_html($item->title) . '</a>';
+    }
+
+    function end_el(&$output, $item, $depth = 0, $args = null) {
+        $output .= '</li>';
     }
 }
 

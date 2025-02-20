@@ -1,35 +1,20 @@
-
 <footer class="footer">
-    <?php
-        wp_nav_menu( array(
-            'theme_location' => 'footer_menu', // ID, который мы зарегистрировали
-            'container'      => 'nav', // Оборачиваем меню в <nav>
-            'menu_class'     => 'header-menu2', // CSS-класс для стилизации
-        ) );
-    ?>
   <div class="footer__container">
-    <div class="footer__item">
-      <a href="/" class="footer__logo-link"
-        ><img
-          class="footer__logo-img"
-          src="./images/logo/logo-dots.svg"
-          alt="Amevalue footer logo"
-      /></a>
+    <div class="footer__logo">
+      <a href="/" class="footer__logo-link"><img class="footer__logo-img" src="./assets/images/logo/logo-dots.svg"
+          alt="Amevalue footer logo" /></a>
     </div>
-    <div class="footer__item">
-      <a href="" class="footer__link footer__link--highlighted">Prices</a
-      ><a href="" class="footer__link footer__link--highlighted">FAQ</a>
-    </div>
-    <div class="footer__item">
-      <a href="" class="footer__link"
-        >Privacy <br />
-        policy</a
-      >
-    </div>
-    <div class="footer__item">
+      <?php
+          wp_nav_menu( array(
+              'menu' => 'Footer Menu', // ID, который мы зарегистрировали
+              'container'      => 'ul', // Оборачиваем меню в <nav>
+              'menu_class'     => 'footer__menu',
+              'walker' => new Custom_Walker_Footer_Menu()
+          ) );
+      ?>
+    <div class="footer__copyright">
       <p class="footer__text">
-        &copy; <span class="footer__year">2025</span>, all rights <br />
-        protected, Amevalue
+        &copy; <span class="footer__year">2025</span>, all rights protected, Amevalue
       </p>
     </div>
   </div>
