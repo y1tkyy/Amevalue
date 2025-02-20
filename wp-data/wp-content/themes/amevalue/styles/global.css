@@ -1450,6 +1450,22 @@ body {
   white-space: nowrap;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .contacts {
   display: flex;
   flex-direction: column;
@@ -1477,7 +1493,7 @@ body {
   margin-left: 20px;
 }
 .contacts__form {
-  width: 60%;
+  width: 57%;
 }
 .contacts__info {
   display: flex;
@@ -1550,6 +1566,12 @@ body {
 .contacts__form {
   width: 57%;
 }
+.contacts__form-group {
+  max-width: 560px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
 .contacts__form-checkbox {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1582,6 +1604,69 @@ body {
 .contacts__form-group {
   display: flex;
   align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.contacts__form-group.error {
+  box-sizing: border-box;
+  border: 1px solid red;
+  position: relative;
+}
+.contacts__form-group.error::after {
+  content: attr(data-error);
+  z-index: 999;
+  position: absolute;
+  bottom: -31px;
+  box-sizing: border-box;
+  width: 192px;
+  height: 31px;
+  padding: 8px 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  right: 0;
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+  /* Initially animate in */
+  opacity: 1;
+  animation: fadeIn 0.3s forwards;
+}
+.contacts__form-group.error.hide-error-message::after {
+  animation: fadeOut 0.3s forwards;
+}
+.contacts__form-group--checkbox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.contacts__form-group--checkbox.error {
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 4px;
+}
+.contacts__form-group--checkbox.error::after {
+  content: attr(data-error);
+  z-index: 999;
+  position: absolute;
+  bottom: -31px;
+  box-sizing: border-box;
+  width: 192px;
+  height: 31px;
+  padding: 8px 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  right: 0;
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+  opacity: 1;
+  animation: fadeIn 0.3s forwards;
+}
+.contacts__form-group--checkbox.error.hide-error-message::after {
+  animation: fadeOut 0.3s forwards;
 }
 .contacts__form-input {
   box-sizing: border-box;
@@ -1592,7 +1677,6 @@ body {
   background: none;
   border: none;
   border-bottom: 1px solid rgba(20, 19, 79, 0.3);
-  margin-bottom: 10px;
   outline: none;
 }
 .contacts__form-input::-moz-placeholder {
@@ -1659,7 +1743,6 @@ body {
   background: none;
   border: none;
   outline: none;
-  margin-bottom: 10px;
   border-bottom: 1px solid rgba(20, 19, 79, 0.3);
 }
 .contacts__form-textarea::-moz-placeholder {
@@ -1681,6 +1764,16 @@ body {
   font-weight: 400;
   letter-spacing: -0.5px;
   margin-bottom: 26px;
+}
+.contacts__error-field {
+  color: red;
+  font-size: 14px;
+  display: none;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+.contacts__form-input--error, .contacts__form-textarea--error {
+  border-bottom: 1px solid red !important;
 }
 
 .footer {
@@ -2571,9 +2664,6 @@ body {
   }
   .contacts__form-input::placeholder {
     font-size: 21px;
-  }
-  .contacts__form-textarea {
-    margin-bottom: 30px;
   }
   .contacts__form-textarea::-moz-placeholder {
     font-size: 21px;

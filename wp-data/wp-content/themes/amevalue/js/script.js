@@ -49,125 +49,192 @@ document.addEventListener("DOMContentLoaded", () => {
     closeMenu();
   });
 
-  // PROMO
-  const promo = document.querySelector(".promo");
-  const promoOverlay = document.querySelector(".promo__overlay");
-  const promoClose = document.querySelector(".promo__close-button");
-  const promoOpen = document.querySelector(".promo__open-button");
+// PROMO
+const promo = document.querySelector(".promo");
+const promoOverlay = document.querySelector(".promo__overlay");
+const promoClose = document.querySelector(".promo__close-button");
+const promoOpen = document.querySelector(".promo__open-button");
 
-  function getScrollbarWidth() {
-    return window.innerWidth - document.documentElement.clientWidth;
+function getScrollbarWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
+
+function openPromo() {
+  if (promo.classList.contains("promo--active")) return;
+
+  const scrollBarWidth = getScrollbarWidth();
+  document.body.style.maxWidth = window.innerWidth - scrollBarWidth + "px";
+  document.body.style.overflow = "hidden";
+  promo.classList.add("promo--active");
+}
+
+function closePromo() {
+  promo.classList.remove("promo--active");
+  document.body.style.overflow = "";
+  document.body.style.maxWidth = "";
+}
+
+if (promoOpen) {
+  promoOpen.addEventListener("click", function (e) {
+    e.preventDefault();
+    openPromo();
+  });
+}
+
+if (promoClose) {
+  promoClose.addEventListener("click", function (e) {
+    e.preventDefault();
+    closePromo();
+  });
+}
+
+if (promoOverlay) {
+  promoOverlay.addEventListener("click", function (e) {
+    e.preventDefault();
+    closePromo();
+  });
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && promo.classList.contains("promo--active")) {
+    closePromo();
   }
+});
 
-  function openPromo() {
-    if (promo.classList.contains("promo--active")) return;
+setTimeout(openPromo, 5000); // default 35000
 
-    const scrollBarWidth = getScrollbarWidth();
-    document.body.style.maxWidth = window.innerWidth - scrollBarWidth + "px";
-    document.body.style.overflow = "hidden";
-    promo.classList.add("promo--active");
-  }
+const form = document.querySelector(".promo__form");
 
-  function closePromo() {
-    promo.classList.remove("promo--active");
-    document.body.style.overflow = "";
-    document.body.style.maxWidth = "";
-  }
+if (form) {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const sendButton = document.querySelector(".promo__button");
 
-  if (promoOpen) {
-    promoOpen.addEventListener("click", function (e) {
-      e.preventDefault();
-      openPromo();
-    });
-  }
+  const nameError = document.createElement("p");
+  nameError.textContent = "Required field";
+  nameError.classList.add("promo__error-field");
+  nameError.style.display = "none";
+  nameInput.parentNode.appendChild(nameError);
 
-  if (promoClose) {
-    promoClose.addEventListener("click", function (e) {
-      e.preventDefault();
-      closePromo();
-    });
-  }
+  const emailError = document.createElement("p");
+  emailError.textContent = "Required field";
+  emailError.classList.add("promo__error-field");
+  emailError.style.display = "none";
+  emailInput.parentNode.appendChild(emailError);
 
-  if (promoOverlay) {
-    promoOverlay.addEventListener("click", function (e) {
-      e.preventDefault();
-      closePromo();
-    });
-  }
+  const globalError = document.createElement("div");
+  globalError.classList.add("promo__error-global");
+  globalError.style.display = "none";
 
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && promo.classList.contains("promo--active")) {
-      closePromo();
+  const errorText = document.createElement("p");
+  errorText.textContent = "Please fill out all required fields";
+  errorText.classList.add("promo__error-text");
+
+  globalError.appendChild(errorText);
+
+  form.insertBefore(globalError, sendButton);
+
+  form.addEventListener("submit", function (event) {
+    let isValid = true;
+
+    if (!nameInput.value.trim()) {
+      nameError.style.display = "block";
+      nameInput.classList.add("promo__input--error");
+      isValid = false;
+    } else {
+      nameError.style.display = "none";
+      nameInput.classList.remove("promo__input--error");
+    }
+
+    if (!emailInput.value.trim()) {
+      emailError.style.display = "block";
+      emailInput.classList.add("promo__input--error");
+      isValid = false;
+    } else {
+      emailError.style.display = "none";
+      emailInput.classList.remove("promo__input--error");
+    }
+
+    if (!isValid) {
+      event.preventDefault();
+      globalError.style.display = "block";
+    } else {
+      globalError.style.display = "none";
     }
   });
+}
+// CONTACTS
+const contactsForm = document.querySelector(".contacts__form");
+if (contactsForm) {
+  const nameInput = contactsForm.querySelector("#name");
+  const questionTextarea = contactsForm.querySelector("#question");
+  const contactInput = contactsForm.querySelector("#contact");
+  const privacyCheckbox = contactsForm.querySelector("#privacy");
 
-  setTimeout(openPromo, 5000);
+  contactsForm.addEventListener("submit", (e) => {
+    let isValid = true;
 
-  // PROMO VALIDATION
-  const form = document.querySelector(".promo__form");
+    const nameGroup = nameInput.parentNode;
+    if (!nameInput.value.trim()) {
+      // Remove the class if it exists so the error message shows again
+      nameGroup.classList.remove("hide-error-message");
+      nameGroup.classList.add("error");
+      nameGroup.setAttribute("data-error", "Please fill out this field");
+      isValid = false;
+    } else {
+      nameGroup.classList.remove("error");
+      nameGroup.removeAttribute("data-error");
+      nameGroup.classList.remove("hide-error-message");
+    }
 
-  if (form) {
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const sendButton = document.querySelector(".promo__button");
+    const questionGroup = questionTextarea.parentNode;
+    if (!questionTextarea.value.trim()) {
+      questionGroup.classList.remove("hide-error-message");
+      questionGroup.classList.add("error");
+      questionGroup.setAttribute("data-error", "Please fill out this field");
+      isValid = false;
+    } else {
+      questionGroup.classList.remove("error");
+      questionGroup.removeAttribute("data-error");
+      questionGroup.classList.remove("hide-error-message");
+    }
 
-    const nameError = document.createElement("p");
-    nameError.textContent = "Required field";
-    nameError.classList.add("promo__error-field");
-    nameError.style.display = "none";
-    nameInput.parentNode.appendChild(nameError);
+    const contactGroup = contactInput.parentNode;
+    if (!contactInput.value.trim()) {
+      contactGroup.classList.remove("hide-error-message");
+      contactGroup.classList.add("error");
+      contactGroup.setAttribute("data-error", "Please fill out this field");
+      isValid = false;
+    } else {
+      contactGroup.classList.remove("error");
+      contactGroup.removeAttribute("data-error");
+      contactGroup.classList.remove("hide-error-message");
+    }
 
-    const emailError = document.createElement("p");
-    emailError.textContent = "Required field";
-    emailError.classList.add("promo__error-field");
-    emailError.style.display = "none";
-    emailInput.parentNode.appendChild(emailError);
+    const privacyGroup = privacyCheckbox.parentNode;
+    if (!privacyCheckbox.checked) {
+      privacyGroup.classList.remove("hide-error-message");
+      privacyGroup.classList.add("error");
+      privacyGroup.setAttribute("data-error", "Please fill out this field");
+      isValid = false;
+    } else {
+      privacyGroup.classList.remove("error");
+      privacyGroup.removeAttribute("data-error");
+      privacyGroup.classList.remove("hide-error-message");
+    }
 
-    const globalError = document.createElement("div");
-    globalError.classList.add("promo__error-global");
-    globalError.style.display = "none";
-
-    // Create the error text element as a paragraph
-    const errorText = document.createElement("p");
-    errorText.textContent = "Please fill out all required fields";
-    errorText.classList.add("promo__error-text");
-
-    // Append the paragraph to the global error container
-    globalError.appendChild(errorText);
-
-    // Insert the error container into the form before the send button
-    form.insertBefore(globalError, sendButton);
-
-    form.addEventListener("submit", function (event) {
-      let isValid = true;
-
-      if (!nameInput.value.trim()) {
-        nameError.style.display = "block";
-        nameInput.classList.add("promo__input--error"); // Add error border
-        isValid = false;
-      } else {
-        nameError.style.display = "none";
-        nameInput.classList.remove("promo__input--error"); // Remove error border
-      }
-
-      if (!emailInput.value.trim()) {
-        emailError.style.display = "block";
-        emailInput.classList.add("promo__input--error"); // Add error border
-        isValid = false;
-      } else {
-        emailError.style.display = "none";
-        emailInput.classList.remove("promo__input--error"); // Remove error border
-      }
-
-      if (!isValid) {
-        event.preventDefault();
-        globalError.style.display = "block";
-      } else {
-        globalError.style.display = "none";
-      }
-    });
-  }
-  setTimeout(openPromo, 3500); // TIME default: 35000
+    if (!isValid) {
+      e.preventDefault();
+      // After 3 seconds, add a class to fade out the pseudo element.
+      setTimeout(() => {
+        nameGroup.classList.add("hide-error-message");
+        questionGroup.classList.add("hide-error-message");
+        contactGroup.classList.add("hide-error-message");
+        privacyGroup.classList.add("hide-error-message");
+      }, 3000);
+    }
+  });
+}
 
   //  SLIDER
   function initSlider(slider, leftBtn, rightBtn) {
