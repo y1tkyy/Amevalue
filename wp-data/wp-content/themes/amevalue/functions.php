@@ -69,8 +69,9 @@ add_action('wp_ajax_nopriv_send_custom_form', 'send_custom_form'); // Для н�
 
 function theme_enqueue_assets() {
     // Подключаем дополнительный CSS-файл (например, в папке assets/css/)
+     wp_enqueue_style('reset-style', get_template_directory_uri() . '/styles/reset.css', array(), '1.0.0', 'all');
     wp_enqueue_style('global-style', get_template_directory_uri() . '/styles/global.css', array(), '1.0.0', 'all');
-    wp_enqueue_style('reset-style', get_template_directory_uri() . '/styles/reset.css', array(), '1.0.0', 'all');
+   
 
     wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
 }

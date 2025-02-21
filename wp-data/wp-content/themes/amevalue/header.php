@@ -2,18 +2,42 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php bloginfo( 'name' ); ?></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amevalue</title>
+    <meta name="description" content="customer support outsourcing company" />
+    <meta property="og:url" content="https://ame-value.com" />
+    <meta property="og:title" content="Amevalue" />
+    <meta
+      property="og:description"
+      content="customer support outsourcing company"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/images/thumbnail.jpg" />
+    <link rel="canonical" href="https://ame-value.com" />
+    <meta name="format-detection" content="telephone=no" />
     <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
-          type="text/css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-          type="text/css"
-        />
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      type="text/css"
+    />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

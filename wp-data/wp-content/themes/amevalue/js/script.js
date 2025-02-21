@@ -6,13 +6,71 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const header = document.querySelector(".header");
   const yearElement = document.querySelector(".footer__year");
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+  //FAQ
+  const faqItems = document.querySelectorAll(".faq__item");
+
+  if (faqItems.length) {
+    faqItems[0].classList.add("faq__item--active");
+  }
+
+  faqItems.forEach((item, index) => {
+    const titleElement = item.querySelector(".faq__item-title");
+    if (titleElement) {
+      titleElement.textContent = `${index + 1}) ${titleElement.textContent}`;
+    }
+  });
+
+  faqItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      if (item.classList.contains("faq__item--active")) {
+        item.classList.remove("faq__item--active");
+      } else {
+        faqItems.forEach((i) => i.classList.remove("faq__item--active"));
+        item.classList.add("faq__item--active");
+      }
+    });
+  });
 
   // FOOTER YEAR
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  // HERO BG IMAGE
+  let heroContent = document.querySelector(".hero__content");
+
+  let bgImage = new Image();
+  bgImage.src = "./assets/images/background_map.webp";
+
+  bgImage.onload = function () {
+    heroContent.style.backgroundImage = "url('" + bgImage.src + "')";
+  };
+
   // SIDEBAR WITH OVERLAY
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      if (href.startsWith("#")) {
+        e.preventDefault();
+        const targetSection = document.querySelector(href);
+
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+
+        closeMenu();
+      } else {
+        closeMenu();
+      }
+    });
+  });
+
   function getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
   }
@@ -102,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    setTimeout(openPromo, 5000); // default 35000
+    setTimeout(openPromo, 35000); // default 35000
 
     const form = document.querySelector(".promo__form");
 

@@ -1,18 +1,19 @@
 <main>
-  <section class="hero">
-    <div class="hero__content">
-      <div class="hero__container">
-        <h1 class="hero__title unselectable"> <?php the_field('main_slider_title'); ?> —</h1>
-        <!-- prettier-ignore -->
-        <h2 class="hero__subtitle unselectable">customer support
-          outsourcing company
-        </h2>
-        <p class="hero__text unselectable">
-          Keep your businesses running 24/7
-        </p>
-      </div>
-    </div>
-  </section>
+
+    <section class="hero" id="hero">
+        <div class="hero__content">
+          <div class="hero__container">
+            <h1 class="hero__title unselectable"><?php the_field('main_slider_title'); ?> —</h1>
+            <h2 class="hero__subtitle unselectable">
+              customer support <br />
+              outsourcing company
+            </h2>
+            <p class="hero__text unselectable">
+              Keep your businesses running 24/7
+            </p>
+          </div>
+        </div>
+      </section>
   <section class="why-choose-us-mobile" id="why-choose-us">
     <?php if( have_rows('our_customers_appreciate_us_for') ): ?>
       <?php while ( have_rows('our_customers_appreciate_us_for') ): the_row(); ?>
