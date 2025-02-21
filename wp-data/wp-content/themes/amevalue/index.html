@@ -15,14 +15,24 @@
   <link rel="canonical" href="https://ame-value.com" />
   <meta name="format-detection" content="telephone=no" />
   <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
     type="text/css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     type="text/css" />
+
   <script defer src="./js/script.js"></script>
+
   <link rel="stylesheet" type="text/css" href="./styles/global.css" />
 </head>
+
 
 <body>
   <header class="header">
@@ -91,10 +101,11 @@
           <a class="header__link" href="#contacts">Contacts</a>
         </li>
       </ul>
-      <div aria-label="Open burger menu" class="header__burger unselectable"></div>
+      <div class="header__burger unselectable"></div>
     </nav>
   </header>
   <main>
+
     <section class="hero" id="hero">
       <div class="hero__content">
         <div class="hero__container">
@@ -109,6 +120,16 @@
         </div>
       </div>
     </section>
+
+    <section class="faq">
+      <div class="faq__wrapper">
+        <h2 class="faq__title">Frequently asked questions</h2>
+        <ul class="faq__list">
+          <li class="faq__item"></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="why-choose-us-mobile" id="why-choose-us">
       <h2 class="why-choose-us-mobile__title">
         Our customers appreciate us for:
@@ -212,8 +233,8 @@
     </section>
     <section class="game-plan" id="game-plan">
       <div class="game-plan__wrapper">
-        <div class="game-plan__button game-plan__button--left" aria-label="Slider button left"></div>
-        <div class="game-plan__button game-plan__button--right" aria-label="Slider button right"></div>
+        <div class="game-plan__button game-plan__button--left"></div>
+        <div class="game-plan__button game-plan__button--right"></div>
         <div class="game-plan__container">
           <h2 class="game-plan__title unselectable">Game plan:</h2>
           <div class="game-plan__item">
