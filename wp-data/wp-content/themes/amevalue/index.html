@@ -1,683 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amevalue</title>
-    <meta name="description" content="customer support outsourcing company" />
-    <meta property="og:url" content="https://ame-value.com" />
-    <meta property="og:title" content="Amevalue" />
-    <meta
-      property="og:description"
-      content="customer support outsourcing company"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="./assets/images/thumbnail.jpg" />
-    <link rel="canonical" href="https://ame-value.com" />
-    <meta name="format-detection" content="telephone=no" />
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      type="text/css"
-    />
-    <script defer src="./js/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="./styles/global.css" />
-  </head>
 
-  <body>
-    <header class="header">
-      <div class="promo">
-        <div class="promo__overlay"></div>
-        <a href="#" class="promo__close-button" aria-label="Close menu"></a>
-        <div class="promo__container">
-          <h2 class="promo__title">Get the discount</h2>
-          <p class="promo__description">
-            Register now and get a yearly discount of 7% on your first agent.
-          </p>
-          <form action="/submit" method="POST" class="promo__form" novalidate>
-            <div>
-              <label for="name" class="promo__label">Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                class="promo__input"
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div>
-              <label for="email" class="promo__label">E-mail</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                class="promo__input"
-                placeholder="E-mail"
-                required
-              />
-            </div>
-            <button type="submit" class="promo__button">Send</button>
-          </form>
-          <p class="promo__text">
-            By clicking on the button, you agree to the
-            <a href="#" class="promo__link">privacy policy</a> and the personal
-            data processing.
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amevalue</title>
+  <meta name="description" content="customer support outsourcing company" />
+  <meta property="og:url" content="https://ame-value.com" />
+  <meta property="og:title" content="Amevalue" />
+  <meta property="og:description" content="customer support outsourcing company" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/thumbnail.jpg" />
+  <link rel="canonical" href="https://ame-value.com" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap"
+    type="text/css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    type="text/css" />
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="./styles/global.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="promo">
+      <div class="promo__overlay"></div>
+      <a href="#" class="promo__close-button" aria-label="Close menu"></a>
+      <div class="promo__container">
+        <h2 class="promo__title">Get the discount</h2>
+        <p class="promo__description">
+          Register now and get a yearly discount of 7% on your first agent.
+        </p>
+        <form action="/submit" method="POST" class="promo__form" novalidate>
+          <div>
+            <label for="name" class="promo__label">Name</label>
+            <input id="name" name="name" type="text" class="promo__input" placeholder="Name" required />
+          </div>
+          <div>
+            <label for="email" class="promo__label">E-mail</label>
+            <input id="email" name="email" type="email" class="promo__input" placeholder="E-mail" required />
+          </div>
+          <button type="submit" class="promo__button">Send</button>
+        </form>
+        <p class="promo__text">
+          By clicking on the button, you agree to the
+          <a href="#" class="promo__link">privacy policy</a> and the personal
+          data processing.
+        </p>
+      </div>
+    </div>
+    <div class="header__overlay"></div>
+    <nav class="header__nav">
+      <aside class="sidebar">
+        <a href="#" class="sidebar__close-button" aria-label="Close menu"></a>
+        <div class="sidebar__logo">
+          <a class="sidebar__link" href="../../../..">
+            <img class="sidebar__logo-img unselectable" src="./assets/images/logo/logo-dots.svg"
+              alt="Amevalue burger logo" draggable="false" />
+          </a>
+        </div>
+        <nav class="sidebar__nav">
+          <a class="sidebar__link" href="./pages/prices.html">Prices</a>
+          <a class="sidebar__link" href="./pages/faq.html">FAQ</a>
+          <a class="sidebar__link" href="#values">Values</a>
+          <a class="sidebar__link" href="#gameplan">Game plan</a>
+          <a class="sidebar__link" href="#results">Results</a>
+          <a class="sidebar__link" href="#clients">Clients</a>
+          <a class="sidebar__link" href="#contacts">Contacts</a>
+        </nav>
+      </aside>
+      <ul class="header__list">
+        <li class="header__logo">
+          <a class="header__logo-link" href="../../../..">
+            <img class="header__logo-img unselectable" src="./assets/images/logo/logo.svg" alt="Amevalue logo"
+              draggable="false" />
+            <img class="header__logo-img header__logo-img--blured" src="./assets/images/logo/logo.svg"
+              alt="Amevalue logo blur" draggable="false" />
+          </a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="./pages/prices.html">Prices</a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="./pages/faq.html">FAQ</a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="#contacts">Contacts</a>
+        </li>
+      </ul>
+      <div aria-label="Open burger menu" class="header__burger unselectable"></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <div class="hero__container">
+          <h1 class="hero__title unselectable">Amevalue —</h1>
+          <h2 class="hero__subtitle unselectable">
+            customer support <br />
+            outsourcing company
+          </h2>
+          <p class="hero__text unselectable">
+            Keep your businesses running 24/7
           </p>
         </div>
       </div>
-      <div class="header__overlay"></div>
-      <nav class="header__nav">
-        <aside class="sidebar">
-          <a href="#" class="sidebar__close-button" aria-label="Close menu"></a>
-          <div class="sidebar__logo">
-            <a class="sidebar__link" href="../../../..">
-              <img
-                class="sidebar__logo-img unselectable"
-                src="./assets/images/logo/logo-dots.svg"
-                alt="Amevalue burger logo"
-                draggable="false"
-              />
-            </a>
+    </section>
+    <section class="why-choose-us-mobile" id="why-choose-us">
+      <h2 class="why-choose-us-mobile__title">
+        Our customers appreciate us for:
+      </h2>
+      <div class="why-choose-us-mobile__wrapper">
+        <div class="why-choose-us-mobile__container">
+          <div class="why-choose-us-mobile__item">
+            <p class="why-choose-us-mobile__item-title unselectable">Value</p>
+            <p class="why-choose-us-mobile__item-description unselectable">
+              We value each and every one of our clients, so we make sure that
+              you are satisfied and recommend us to your partners
+            </p>
           </div>
-          <nav class="sidebar__nav">
-            <a class="sidebar__link" href="./pages/prices.html">Prices</a>
-            <a class="sidebar__link" href="./pages/faq.html">FAQ</a>
-            <a class="sidebar__link" href="#values">Values</a>
-            <a class="sidebar__link" href="#gameplan">Game plan</a>
-            <a class="sidebar__link" href="#results">Results</a>
-            <a class="sidebar__link" href="#clients">Clients</a>
-            <a class="sidebar__link" href="#contacts">Contacts</a>
-          </nav>
-        </aside>
-        <ul class="header__list">
-          <li class="header__logo">
-            <a class="header__logo-link" href="../../../..">
-              <img
-                class="header__logo-img unselectable"
-                src="./assets/images/logo/logo.svg"
-                alt="Amevalue logo"
-                draggable="false"
-              />
-              <img
-                class="header__logo-img header__logo-img--blured"
-                src="./assets/images/logo/logo.svg"
-                alt="Amevalue logo blur"
-                draggable="false"
-              />
-            </a>
-          </li>
-          <li class="header__list-item">
-            <a class="header__link" href="./pages/prices.html">Prices</a>
-          </li>
-          <li class="header__list-item">
-            <a class="header__link" href="./pages/faq.html">FAQ</a>
-          </li>
-          <li class="header__list-item">
-            <a class="header__link" href="#contacts">Contacts</a>
-          </li>
-        </ul>
-        <div
-          aria-label="Open burger menu"
-          class="header__burger unselectable"
-        ></div>
-      </nav>
-    </header>
-    <main>
-      <section class="hero" id="hero">
-        <div class="hero__content">
-          <div class="hero__container">
-            <h1 class="hero__title unselectable">Amevalue —</h1>
-            <h2 class="hero__subtitle unselectable">
-              customer support <br />
-              outsourcing company
-            </h2>
-            <p class="hero__text unselectable">
-              Keep your businesses running 24/7
+          <div class="why-choose-us-mobile__item">
+            <p class="why-choose-us-mobile__item-title unselectable">Price</p>
+            <p class="why-choose-us-mobile__item-description unselectable">
+              Salaries in Ukraine are lower than in Europe, so you get a very
+              motivated and experienced person almost twice as cheap.
+            </p>
+          </div>
+          <div class="why-choose-us-mobile__item">
+            <p class="why-choose-us-mobile__item-title unselectable">Speed</p>
+            <p class="why-choose-us-mobile__item-description unselectable">
+              Because we provide only the best services faster than most
+              companies on the market.
             </p>
           </div>
         </div>
-      </section>
-      <section class="why-choose-us-mobile" id="why-choose-us">
-        <h2 class="why-choose-us-mobile__title">
-          Our customers appreciate us for:
-        </h2>
-        <div class="why-choose-us-mobile__wrapper">
-          <div class="why-choose-us-mobile__container">
-            <div class="why-choose-us-mobile__item">
-              <p class="why-choose-us-mobile__item-title unselectable">Value</p>
-              <p class="why-choose-us-mobile__item-description unselectable">
-                We value each and every one of our clients, so we make sure that
-                you are satisfied and recommend us to your partners
+      </div>
+      <a href="#" class="why-choose-us-mobile__button">Calculate your price</a>
+    </section>
+    <section class="why-choose-us" id="why-choose-us">
+      <div class="why-choose-us__wrapper">
+        <div class="why-choose-us__content">
+          <h2 class="why-choose-us__title">
+            Our customers appreciate us for:
+          </h2>
+          <a href="#" class="why-choose-us__button">Calculate your price</a>
+          <div class="why-choose-us__container unselectable">
+            <div class="why-choose-us__item" tabindex="0">
+              <span class="why-choose-us__item-title">Value</span>
+              <p class="why-choose-us__item-description">
+                We value each and every one of our clients, so we make sure
+                that you are satisfied and recommend us to your partners.
               </p>
             </div>
-            <div class="why-choose-us-mobile__item">
-              <p class="why-choose-us-mobile__item-title unselectable">Price</p>
-              <p class="why-choose-us-mobile__item-description unselectable">
-                Salaries in Ukraine are lower than in Europe, so you get a very
-                motivated and experienced person almost twice as cheap.
+            <div class="why-choose-us__item" tabindex="0">
+              <span class="why-choose-us__item-title">Price</span>
+              <p class="why-choose-us__item-description">
+                Salaries in Ukraine are lower than in Europe, so you get a
+                very motivated and experienced person almost twice as cheap.
               </p>
             </div>
-            <div class="why-choose-us-mobile__item">
-              <p class="why-choose-us-mobile__item-title unselectable">Speed</p>
-              <p class="why-choose-us-mobile__item-description unselectable">
+            <div class="why-choose-us__item" tabindex="0">
+              <span class="why-choose-us__item-title">Speed</span>
+              <p class="why-choose-us__item-description">
                 Because we provide only the best services faster than most
                 companies on the market.
               </p>
             </div>
-          </div>
-        </div>
-        <a href="#" class="why-choose-us-mobile__button"
-          >Calculate your price</a
-        >
-      </section>
-      <section class="why-choose-us" id="why-choose-us">
-        <div class="why-choose-us__wrapper">
-          <div class="why-choose-us__content">
-            <h2 class="why-choose-us__title">
-              Our customers appreciate us for:
-            </h2>
-            <a href="#" class="why-choose-us__button">Calculate your price</a>
-            <div class="why-choose-us__container unselectable">
-              <div class="why-choose-us__item" tabindex="0">
-                <span class="why-choose-us__item-title">Value</span>
-                <p class="why-choose-us__item-description">
-                  We value each and every one of our clients, so we make sure
-                  that you are satisfied and recommend us to your partners.
-                </p>
-              </div>
-              <div class="why-choose-us__item" tabindex="0">
-                <span class="why-choose-us__item-title">Price</span>
-                <p class="why-choose-us__item-description">
-                  Salaries in Ukraine are lower than in Europe, so you get a
-                  very motivated and experienced person almost twice as cheap.
-                </p>
-              </div>
-              <div class="why-choose-us__item" tabindex="0">
-                <span class="why-choose-us__item-title">Speed</span>
-                <p class="why-choose-us__item-description">
-                  Because we provide only the best services faster than most
-                  companies on the market.
-                </p>
-              </div>
-              <div class="why-choose-us__vector"></div>
-              <div class="why-choose-us__dot why-choose-us__dot--first">
-                <div class="why-choose-us__dot-inner"></div>
-              </div>
-              <div class="why-choose-us__dot why-choose-us__dot--second">
-                <div class="why-choose-us__dot-inner"></div>
-              </div>
-              <div class="why-choose-us__dot why-choose-us__dot--third">
-                <div class="why-choose-us__dot-inner"></div>
-              </div>
+            <div class="why-choose-us__vector"></div>
+            <div class="why-choose-us__dot why-choose-us__dot--first">
+              <div class="why-choose-us__dot-inner"></div>
+            </div>
+            <div class="why-choose-us__dot why-choose-us__dot--second">
+              <div class="why-choose-us__dot-inner"></div>
+            </div>
+            <div class="why-choose-us__dot why-choose-us__dot--third">
+              <div class="why-choose-us__dot-inner"></div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="services" id="services">
-        <div class="services__wrapper">
-          <h3 class="services__title unselectable">
-            We offer the huge list of services for your customers support:
-          </h3>
-        </div>
-        <div class="services__running-line">
-          <div class="services__running-line-inner">
-            <span class="services__text">
-              call support — email support — live-chat support — social media
-              support — up-sell and cross-sell support (account management) —
-            </span>
-            <span class="services__text">
-              call support — email support — live-chat support — social media
-              support — up-sell and cross-sell support (account management) —
-            </span>
-            <span class="services__text">
-              call support — email support — live-chat support — social media
-              support — up-sell and cross-sell support (account management) —
-            </span>
-            <span class="services__text">
-              call support — email support — live-chat support — social media
-              support — up-sell and cross-sell support (account management) —
-            </span>
-          </div>
-        </div>
-      </section>
-      <section class="game-plan" id="game-plan">
-        <div class="game-plan__wrapper">
-          <div
-            class="game-plan__button game-plan__button--left"
-            aria-label="Slider button left"
-          ></div>
-          <div
-            class="game-plan__button game-plan__button--right"
-            aria-label="Slider button right"
-          ></div>
-          <div class="game-plan__container">
-            <h2 class="game-plan__title unselectable">Game plan:</h2>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">your application</p>
-            </div>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">
-                consultation and cost estimate
-              </p>
-              <p class="game-plan__item-text unselectable">
-                <span class="game-plan__item-days">1 day</span>
-              </p>
-            </div>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">
-                signing of the contract
-              </p>
-              <p class="game-plan__item-text unselectable">
-                <span class="game-plan__item-days">3-5 days</span>
-              </p>
-            </div>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">
-                sourcing and hiring agents
-              </p>
-              <p class="game-plan__item-text unselectable">
-                <span class="game-plan__item-days">1-4 weeks</span>
-              </p>
-            </div>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">onboarding</p>
-              <p class="game-plan__item-text unselectable">
-                product research, creating a knowledge base, training staff,
-                <br />
-                developing client communication scripts, etc.
-                <span class="game-plan__item-days">(1&ndash;2 weeks)</span>
-              </p>
-            </div>
-            <div class="game-plan__item">
-              <p class="game-plan__item-title unselectable">
-                launch new horizons
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="results" id="results">
-        <div class="results__wrapper">
-          <div class="results__content">
-            <h2 class="results__title">Cooperation results:</h2>
-            <div class="results__container">
-              <div class="results__item">
-                <p class="results__text unselectable">
-                  Annual savings of up to 40% <br />
-                  of support service costs
-                </p>
-              </div>
-              <div class="results__item">
-                <p class="results__text unselectable">
-                  The LTV of most of your customers <br />
-                  will increase by 3 times or even more
-                </p>
-              </div>
-              <div class="results__item">
-                <p class="results__text unselectable">
-                  CAC will be reduced by at least 2 times <br />
-                  because customers will recommend you
-                </p>
-              </div>
-              <div class="results__item">
-                <p class="results__text unselectable">Net Profit + 10%</p>
-              </div>
-              <div class="results__item">
-                <p class="results__text unselectable">
-                  Amevaluable partnership for years
-                </p>
-              </div>
-              <div class="results__item">
-                <p class="results__text unselectable">
-                  Highly motivated and satisfied team
-                </p>
-              </div>
-            </div>
-            <a href="#" class="results__button">Calculate your price</a>
-          </div>
-          <div class="results__graph">
-            <div class="results__graph-main">
-              <img
-                src="./assets/images/icons/savings.svg"
-                alt="Savings graph"
-                class="results__graph-main-img"
-                draggable="false"
-              />
-            </div>
-            <div class="results__graph-ltv">
-              <img
-                src="./assets/images/icons/ltv.svg"
-                alt="LTV graph"
-                class="results__graph-ltv-img"
-                draggable="false"
-              />
-            </div>
-            <div class="results__graph-net">
-              <img
-                src="./assets/images/icons/10.svg"
-                alt="Profit icon"
-                class="results__graph-net-icon"
-                draggable="false"
-              />
-              <p class="results__graph-net-text unselectable">
-                Net profit +10%
-              </p>
-            </div>
-            <div class="results__graph-rate">
-              <img
-                src="./assets/images/icons/star.svg"
-                alt="Star icon"
-                class="results__graph-rate-icon"
-                draggable="false"
-              />
-              <img
-                src="./assets/images/icons/star.svg"
-                alt="Star icon"
-                class="results__graph-rate-icon"
-                draggable="false"
-              /><img
-                src="./assets/images/icons/star.svg"
-                alt="Star icon"
-                class="results__graph-rate-icon"
-                draggable="false"
-              /><img
-                src="./assets/images/icons/star.svg"
-                alt="Star icon"
-                class="results__graph-rate-icon"
-                draggable="false"
-              /><img
-                src="./assets/images/icons/star.svg"
-                alt="Star icon"
-                class="results__graph-rate-icon"
-                draggable="false"
-              />
-              <p class="results__graph-rate-text unselectable">Total rate</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="trusted-us" id="trusted-us">
-        <div class="trusted-us__wrapper">
-          <div class="trusted-us__content">
-            <h2 class="trusted-us__title">
-              They <br />
-              trusted us:
-            </h2>
-          </div>
-          <div class="trusted-us__container">
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/anex.png"
-                alt="Anex logo"
-                width="100px"
-              />
-            </div>
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/lyght_living.png"
-                alt="Lyght living logo"
-                width="166px"
-              />
-            </div>
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/betten_jumbo.png"
-                alt="Betten Jumbo logo"
-                width="152px"
-              />
-            </div>
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/wave_makers.png"
-                alt="Wave Makers logo"
-                width="166px"
-              />
-            </div>
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/les_lunes.png"
-                alt="Les Lunes logo"
-                width="166px"
-              />
-            </div>
-            <div class="trusted-us__item">
-              <img
-                class="trusted-us__item-img"
-                src="./assets/images/brands/tigres.png"
-                alt="Tigres logo"
-                width="96px"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="clients" id="clients">
-        <div class="clients__wrapper">
-          <h3 class="clients__title unselectable">Our future clients:</h3>
-        </div>
-        <div class="clients__running-line">
-          <div class="clients__running-line-inner">
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-            <span class="clients__text">
-              OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
-            </span>
-          </div>
-        </div>
-      </section>
-      <section class="contacts" id="contacts">
-        <div class="contacts__wrapper">
-          <div class="contacts__content">
-            <h2 class="contacts__title">Contacts</h2>
-            <a class="contacts__telephone" href="tel:+380664908388"
-              >+38 (066) 490 83 88</a
-            >
-            <a class="contacts__mail" href="mailto:business@ame-value.com"
-              >E-Mail: business@ame-value.com</a
-            >
-            <p class="contacts__address">
-              Office: 76000 Ivano-Frankivsk, Ukraine
-            </p>
-            <div class="contacts__container">
-              <a
-                href="https://www.linkedin.com/company/amevalue/"
-                class="contacts__link"
-                ><img
-                  src="./assets/images/icons/linkedin.svg"
-                  alt="LinkedIn icon"
-                  class="contacts__link-icon"
-                  width="24px"
-              /></a>
-              <p class="contacts__link">
-                <img
-                  src="./assets/images/icons/message_fb.svg"
-                  alt="Facebook icon"
-                  class="contacts__link-icon"
-                  width="28px"
-                />
-              </p>
-              <a
-                href="https://wa.me/qr/XCGJBVLQCL4TI1"
-                class="contacts__link contacts__link--square"
-                ><img
-                  src="./assets/images/whatsapp_qr.png"
-                  alt="Whatsapp QR code icon"
-                  class="contacts__link-icon"
-                  width="40px"
-              /></a>
-            </div>
-            <div class="contacts__info">
-              <p class="contacts__info-text">
-                Still in doubt? Read more about outsourcing advantages
-              </p>
-              <a
-                href="https://drive.google.com/file/d/1EatE9dBctq3yHWnzTPZuTdht1atEgJQT/view?usp=sharing"
-                class="contacts__info-link"
-                ><img
-                  src="./assets/images/icons/pdf.svg"
-                  alt="PDF icon"
-                  class="contacts__info-icon"
-              /></a>
-            </div>
-          </div>
-          <form
-            class="contacts__form"
-            action="/submit-form"
-            method="post"
-            novalidate
-          >
-            <h2 class="contacts__form-title">Get in touch</h2>
-            <p class="contacts__form-text">
-              <a href="mailto:business@amevalue.com">
-                Amevalue — Free Up Internal resources for Core activities.
-              </a>
-            </p>
-            <div class="contacts__form-group">
-              <label for="name" class="contacts__form-label">Your name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="contacts__form-input"
-                placeholder="Your name"
-                required
-              />
-            </div>
-
-            <div class="contacts__form-group">
-              <label for="question" class="contacts__form-label"
-                >Your question</label
-              >
-              <textarea
-                id="question"
-                name="question"
-                class="contacts__form-textarea"
-                placeholder="Please write your question here"
-                required
-              ></textarea>
-            </div>
-
-            <div class="contacts__form-group">
-              <label for="contact" class="contacts__form-label"
-                >Your phone number or e-mail</label
-              >
-              <input
-                type="text"
-                id="contact"
-                name="contact"
-                class="contacts__form-input"
-                placeholder="Your phone number or e-mail"
-                required
-              />
-            </div>
-
-            <div class="contacts__form-group">
-              <input
-                type="checkbox"
-                id="privacy"
-                name="privacy"
-                class="contacts__form-checkbox"
-                required
-              />
-              <label for="privacy" class="contacts__form-privacy">
-                I agree with the terms of <a href="#">Privacy Policy</a>
-              </label>
-            </div>
-
-            <input
-              type="submit"
-              class="contacts__form-submit"
-              value="Contact me"
-            />
-          </form>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="footer__container">
-        <div class="footer__logo">
-          <a href="/" class="footer__logo-link"
-            ><img
-              class="footer__logo-img"
-              src="./assets/images/logo/logo-dots.svg"
-              alt="Amevalue footer logo"
-          /></a>
-        </div>
-        <ul class="footer__menu">
-          <li class="footer__menu-item">
-            <a href="" class="footer__item-link">Prices</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="" class="footer__item-link">FAQ</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="" class="footer__item-link">Privacy policy</a>
-          </li>
-        </ul>
-        <div class="footer__copyright">
-          <p class="footer__text">
-            &copy; <span class="footer__year">2025</span>, all rights protected,
-            Amevalue
-          </p>
         </div>
       </div>
-    </footer>
-    <div class="cookie">
-      <div class="cookie__container">
-        <div class="cookie__close-button">
-          <svg
-            role="presentation"
-            width="10"
-            height="10"
-            viewBox="0 0 23 23"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <desc>Close</desc>
-            <g fill="#14134f" fill-rule="evenodd">
-              <path
-                d="M2e-7 1.41421306L1.41421378-5e-7l21.21320344 21.21320344-1.41421357 1.41421356z"
-              ></path>
-              <path
-                d="M21.21320294 2e-7l1.41421356 1.41421357L1.41421306 22.62741721-5e-7 21.21320364z"
-              ></path>
-            </g>
-          </svg>
+    </section>
+    <section class="services" id="services">
+      <div class="services__wrapper">
+        <h3 class="services__title unselectable">
+          We offer the huge list of services for your customers support:
+        </h3>
+      </div>
+      <div class="services__running-line">
+        <div class="services__running-line-inner">
+          <span class="services__text">
+            call support — email support — live-chat support — social media
+            support — up-sell and cross-sell support (account management) —
+          </span>
+          <span class="services__text">
+            call support — email support — live-chat support — social media
+            support — up-sell and cross-sell support (account management) —
+          </span>
+          <span class="services__text">
+            call support — email support — live-chat support — social media
+            support — up-sell and cross-sell support (account management) —
+          </span>
+          <span class="services__text">
+            call support — email support — live-chat support — social media
+            support — up-sell and cross-sell support (account management) —
+          </span>
         </div>
-        <div class="cookie__text">
-          This website uses cookies. Cookies remember your actions and
-          preferences for a better online experience.
+      </div>
+    </section>
+    <section class="game-plan" id="game-plan">
+      <div class="game-plan__wrapper">
+        <div class="game-plan__button game-plan__button--left" aria-label="Slider button left"></div>
+        <div class="game-plan__button game-plan__button--right" aria-label="Slider button right"></div>
+        <div class="game-plan__container">
+          <h2 class="game-plan__title unselectable">Game plan:</h2>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">your application</p>
+          </div>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">
+              consultation and cost estimate
+            </p>
+            <p class="game-plan__item-text unselectable">
+              <span class="game-plan__item-days">1 day</span>
+            </p>
+          </div>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">
+              signing of the contract
+            </p>
+            <p class="game-plan__item-text unselectable">
+              <span class="game-plan__item-days">3-5 days</span>
+            </p>
+          </div>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">
+              sourcing and hiring agents
+            </p>
+            <p class="game-plan__item-text unselectable">
+              <span class="game-plan__item-days">1-4 weeks</span>
+            </p>
+          </div>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">onboarding</p>
+            <p class="game-plan__item-text unselectable">
+              product research, creating a knowledge base, training staff,
+              <br />
+              developing client communication scripts, etc.
+              <span class="game-plan__item-days">(1&ndash;2 weeks)</span>
+            </p>
+          </div>
+          <div class="game-plan__item">
+            <p class="game-plan__item-title unselectable">
+              launch new horizons
+            </p>
+          </div>
         </div>
+      </div>
+    </section>
+    <section class="results" id="results">
+      <div class="results__wrapper">
+        <div class="results__content">
+          <h2 class="results__title">Cooperation results:</h2>
+          <div class="results__container">
+            <div class="results__item">
+              <p class="results__text unselectable">
+                Annual savings of up to 40% <br />
+                of support service costs
+              </p>
+            </div>
+            <div class="results__item">
+              <p class="results__text unselectable">
+                The LTV of most of your customers <br />
+                will increase by 3 times or even more
+              </p>
+            </div>
+            <div class="results__item">
+              <p class="results__text unselectable">
+                CAC will be reduced by at least 2 times <br />
+                because customers will recommend you
+              </p>
+            </div>
+            <div class="results__item">
+              <p class="results__text unselectable">Net Profit + 10%</p>
+            </div>
+            <div class="results__item">
+              <p class="results__text unselectable">
+                Amevaluable partnership for years
+              </p>
+            </div>
+            <div class="results__item">
+              <p class="results__text unselectable">
+                Highly motivated and satisfied team
+              </p>
+            </div>
+          </div>
+          <a href="#" class="results__button">Calculate your price</a>
+        </div>
+        <div class="results__graph">
+          <div class="results__graph-main">
+            <img src="./assets/images/icons/savings.svg" alt="Savings graph" class="results__graph-main-img"
+              draggable="false" />
+          </div>
+          <div class="results__graph-ltv">
+            <img src="./assets/images/icons/ltv.svg" alt="LTV graph" class="results__graph-ltv-img" draggable="false" />
+          </div>
+          <div class="results__graph-net">
+            <img src="./assets/images/icons/10.svg" alt="Profit icon" class="results__graph-net-icon"
+              draggable="false" />
+            <p class="results__graph-net-text unselectable">
+              Net profit +10%
+            </p>
+          </div>
+          <div class="results__graph-rate">
+            <img src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
+              draggable="false" />
+            <img src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
+              draggable="false" /><img src="./assets/images/icons/star.svg" alt="Star icon"
+              class="results__graph-rate-icon" draggable="false" /><img src="./assets/images/icons/star.svg"
+              alt="Star icon" class="results__graph-rate-icon" draggable="false" /><img
+              src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon" draggable="false" />
+            <p class="results__graph-rate-text unselectable">Total rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="trusted-us" id="trusted-us">
+      <div class="trusted-us__wrapper">
+        <div class="trusted-us__content">
+          <h2 class="trusted-us__title">
+            They <br />
+            trusted us:
+          </h2>
+        </div>
+        <div class="trusted-us__container">
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/anex.png" alt="Anex logo" width="100px" />
+          </div>
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/lyght_living.png" alt="Lyght living logo"
+              width="166px" />
+          </div>
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/betten_jumbo.png" alt="Betten Jumbo logo"
+              width="152px" />
+          </div>
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/wave_makers.png" alt="Wave Makers logo"
+              width="166px" />
+          </div>
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/les_lunes.png" alt="Les Lunes logo"
+              width="166px" />
+          </div>
+          <div class="trusted-us__item">
+            <img class="trusted-us__item-img" src="./assets/images/brands/tigres.png" alt="Tigres logo" width="96px" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="clients" id="clients">
+      <div class="clients__wrapper">
+        <h3 class="clients__title unselectable">Our future clients:</h3>
+      </div>
+      <div class="clients__running-line">
+        <div class="clients__running-line-inner">
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+          <span class="clients__text">
+            OTTO — Babyone — Zalando — ASOS — Ricardo — OnBuy —
+          </span>
+        </div>
+      </div>
+    </section>
+    <section class="contacts" id="contacts">
+      <div class="contacts__wrapper">
+        <div class="contacts__content">
+          <h2 class="contacts__title">Contacts</h2>
+          <a class="contacts__telephone" href="tel:+380664908388">+38 (066) 490 83 88</a>
+          <a class="contacts__mail" href="mailto:business@ame-value.com">E-Mail: business@ame-value.com</a>
+          <p class="contacts__address">
+            Office: 76000 Ivano-Frankivsk, Ukraine
+          </p>
+          <div class="contacts__container">
+            <a href="https://www.linkedin.com/company/amevalue/" class="contacts__link"><img
+                src="./assets/images/icons/linkedin.svg" alt="LinkedIn icon" class="contacts__link-icon"
+                width="24px" /></a>
+            <p class="contacts__link">
+              <img src="./assets/images/icons/message_fb.svg" alt="Facebook icon" class="contacts__link-icon"
+                width="28px" />
+            </p>
+            <a href="https://wa.me/qr/XCGJBVLQCL4TI1" class="contacts__link contacts__link--square"><img
+                src="./assets/images/whatsapp_qr.png" alt="Whatsapp QR code icon" class="contacts__link-icon"
+                width="40px" /></a>
+          </div>
+          <div class="contacts__info">
+            <p class="contacts__info-text">
+              Still in doubt? Read more about outsourcing advantages
+            </p>
+            <a href="https://drive.google.com/file/d/1EatE9dBctq3yHWnzTPZuTdht1atEgJQT/view?usp=sharing"
+              class="contacts__info-link"><img src="./assets/images/icons/pdf.svg" alt="PDF icon"
+                class="contacts__info-icon" /></a>
+          </div>
+        </div>
+        <form class="contacts__form" action="/submit-form" method="post" novalidate>
+          <h2 class="contacts__form-title">Get in touch</h2>
+          <p class="contacts__form-text">
+            <a href="mailto:business@amevalue.com">
+              Amevalue — Free Up Internal resources for Core activities.
+            </a>
+          </p>
+          <div class="contacts__form-group">
+            <label for="name" class="contacts__form-label">Your name</label>
+            <input type="text" id="name" name="name" class="contacts__form-input" placeholder="Your name" required />
+          </div>
+
+          <div class="contacts__form-group">
+            <label for="question" class="contacts__form-label">Your question</label>
+            <textarea id="question" name="question" class="contacts__form-textarea"
+              placeholder="Please write your question here" required></textarea>
+          </div>
+
+          <div class="contacts__form-group">
+            <label for="contact" class="contacts__form-label">Your phone number or e-mail</label>
+            <input type="text" id="contact" name="contact" class="contacts__form-input"
+              placeholder="Your phone number or e-mail" required />
+          </div>
+
+          <div class="contacts__form-group">
+            <input type="checkbox" id="privacy" name="privacy" class="contacts__form-checkbox" required />
+            <label for="privacy" class="contacts__form-privacy">
+              I agree with the terms of <a href="#">Privacy Policy</a>
+            </label>
+          </div>
+
+          <input type="submit" class="contacts__form-submit" value="Contact me" />
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__logo">
+        <a href="/" class="footer__logo-link"><img class="footer__logo-img" src="./assets/images/logo/logo-dots.svg"
+            alt="Amevalue footer logo" /></a>
+      </div>
+      <ul class="footer__menu">
+        <li class="footer__menu-item">
+          <a href="" class="footer__item-link">Prices</a>
+        </li>
+        <li class="footer__menu-item">
+          <a href="" class="footer__item-link">FAQ</a>
+        </li>
+        <li class="footer__menu-item">
+          <a href="" class="footer__item-link">Privacy policy</a>
+        </li>
+      </ul>
+      <div class="footer__copyright">
+        <p class="footer__text">
+          &copy; <span class="footer__year">2025</span>, all rights protected,
+          Amevalue
+        </p>
       </div>
     </div>
-  </body>
+  </footer>
+  <div class="cookie">
+    <div class="cookie__container">
+      <div class="cookie__close-button">
+        <svg role="presentation" width="10" height="10" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+          <desc>Close</desc>
+          <g fill="#14134f" fill-rule="evenodd">
+            <path d="M2e-7 1.41421306L1.41421378-5e-7l21.21320344 21.21320344-1.41421357 1.41421356z"></path>
+            <path d="M21.21320294 2e-7l1.41421356 1.41421357L1.41421306 22.62741721-5e-7 21.21320364z"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="cookie__text">
+        This website uses cookies. Cookies remember your actions and
+        preferences for a better online experience.
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
