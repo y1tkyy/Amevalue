@@ -284,6 +284,42 @@ body {
   justify-content: space-between;
 }
 
+.cookie {
+  box-sizing: border-box;
+  display: flex;
+  position: fixed;
+  bottom: 30px;
+  z-index: 999;
+  right: 20px;
+  background-color: #edf2fe;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+.cookie__close-button {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  opacity: 0.5;
+  transition: opacity ease-in-out 200ms;
+}
+.cookie__container {
+  position: relative;
+  padding: 15px 25px;
+  box-sizing: border-box;
+}
+.cookie__text {
+  text-align: left;
+  color: #14134f;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 .promo {
   position: absolute;
   top: 0;
@@ -1616,7 +1652,7 @@ body {
   content: attr(data-error);
   z-index: 999;
   position: absolute;
-  bottom: -31px;
+  top: 0;
   box-sizing: border-box;
   width: 192px;
   height: 31px;
@@ -1625,10 +1661,8 @@ body {
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   right: 0;
-  margin-top: 5px;
   font-size: 14px;
   color: red;
-  /* Initially animate in */
   opacity: 1;
   animation: fadeIn 0.3s forwards;
 }
@@ -1650,7 +1684,7 @@ body {
   content: attr(data-error);
   z-index: 999;
   position: absolute;
-  bottom: -31px;
+  top: 0;
   box-sizing: border-box;
   width: 192px;
   height: 31px;
@@ -1659,7 +1693,6 @@ body {
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   right: 0;
-  margin-top: 5px;
   font-size: 14px;
   color: red;
   opacity: 1;
@@ -2968,6 +3001,13 @@ body {
   }
   .game-plan__title {
     margin-left: 30px;
+  }
+  .cookie {
+    max-width: 100%;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
   }
 }
 @media (max-width: 373px) {
