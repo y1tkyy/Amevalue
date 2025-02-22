@@ -3,14 +3,13 @@
     <section class="hero" id="hero">
         <div class="hero__content">
           <div class="hero__container">
-            <h1 class="hero__title unselectable"><?php the_field('main_slider_title'); ?> —</h1>
-            <h2 class="hero__subtitle unselectable">
-              customer support <br />
-              outsourcing company
-            </h2>
-            <p class="hero__text unselectable">
-              Keep your businesses running 24/7
-            </p>
+            <?php if( have_rows('hero-banner') ): ?>
+              <?php while ( have_rows('hero-banner') ): the_row(); ?>
+                <h1 class="hero__title unselectable"><?php the_sub_field('main_slider_title'); ?> </h1>
+                <h2 class="hero__subtitle unselectable"><?php the_sub_field('second_title'); ?> </h2>
+                <p class="hero__text unselectable"><?php the_sub_field('hero_text'); ?></p>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </section>
