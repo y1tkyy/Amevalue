@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <style>
+        .step { display: none; }
+        .step.active { display: block; }
+        .error-message { color: red; display: none; }
+        .error { border: 2px solid red; }
+        .progress { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="progress">Step <span id="stepNumber">1</span> of 4</div>
+
+<form id="multiStepForm">
+    <div class="step active">
+        <p>Step 1: Choose an option</p>
+        <label><input type="checkbox" name="step1"> Option 1</label>
+        <label><input type="checkbox" name="step1"> Option 2</label>
+        <p class="error-message">Please select at least one option.</p>
+        <button type="button" class="next">Next</button>
+    </div>
+
+    <div class="step">
+        <p>Step 2: Choose an option</p>
+        <label><input type="radio" name="step2" value="1"> Option A</label>
+        <label><input type="radio" name="step2" value="2"> Option B</label>
+        <p class="error-message">Please select an option.</p>
+        <button type="button" class="prev">Previous</button>
+        <button type="button" class="next">Next</button>
+    </div>
+
+    <div class="step">
+        <p>Step 3: Choose an option</p>
+        <label><input type="checkbox" name="step3"> Option X</label>
+        <label><input type="checkbox" name="step3"> Option Y</label>
+        <p class="error-message">Please select at least one option.</p>
+        <button type="button" class="prev">Previous</button>
+        <button type="button" class="next">Next</button>
+    </div>
+
+    <div class="step">
+        <p>Step 4: Enter your details</p>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <p class="error-message">Please fill in both fields.</p>
+        <button type="button" class="prev">Previous</button>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll(".step");
+  const nextButtons = document.querySelectorAll(".next");
+  const prevButtons = document.querySelectorAll(".prev");
+  const stepNumber = document.getElementById("stepNumber");
+
+  function showStep(step) {
+    steps.forEach((el, index) => el.classList.toggle("active", index === step));
+    stepNumber.textContent = step + 1;
+  }
+
+  function validateStep(step) {
+    const inputs = steps[step].querySelectorAll("input[type='checkbox'], input[type='radio']");
+    const textInputs = steps[step].querySelectorAll("input[type='text'], input[type='email']");
+    const errorMessage = steps[step].querySelector(".error-message");
+
+    let valid = false;
+    if (inputs.length) {
+      valid = Array.from(inputs).some(input => input.checked);
+    } else if (textInputs.length) {
+      valid = Array.from(textInputs).every(input => input.value.trim() !== "");
+    }
+
+    if (!valid) {
+      errorMessage.style.display = "block";
+      inputs.forEach(input => input.classList.add("error"));
+      textInputs.forEach(input => input.classList.add("error"));
+    } else {
+      errorMessage.style.display = "none";
+      inputs.forEach(input => input.classList.remove("error"));
+      textInputs.forEach(input => input.classList.remove("error"));
+    }
+
+    return valid;
+  }
+
+  nextButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      if (validateStep(currentStep)) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  prevButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      currentStep--;
+      showStep(currentStep);
+    });
+  });
+
+  document.getElementById("multiStepForm").addEventListener("submit", (e) => {
+    if (!validateStep(currentStep)) {
+      e.preventDefault();
+    } else {
+      alert("Form submitted!");
+    }
+  });
+
+  showStep(currentStep);
+</script>
+
+</body>
+</html>
