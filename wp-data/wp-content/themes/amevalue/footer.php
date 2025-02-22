@@ -20,25 +20,5 @@
   </div>
 </footer>
 <?php wp_footer(); ?>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("custom-popup");
-    const closeBtn = document.querySelector(".close-btn");
-
-    document.querySelector(".open-popup").addEventListener("click", () => {
-        popup.style.display = "flex";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        popup.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === popup) {
-            popup.style.display = "none";
-        }
-    });
-  });
-</script>
 </body>
 </html>

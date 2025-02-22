@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // CONTACTS
+  // CONTACTS FORM
   const contactsForm = document.querySelector(".contacts__form");
   if (contactsForm) {
     const nameInput = contactsForm.querySelector("#name");
@@ -291,6 +291,22 @@ document.addEventListener("DOMContentLoaded", () => {
           contactGroup.classList.add("hide-error-message");
           privacyGroup.classList.add("hide-error-message");
         }, 3000);
+      }
+      if (isValid) {
+        e.preventDefault();
+        let action = contactsForm.getAttribute("data-form-action");
+        let formData = new FormData(contactsForm);
+        formData.append("action", "send_custom_form"); // Important
+
+        fetch(action, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            // TODO create and show popup
+          })
+          .catch((error) => console.error(error));
       }
     });
   }
@@ -672,41 +688,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // COOKIES
   const cookieWindow = document.querySelector(".cookie");
   const cookieCloseButton = document.querySelector(".cookie__close-button");
+  if(cookieWindow) {
+    if (localStorage.getItem("cookieDismissed") === "true") {
+      cookieWindow.style.display = "none";
+    } else {
+      cookieWindow.style.display = "flex";
+    }
 
-  if (localStorage.getItem("cookieDismissed") === "true") {
-    cookieWindow.style.display = "none";
-  } else {
-    cookieWindow.style.display = "flex";
+    cookieCloseButton.addEventListener("click", function () {
+      cookieWindow.style.display = "none";
+      localStorage.setItem("cookieDismissed", "true");
+    });
   }
 
-  cookieCloseButton.addEventListener("click", function () {
-    cookieWindow.style.display = "none";
-    localStorage.setItem("cookieDismissed", "true");
-  });
-
-  // FORMS
-  // Contact
-  document
-    .getElementById("custom-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      let button = e.submitter; // Получаем кнопку, которая отправила форму
-      let action = button.getAttribute("data-actions");
-      console.log(action);
-
-      let formData = new FormData(this);
-      formData.append("action", "send_custom_form"); // Important
-
-      fetch(action, {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.text())
-        .then((result) => {
-          alert("Форма отправлена!");
-          document.getElementById("custom-popup").style.display = "none";
-        })
-        .catch((error) => console.error(error));
-    });
 });

@@ -1,5 +1,4 @@
 <main>
-
     <section class="hero" id="hero">
         <div class="hero__content">
           <div class="hero__container">
