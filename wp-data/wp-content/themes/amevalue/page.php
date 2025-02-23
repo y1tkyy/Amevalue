@@ -1,26 +1,20 @@
 <?php
 
 get_header();
-?>
-<?php
-?>
-<?php
-  if ( is_page('main') ) {
-  ?>
 
-  <?php
+  if ( is_page('main') ) {
     get_template_part('parts/main-page');
     get_template_part('parts/contacts');
   }
-?>
-<?php
-  if ( is_page('faq') ) {
-  ?>
 
-  <?php
+  if ( is_page('faq') ) {
+    get_template_part('parts/faq-page');
     get_template_part('parts/contacts');
   }
-?>
-<?php
+
+    if ( is_page('price') ) {
+      get_template_part('parts/price-page');
+    }
+
 get_footer();
 ?>
