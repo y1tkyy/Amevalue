@@ -68,7 +68,7 @@
           <a class="sidebar__link" href="../../../..">
             <img
               class="sidebar__logo-img unselectable"
-              src="./assets/images/logo/logo-dots.svg"
+              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo-dots.svg"
               alt="Amevalue burger logo"
               draggable="false"
             />
@@ -90,13 +90,13 @@
           <a class="header__logo-link" href="../../../..">
             <img
               class="header__logo-img unselectable"
-              src="./assets/images/logo/logo.svg"
+              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo.svg"
               alt="Amevalue logo"
               draggable="false"
             />
             <img
               class="header__logo-img header__logo-img--blured"
-              src="./assets/images/logo/logo.svg"
+              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo.svg"
               alt="Amevalue logo blur"
               draggable="false"
             />

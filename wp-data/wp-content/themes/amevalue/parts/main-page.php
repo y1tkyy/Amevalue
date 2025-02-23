@@ -192,27 +192,27 @@
       </div>
       <div class="results__graph">
         <div class="results__graph-main">
-          <img src="./assets/images/icons/savings.svg" alt="Savings graph" class="results__graph-main-img"
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/savings.svg" alt="Savings graph" class="results__graph-main-img"
             draggable="false" />
         </div>
         <div class="results__graph-ltv">
-          <img src="./assets/images/icons/ltv.svg" alt="LTV graph" class="results__graph-ltv-img" draggable="false" />
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/ltv.svg" alt="LTV graph" class="results__graph-ltv-img" draggable="false" />
         </div>
         <div class="results__graph-net">
-          <img src="./assets/images/icons/10.svg" alt="Profit icon" class="results__graph-net-icon"
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/10.svg" alt="Profit icon" class="results__graph-net-icon"
             draggable="false" />
           <p class="results__graph-net-text unselectable">
             Net profit +10%
           </p>
         </div>
         <div class="results__graph-rate">
-          <img src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
             draggable="false" />
-          <img src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
-            draggable="false" /><img src="./assets/images/icons/star.svg" alt="Star icon"
-            class="results__graph-rate-icon" draggable="false" /><img src="./assets/images/icons/star.svg"
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon"
+            draggable="false" /><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/star.svg" alt="Star icon"
+            class="results__graph-rate-icon" draggable="false" /><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/star.svg"
             alt="Star icon" class="results__graph-rate-icon" draggable="false" /><img
-            src="./assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon" draggable="false" />
+            src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/star.svg" alt="Star icon" class="results__graph-rate-icon" draggable="false" />
           <p class="results__graph-rate-text unselectable">Total rate</p>
         </div>
       </div>

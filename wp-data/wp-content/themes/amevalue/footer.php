@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__logo">
-      <a href="/" class="footer__logo-link"><img class="footer__logo-img" src="./assets/images/logo/logo-dots.svg"
+      <a href="/" class="footer__logo-link"><img class="footer__logo-img" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo-dots.svg"
           alt="Amevalue footer logo" /></a>
     </div>
       <?php
