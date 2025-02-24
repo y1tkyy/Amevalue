@@ -525,6 +525,97 @@ section {
   opacity: 1;
 }
 
+.success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.success.success--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.success__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 99999999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+.success__close-button {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999999999;
+}
+.success__close-button::before, .success__close-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 17px;
+  height: 1px;
+  background-color: black;
+}
+.success__close-button::before {
+  transform: rotate(45deg);
+}
+.success__close-button::after {
+  transform: rotate(-45deg);
+}
+.success__container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 360px;
+  width: 100%;
+  padding: 40px 40px 50px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  z-index: 999999999;
+}
+.success__description {
+  font-size: 16px;
+  padding-top: 25px;
+  text-align: center;
+  font-weight: 400;
+  color: #000000;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+.success--active .success__overlay {
+  opacity: 0.6;
+}
+
+.success--active .success__container {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
 .sidebar {
   box-sizing: border-box;
   position: fixed;

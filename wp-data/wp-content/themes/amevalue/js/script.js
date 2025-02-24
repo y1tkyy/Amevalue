@@ -42,8 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let heroContent = document.querySelector(".hero__content");
 
   let bgImage = new Image();
-  
-  bgImage.src = "./wp-content/themes/amevalue/assets/images/background_map.webp";
+
+  bgImage.src =
+    "./wp-content/themes/amevalue/assets/images/background_map.webp";
 
   bgImage.onload = function () {
     heroContent.style.backgroundImage = "url('" + bgImage.src + "')";
@@ -195,6 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
       form.insertBefore(globalError, sendButton);
 
       form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
         let isValid = true;
 
         if (!nameInput.value.trim()) {
@@ -216,13 +219,54 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!isValid) {
-          event.preventDefault();
           globalError.style.display = "block";
         } else {
-          globalError.style.display = "none";
+          nameInput.style.display = "none";
+          emailInput.style.display = "none";
+          sendButton.style.display = "none";
+
+          errorText.textContent = "Thank you!";
+          globalError.style.display = "block";
+          globalError.style.backgroundColor = "#62C584";
         }
       });
     }
+  }
+
+  //SUCCESS
+  function openSuccessWindow() {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+    const successWindow = document.querySelector(".success");
+    if (successWindow) {
+      successWindow.classList.add("success--active");
+    }
+  }
+
+  function closeSuccessWindow() {
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+    const successWindow = document.querySelector(".success");
+    if (successWindow) {
+      successWindow.classList.remove("success--active");
+    }
+  }
+
+  const successCloseButton = document.querySelector(".success__close-button");
+  const successOverlay = document.querySelector(".success__overlay");
+
+  if (successCloseButton) {
+    successCloseButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeSuccessWindow();
+    });
+  }
+
+  if (successOverlay) {
+    successOverlay.addEventListener("click", closeSuccessWindow);
   }
 
   // CONTACTS FORM
@@ -689,7 +733,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // COOKIES
   const cookieWindow = document.querySelector(".cookie");
   const cookieCloseButton = document.querySelector(".cookie__close-button");
-  if(cookieWindow) {
+  if (cookieWindow) {
     if (localStorage.getItem("cookieDismissed") === "true") {
       cookieWindow.style.display = "none";
     } else {
@@ -701,5 +745,4 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("cookieDismissed", "true");
     });
   }
-
 });
