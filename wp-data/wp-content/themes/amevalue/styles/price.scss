@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@use "./reset.css";
 
 html {
   background-color: #f5f8ff;
@@ -11,59 +7,61 @@ html {
 body {
   font-family: "Urbanist", Arial, sans-serif;
   color: #000;
-  padding-bottom: 20px;
-  margin: 10px;
 }
 
 .quiz {
-  max-width: 600px;
-  margin: auto;
-  // padding: 20px;
-  // border: 1px solid #ccc;
-  // border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 111px;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 2px;
+    top: 112px;
+    background-color: rgba($color: #14134f, $alpha: 0.6);
+  }
+
   gap: 20px;
 
+  &__wrapper {
+    max-width: 1200px;
+    width: 100%;
+  }
+
   &__header {
-    padding: 60px 20px;
+    position: relative;
+
+    padding: 80px 0 62px 0;
+
     &-title {
       font-size: 24px;
       font-weight: bold;
       display: flex;
       align-items: center;
 
-      &-dot {
-        width: 16px;
-        min-width: 16px;
-        height: 16px;
-        min-height: 16px;
-        background-color: red;
-        border-radius: 50%;
-        margin-right: 10px;
-
-        border-radius: 3000px;
-        background-color: #fb596a;
-        background-position: center center;
-        border-color: transparent;
-        border-style: solid;
-
-        display: table-cell;
-        vertical-align: middle;
-        box-sizing: border-box;
-        // width: 100%;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
       &-text {
+        position: relative;
         color: #14134f;
-        font-size: 32px;
+        padding-left: 32px;
+        font-size: 50px;
+        max-width: 630px;
         font-family: "Urbanist", Arial, sans-serif;
         line-height: 1.1;
         font-weight: 400;
         letter-spacing: -0.5px;
-        background-position: center center;
-        border-color: transparent;
-        border-style: solid;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 25%;
+          transform: translateY(-50%);
+          width: 16px;
+          height: 16px;
+          background-color: #fb596a;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
       }
     }
   }
@@ -95,8 +93,7 @@ body {
 
     &-left {
       display: flex;
-      gap: 10px;
-      align-items: center;
+      gap: 3px;
 
       &-img {
         width: 23px;
@@ -163,7 +160,7 @@ body {
 
   &__slide {
     display: none;
-    padding: 35px 45px 55px;
+    padding: 20px 45px 55px;
 
     &--active {
       display: block;
@@ -267,6 +264,7 @@ body {
     }
 
     &-box {
+      box-sizing: border-box;
       position: relative;
       width: 20px;
       height: 20px;
@@ -274,11 +272,21 @@ body {
       border: 2px solid #14134f;
       margin-right: 10px;
       opacity: 0.6;
+      transition: background-color 0.3s ease, border 0.3s ease,
+        opacity 0.3s ease;
 
       &::after {
         content: "";
         position: absolute;
-        display: none;
+        left: 50%;
+        top: 40%;
+        width: 4px;
+        height: 8px;
+        border: solid transparent;
+        border-width: 0 2px 2px 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
     }
 
@@ -287,20 +295,13 @@ body {
     }
 
     &-input:checked + &-box {
-      // background-color: #14134f;
-      background-color: #fff;
       border: 2px solid #14134f;
+      opacity: 1;
     }
 
     &-input:checked + &-box::after {
-      display: block;
-      left: 5px;
-      top: 0;
-      width: 5px;
-      height: 10px;
-      border: solid #14134f;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
+      border-color: #14134f; // check mark becomes white on dark background
+      opacity: 1;
     }
   }
 
@@ -333,6 +334,7 @@ body {
     }
 
     &-box {
+      box-sizing: border-box;
       position: absolute;
       left: 0;
       top: 0;
@@ -342,11 +344,20 @@ body {
       border-radius: 50%;
       border: 2px solid #14134f;
       opacity: 0.6;
+      transition: background-color 0.3s ease, border 0.3s ease,
+        opacity 0.3s ease;
 
       &::after {
         content: "";
         position: absolute;
-        display: none;
+        top: 3px;
+        left: 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #14134f;
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
     }
 
@@ -355,20 +366,13 @@ body {
     }
 
     &-input:checked + &-box {
-      // background-color: #2196F3;
       background-color: #fff;
       border: 2px solid #14134f;
       opacity: 1;
     }
 
     &-input:checked + &-box::after {
-      display: block;
-      top: 3px;
-      left: 3px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #14134f;
+      opacity: 1;
     }
   }
 

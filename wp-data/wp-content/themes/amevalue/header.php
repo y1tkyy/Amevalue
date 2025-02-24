@@ -13,7 +13,7 @@
       content="customer support outsourcing company"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="./assets/images/thumbnail.jpg" />
+    <meta property="og:image" content="./assets/images/thumbnail.webp" />
     <link rel="canonical" href="https://ame-value.com" />
     <meta name="format-detection" content="telephone=no" />
     <link

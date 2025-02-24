@@ -228,26 +228,26 @@
       </div>
       <div class="trusted-us__container">
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/anex.png" alt="Anex logo" width="100px" />
+          <img class="trusted-us__item-img" src="./assets/images/brands/anex.webp" alt="Anex logo" width="100px" />
         </div>
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/lyght_living.png" alt="Lyght living logo"
+          <img class="trusted-us__item-img" src="./assets/images/brands/lyght_living.webp" alt="Lyght living logo"
             width="166px" />
         </div>
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/betten_jumbo.png" alt="Betten Jumbo logo"
+          <img class="trusted-us__item-img" src="./assets/images/brands/betten_jumbo.webp" alt="Betten Jumbo logo"
             width="152px" />
         </div>
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/wave_makers.png" alt="Wave Makers logo"
+          <img class="trusted-us__item-img" src="./assets/images/brands/wave_makers.webp" alt="Wave Makers logo"
             width="166px" />
         </div>
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/les_lunes.png" alt="Les Lunes logo"
+          <img class="trusted-us__item-img" src="./assets/images/brands/les_lunes.webp" alt="Les Lunes logo"
             width="166px" />
         </div>
         <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/tigres.png" alt="Tigres logo" width="96px" />
+          <img class="trusted-us__item-img" src="./assets/images/brands/tigres.webp" alt="Tigres logo" width="96px" />
         </div>
       </div>
     </div>

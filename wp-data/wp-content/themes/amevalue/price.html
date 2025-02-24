@@ -14,396 +14,399 @@
     />
   </head>
   <body>
-    <div class="quiz">
-      <div class="quiz__header">
-        <h1 class="quiz__header-title">
-          <span class="quiz__header-title-dot"></span>
-          <span class="quiz__header-title-text"
-            >Answer some questions to calculate your personal price</span
-          >
-        </h1>
-      </div>
+    <section class="quiz">
+      <div class="quiz__wrapper">
+        <div class="quiz__header">
+          <h1 class="quiz__header-title">
+            <span class="quiz__header-title-text">
+              Answer some questions to calculate your personal price
+            </span>
+          </h1>
+        </div>
 
-      <form id="quizForm" class="quiz__form">
-        <div class="quiz__form-top">
-          <div class="quiz__form-top-info">
-            <div class="quiz__info-container">
-              <div class="quiz__info-container-left">
-                <img
-                  class="quiz__info-container-left-img"
-                  src="./assets/images/icons/free-icon-documents-6595195.png"
-                  width="23px"
-                  height="20px"
-                  alt="free-icon-documents-6595195.png"
-                />
-                <span class="quiz__info-container-left-text"
-                  >Complete the quiz and find out the estimated cost per
-                  agent</span
-                >
-              </div>
-              <div class="quiz__info-container-right">
-                <div
-                  class="quiz__info-container-right-counter"
-                  id="quizCounter"
-                >
-                  1/7
+        <form id="quizForm" class="quiz__form">
+          <div class="quiz__form-top">
+            <div class="quiz__form-top-info">
+              <div class="quiz__info-container">
+                <div class="quiz__info-container-left">
+                  <img
+                    class="quiz__info-container-left-img"
+                    src="./assets/images/icons/price_icon.svg"
+                    width="23px"
+                    height="20px"
+                    alt="free-icon-documents-6595195.png"
+                  />
+                  <span class="quiz__info-container-left-text"
+                    >Complete the quiz and find out the estimated cost per
+                    agent</span
+                  >
+                </div>
+                <div class="quiz__info-container-right">
+                  <div
+                    class="quiz__info-container-right-counter"
+                    id="quizCounter"
+                  >
+                    1/7
+                  </div>
                 </div>
               </div>
+              <div class="quiz__info-container--last-slide-text">
+                For a more detailed calculation, please leave an application
+                form and our manager will contact you in less than 24 hours.
+              </div>
+              <div class="quiz__info-progressbar">
+                <div class="quiz__info-progress"></div>
+              </div>
             </div>
-            <div class="quiz__info-container--last-slide-text">
-              For a more detailed calculation, please leave an application form
-              and our manager will contact you in less than 24 hours.
+          </div>
+
+          <div class="quiz__slide quiz__slide--active">
+            <div class="quiz__slide-title">Number of tickets per month</div>
+
+            <div class="quiz__radio-list">
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_tickets_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">less then 100</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_tickets_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">100-500</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_tickets_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">500-1000</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_tickets_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">over 1000</span>
+              </label>
             </div>
-            <div class="quiz__info-progressbar">
-              <div class="quiz__info-progress"></div>
+
+            <div class="quiz__slide-error">
+              You must select at least one option.
             </div>
           </div>
-        </div>
 
-        <div class="quiz__slide quiz__slide--active">
-          <div class="quiz__slide-title">Number of tickets per month</div>
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">Number of calls per month</div>
 
-          <div class="quiz__radio-list">
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_tickets_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">less then 100</span>
-            </label>
+            <div class="quiz__radio-list">
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_calls_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">0 - less than 50</span>
+              </label>
 
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_tickets_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">100-500</span>
-            </label>
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_calls_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">50-100</span>
+              </label>
 
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_tickets_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">500-1000</span>
-            </label>
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_calls_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">100-200</span>
+              </label>
 
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_tickets_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">over 1000</span>
-            </label>
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="number_of_calls_per_month"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">over 200</span>
+              </label>
+            </div>
+
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
           </div>
 
-          <div class="quiz__slide-error">
-            You must select at least one option.
-          </div>
-        </div>
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">Hours of operations</div>
 
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">Number of calls per month</div>
+            <div class="quiz__radio-list">
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="hours_of_operationsnts"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">business time</span>
+              </label>
 
-          <div class="quiz__radio-list">
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_calls_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">0 - less than 50</span>
-            </label>
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="hours_of_operationsnts"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">24/5</span>
+              </label>
 
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_calls_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">50-100</span>
-            </label>
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="hours_of_operationsnts"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">24/7/365</span>
+              </label>
+            </div>
 
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_calls_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">100-200</span>
-            </label>
-
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="number_of_calls_per_month"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">over 200</span>
-            </label>
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
           </div>
 
-          <div class="quiz__slide-error">
-            You must select at least one option.
-          </div>
-        </div>
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">Communication languages</div>
+            <div class="quiz__checkbox-list">
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="communication_languages"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">English</span>
+              </label>
 
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">Hours of operations</div>
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="communication_languages"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">German</span>
+              </label>
 
-          <div class="quiz__radio-list">
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="hours_of_operationsnts"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">business time</span>
-            </label>
-
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="hours_of_operationsnts"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">24/5</span>
-            </label>
-
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="hours_of_operationsnts"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">24/7/365</span>
-            </label>
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="communication_languages"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">Other</span>
+              </label>
+            </div>
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
           </div>
 
-          <div class="quiz__slide-error">
-            You must select at least one option.
-          </div>
-        </div>
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">Customer contact channels</div>
 
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">Communication languages</div>
-          <div class="quiz__checkbox-list">
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="communication_languages"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">English</span>
-            </label>
+            <div class="quiz__checkbox-list">
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="customer_contact_channels"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">e-mail</span>
+              </label>
 
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="communication_languages"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">German</span>
-            </label>
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="customer_contact_channels"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">phone</span>
+              </label>
 
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="communication_languages"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">Other</span>
-            </label>
-          </div>
-          <div class="quiz__slide-error">
-            You must select at least one option.
-          </div>
-        </div>
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="customer_contact_channels"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">live-chat</span>
+              </label>
 
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">Customer contact channels</div>
+              <label class="quiz__checkbox">
+                <input
+                  class="quiz__checkbox-input"
+                  type="checkbox"
+                  name="customer_contact_channels"
+                />
+                <span class="quiz__checkbox-box"></span>
+                <span class="quiz__checkbox-label">social network</span>
+              </label>
+            </div>
 
-          <div class="quiz__checkbox-list">
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="customer_contact_channels"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">e-mail</span>
-            </label>
-
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="customer_contact_channels"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">phone</span>
-            </label>
-
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="customer_contact_channels"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">live-chat</span>
-            </label>
-
-            <label class="quiz__checkbox">
-              <input
-                class="quiz__checkbox-input"
-                type="checkbox"
-                name="customer_contact_channels"
-              />
-              <span class="quiz__checkbox-box"></span>
-              <span class="quiz__checkbox-label">social network</span>
-            </label>
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
           </div>
 
-          <div class="quiz__slide-error">
-            You must select at least one option.
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">Required number of agents</div>
+
+            <div class="quiz__radio-list">
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="required_number_of_agents"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">1-2</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="required_number_of_agents"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">3-5</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="required_number_of_agents"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">5-10</span>
+              </label>
+
+              <label class="quiz__radio">
+                <input
+                  class="quiz__radio-input"
+                  type="radio"
+                  name="required_number_of_agents"
+                />
+                <span class="quiz__radio-box"></span>
+                <span class="quiz__radio-label">over 10</span>
+              </label>
+            </div>
+
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
           </div>
-        </div>
 
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">Required number of agents</div>
+          <div class="quiz__slide">
+            <div class="quiz__slide-title">
+              Thanks for your answers. The estimated cost per agent, relative to
+              your request is:
+            </div>
+            <div class="quiz__slide-info">1350 €</div>
+            <div class="quiz__slide-error">
+              You must select at least one option.
+            </div>
+          </div>
 
-          <div class="quiz__radio-list">
-            <label class="quiz__radio">
+          <div class="quiz__slide">
+            <div class="quiz__slide-form-container">
               <input
-                class="quiz__radio-input"
-                type="radio"
-                name="required_number_of_agents"
+                class="quiz__slide-form-input"
+                type="text"
+                name="Email"
+                placeholder="Your email"
               />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">1-2</span>
-            </label>
-
-            <label class="quiz__radio">
+              <div class="quiz__slide-error">Required field</div>
+            </div>
+            <div class="quiz__slide-form-container">
               <input
-                class="quiz__radio-input"
-                type="radio"
-                name="required_number_of_agents"
+                class="quiz__slide-form-input"
+                type="text"
+                name="Name"
+                placeholder="Your name and company"
               />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">3-5</span>
-            </label>
-
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="required_number_of_agents"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">5-10</span>
-            </label>
-
-            <label class="quiz__radio">
-              <input
-                class="quiz__radio-input"
-                type="radio"
-                name="required_number_of_agents"
-              />
-              <span class="quiz__radio-box"></span>
-              <span class="quiz__radio-label">over 10</span>
-            </label>
+              <div class="quiz__slide-error">
+                Please fill out all required fields
+              </div>
+            </div>
           </div>
 
-          <div class="quiz__slide-error">
-            You must select at least one option.
+          <div class="quiz__actions-buttons">
+            <button
+              type="button"
+              id="prevBtn"
+              class="quiz__button quiz__button--prev"
+            >
+              Prev
+            </button>
+            <button
+              type="button"
+              id="nextBtn"
+              class="quiz__button quiz__button--next"
+            >
+              Next
+            </button>
+            <button
+              type="button"
+              id="lastStep"
+              class="quiz__button quiz__button--last"
+              style="display: none"
+            >
+              Last step
+            </button>
+            <button
+              type="submit"
+              id="submit"
+              class="quiz__button quiz__button--submit"
+              style="display: none"
+            >
+              Submit
+            </button>
           </div>
-        </div>
-
-        <div class="quiz__slide">
-          <div class="quiz__slide-title">
-            Thanks for your answers. The estimated cost per agent, relative to
-            your request is:
-          </div>
-          <div class="quiz__slide-info">1350 €</div>
-          <div class="quiz__slide-error">
-            You must select at least one option.
-          </div>
-        </div>
-
-        <div class="quiz__slide">
-          <div class="quiz__slide-form-container">
-            <input
-              class="quiz__slide-form-input"
-              type="text"
-              name="Email"
-              placeholder="Your email"
-            />
-            <div class="quiz__slide-error">Required field</div>
-          </div>
-          <div class="quiz__slide-form-container">
-            <input
-              class="quiz__slide-form-input"
-              type="text"
-              name="Name"
-              placeholder="Your name and company"
-            />
-            <div class="quiz__slide-error">Please fill out all required fields</div>
-          </div>
-        </div>
-
-        <div class="quiz__actions-buttons">
-          <button
-            type="button"
-            id="prevBtn"
-            class="quiz__button quiz__button--prev"
-          >
-            Prev
-          </button>
-          <button
-            type="button"
-            id="nextBtn"
-            class="quiz__button quiz__button--next"
-          >
-            Next
-          </button>
-          <button
-            type="button"
-            id="lastStep"
-            class="quiz__button quiz__button--last"
-            style="display: none"
-          >
-            Last step
-          </button>
-          <button
-            type="submit"
-            id="submit"
-            class="quiz__button quiz__button--submit"
-            style="display: none"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </section>
 
     <script src="./js/price-script.js"></script>
   </body>

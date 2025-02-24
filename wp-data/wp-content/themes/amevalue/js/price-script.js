@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       slide.classList.toggle("quiz__slide--active", i === index);
     });
 
-    prevBtn.style.display = index > 0 ? "inline-block" : "none";
+    prevBtn.style.visibility = index > 0 ? "visible" : "hidden";
     nextBtn.style.display = index < slides.length - 2 ? "inline-block" : "none";
     lastStepBtn.style.display =
       index === slides.length - 2 ? "inline-block" : "none";
@@ -207,15 +207,15 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     saveAnswers(); // Перед отправкой сохраняем все ответы
-  
+
     let isValid = true;
-  
+
     // Получаем инпуты email и name
     const emailInput = document.querySelector("input[name='Email']");
     const nameInput = document.querySelector("input[name='Name']");
     const emailError = emailInput.nextElementSibling;
     const nameError = nameInput.nextElementSibling;
-  
+
     // Валидация email
     if (
       !emailInput.value.trim() ||
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.classList.remove("quiz__slide-form-input--error");
       emailError.classList.remove("quiz__slide-error--active");
     }
-  
+
     // Валидация name
     if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
       nameInput.classList.add("quiz__slide-form-input--error");
@@ -238,12 +238,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nameInput.classList.remove("quiz__slide-form-input--error");
       nameError.classList.remove("quiz__slide-error--active");
     }
-  
+
     // Если не проходит валидацию, прекращаем отправку формы
     if (!isValid) {
       return;
     }
-  
+
     fetch("http://your-server.com/api/quiz", {
       method: "POST",
       headers: {

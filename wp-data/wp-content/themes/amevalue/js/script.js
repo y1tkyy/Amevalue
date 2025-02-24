@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let heroContent = document.querySelector(".hero__content");
 
   let bgImage = new Image();
-  bgImage.src = "./assets/images/background_map.webp";
+  
+  bgImage.src = "./wp-content/themes/amevalue/assets/images/background_map.webp";
 
   bgImage.onload = function () {
     heroContent.style.backgroundImage = "url('" + bgImage.src + "')";
