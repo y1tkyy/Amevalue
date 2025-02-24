@@ -45,7 +45,7 @@
               <h2 class="why-choose-us__title">
                 <?php the_sub_field('title'); ?>
               </h2>
-              <a href="#" class="why-choose-us__button"><?php the_sub_field('button_text'); ?></a>
+              <a href="./price/" class="why-choose-us__button"><?php the_sub_field('button_text'); ?></a>
               <div class="why-choose-us__container unselectable">
               <?php
                 $our_customers = get_field('our_customers_appreciate_us_for');
@@ -101,95 +101,97 @@
       </div>
     </div>
   </section>
-  <section class="game-plan" id="game-plan">
+
+<section class="game-plan" id="game-plan">
     <div class="game-plan__wrapper">
+      <?php 
+// Retrieve the group field from ACF
+$game_plan = get_field('game_plan');
+
+if ( $game_plan ) :
+    // Extract subfields
+    $title = $game_plan['title'];
+    $items = $game_plan['items'];
+?>
       <div class="game-plan__button game-plan__button--left" aria-label="Slider button left"></div>
       <div class="game-plan__button game-plan__button--right" aria-label="Slider button right"></div>
       <div class="game-plan__container">
-        <h2 class="game-plan__title unselectable">Game plan:</h2>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">your application</p>
-        </div>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">
-            consultation and cost estimate
-          </p>
-          <p class="game-plan__item-text unselectable">
-            <span class="game-plan__item-days">1 day</span>
-          </p>
-        </div>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">
-            signing of the contract
-          </p>
-          <p class="game-plan__item-text unselectable">
-            <span class="game-plan__item-days">3-5 days</span>
-          </p>
-        </div>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">
-            sourcing and hiring agents
-          </p>
-          <p class="game-plan__item-text unselectable">
-            <span class="game-plan__item-days">1-4 weeks</span>
-          </p>
-        </div>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">onboarding</p>
-          <p class="game-plan__item-text unselectable">
-            product research, creating a knowledge base, training staff,
-            <br />
-            developing client communication scripts, etc.
-            <span class="game-plan__item-days">(1&ndash;2 weeks)</span>
-          </p>
-        </div>
-        <div class="game-plan__item">
-          <p class="game-plan__item-title unselectable">
-            launch new horizons
-          </p>
-        </div>
+        <?php if ( $title ) : ?>
+            <h2 class="game-plan__title unselectable"><?php echo esc_html( $title ); ?></h2>
+        <?php endif; ?>
+
+        <?php if ( $items ) : ?>
+            <?php foreach ( $items as $item ) : 
+                $item_title   = $item['title'];
+                $item_time    = $item['time'];
+                $item_content = $item['content'];
+            ?>
+                <div class="game-plan__item">
+                    <?php if ( $item_title ) : ?>
+                        <p class="game-plan__item-title unselectable"><?php echo esc_html( $item_title ); ?></p>
+                    <?php endif; ?>
+
+                    <?php if ( $item_time || $item_content ) : ?>
+                        <p class="game-plan__item-text unselectable">
+                            <?php 
+                            if ( $item_content ) {
+                                echo wp_kses_post( $item_content );
+                            }
+                            if ( $item_time ) {
+                                echo '<span class="game-plan__item-days">' . esc_html( $item_time ) . '</span>';
+                            }
+                            ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
       </div>
+      <?php 
+endif;
+?>
+
     </div>
-  </section>
+</section>
+
   <section class="results" id="results">
     <div class="results__wrapper">
-      <div class="results__content">
-        <h2 class="results__title">Cooperation results:</h2>
-        <div class="results__container">
+      <?php 
+$results = get_field('cooperation_results');
+
+if ( $results ) :
+  $title       = $results['title'];
+  $button_text = $results['button_text'];
+  $list        = $results['list'];
+?>
+  <div class="results__content">
+    <?php if ( $title ) : ?>
+      <h2 class="results__title"><?php echo esc_html( $title ); ?></h2>
+    <?php endif; ?>
+
+    <div class="results__container">
+      <?php if ( $list ) : ?>
+        <?php foreach ( $list as $item ) : 
+          // Get the text for each list item
+          $text = $item['text'];
+        ?>
           <div class="results__item">
             <p class="results__text unselectable">
-              Annual savings of up to 40% <br />
-              of support service costs
+              <?php echo wp_kses_post( $text ); ?>
             </p>
           </div>
-          <div class="results__item">
-            <p class="results__text unselectable">
-              The LTV of most of your customers <br />
-              will increase by 3 times or even more
-            </p>
-          </div>
-          <div class="results__item">
-            <p class="results__text unselectable">
-              CAC will be reduced by at least 2 times <br />
-              because customers will recommend you
-            </p>
-          </div>
-          <div class="results__item">
-            <p class="results__text unselectable">Net Profit + 10%</p>
-          </div>
-          <div class="results__item">
-            <p class="results__text unselectable">
-              Amevaluable partnership for years
-            </p>
-          </div>
-          <div class="results__item">
-            <p class="results__text unselectable">
-              Highly motivated and satisfied team
-            </p>
-          </div>
-        </div>
-        <a href="#" class="results__button">Calculate your price</a>
-      </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+
+    <?php if ( $button_text ) : ?>
+      <a href="#" class="results__button"><?php echo esc_html( $button_text ); ?></a>
+    <?php endif; ?>
+  </div>
+<?php 
+endif;
+?>
+
       <div class="results__graph">
         <div class="results__graph-main">
           <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/savings.svg" alt="Savings graph" class="results__graph-main-img"
@@ -218,39 +220,46 @@
       </div>
     </div>
   </section>
-  <section class="trusted-us" id="trusted-us">
-    <div class="trusted-us__wrapper">
-      <div class="trusted-us__content">
-        <h2 class="trusted-us__title">
-          They <br />
-          trusted us:
-        </h2>
-      </div>
-      <div class="trusted-us__container">
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/anex.webp" alt="Anex logo" width="100px" />
-        </div>
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/lyght_living.webp" alt="Lyght living logo"
-            width="166px" />
-        </div>
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/betten_jumbo.webp" alt="Betten Jumbo logo"
-            width="152px" />
-        </div>
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/wave_makers.webp" alt="Wave Makers logo"
-            width="166px" />
-        </div>
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/les_lunes.webp" alt="Les Lunes logo"
-            width="166px" />
-        </div>
-        <div class="trusted-us__item">
-          <img class="trusted-us__item-img" src="./assets/images/brands/tigres.webp" alt="Tigres logo" width="96px" />
-        </div>
-      </div>
+  
+<section class="trusted-us" id="trusted-us">
+  <div class="trusted-us__wrapper">
+  <?php
+  $trusted_us = get_field('they_trusted_us');
+  if( $trusted_us ) :
+    $title     = $trusted_us['title'];
+    $companies = $trusted_us['companies'];
+  ?>
+    <div class="trusted-us__content">
+      <h2 class="trusted-us__title">
+        <?php echo esc_html($title); ?>
+      </h2>
     </div>
+    <div class="trusted-us__container">
+      <?php if( $companies ) : ?>
+        <?php foreach( $companies as $company ) : 
+          $company_link = $company['company_link'];
+          $image        = $company['image'];
+          $image_width  = $company['image_width'];
+        ?>
+          <div class="trusted-us__item">
+            <?php if( $company_link ) : ?>
+              <a class="trusted-us__item-link" href="<?php echo esc_url($company_link); ?>">
+            <?php endif; ?>
+              <?php if( $image ) : ?>
+                <img class="trusted-us__item-img" 
+                    src="<?php echo esc_url($image['url']); ?>" 
+                    alt="<?php echo esc_attr($image['alt']); ?>" 
+                    width="<?php echo esc_attr($image_width); ?>" />
+              <?php endif; ?>
+            <?php if( $company_link ) : ?>
+            </a>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
+  </div>
   </section>
   <section class="clients" id="clients">
     <div class="clients__wrapper">
