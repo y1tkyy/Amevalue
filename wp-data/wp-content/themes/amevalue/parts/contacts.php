@@ -30,11 +30,11 @@
 
       <form class="contacts__form" data-form-action="<?php echo admin_url('admin-ajax.php'); ?>" novalidate>
         <?php if( have_rows('field_67bb47c551f70') ): ?>
-          <?php $contacts_form = get_field('field_67bb47c551f70');?>
+          <?php $contacts_form = get_field('field_67bb47c551f70'); ?>
           <h2 class="contacts__form-title"><?php echo $contacts_form['title']; ?></h2>
 
           <p class="contacts__form-text">
-            <a href="mailto:business@amevalue.com"><?php echo $contacts_form['sub_title']; ?> </a>
+            <a href="mailto:business@amevalue.com"><?php echo $contacts_form['sub_title']; ?></a>
           </p>
           <div class="contacts__form-group">
             <label for="name" class="contacts__form-label">Your name</label>
@@ -43,14 +43,12 @@
 
           <div class="contacts__form-group">
             <label for="question" class="contacts__form-label">Your question</label>
-            <textarea id="question" name="question" class="contacts__form-textarea"
-              placeholder="Please write your question here" required></textarea>
+            <textarea id="question" name="question" class="contacts__form-textarea" placeholder="Please write your question here" required></textarea>
           </div>
 
           <div class="contacts__form-group">
             <label for="contact" class="contacts__form-label">Your phone number or e-mail</label>
-            <input type="text" id="contact" name="contact" class="contacts__form-input"
-              placeholder="Your phone number or e-mail" required />
+            <input type="text" id="contact" name="email" class="contacts__form-input" placeholder="Your phone number or e-mail" required />
           </div>
 
           <div class="contacts__form-group">

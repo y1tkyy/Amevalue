@@ -1451,7 +1451,7 @@ section {
   width: 100%;
   height: fit-content;
   margin: 73px 0 17px 0;
-  
+
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1473,9 +1473,9 @@ section {
     background-color: $bg-color;
     box-shadow: 10px 10px 40px 4px rgba(140, 139, 193, 0.1);
     border-radius: 20px;
- &-link {
-    display: flex;
-  }
+    &-link {
+      display: flex;
+    }
     &-img {
       max-width: 100%;
       height: auto;
@@ -3053,9 +3053,9 @@ section {
       margin-bottom: 20px;
     }
   }
-      .promo__container {
-        max-width: 100%;
-    }
+  .promo__container {
+    max-width: 100%;
+  }
   .trusted-us {
     height: fit-content;
     &__container {

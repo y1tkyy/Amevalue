@@ -110,154 +110,147 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // PROMO
-if (window.location.pathname.indexOf("/wp-admin") === -1) {
-  const promo = document.querySelector(".promo");
-  const promoOverlay = document.querySelector(".promo__overlay");
-  const promoClose = document.querySelector(".promo__close-button");
-  const promoOpen = document.querySelector(".promo__open-button");
+  if (true) {
+    const promo = document.querySelector(".promo");
+    const promoOverlay = document.querySelector(".promo__overlay");
+    const promoClose = document.querySelector(".promo__close-button");
+    const promoOpen = document.querySelector(".promo__open-button");
 
-  function getScrollbarWidth() {
-    return window.innerWidth - document.documentElement.clientWidth;
-  }
-
-  function openPromo() {
-    if (promo.classList.contains("promo--active")) return;
-
-    const scrollBarWidth = getScrollbarWidth();
-    document.body.style.maxWidth = window.innerWidth - scrollBarWidth + "px";
-    document.body.style.overflow = "hidden";
-    promo.classList.add("promo--active");
-  }
-
-  function closePromo() {
-    promo.classList.remove("promo--active");
-    document.body.style.overflow = "";
-    document.body.style.maxWidth = "";
-  }
-
-  if (promoOpen) {
-    promoOpen.addEventListener("click", function (e) {
-      e.preventDefault();
-      openPromo();
-    });
-  }
-
-  if (promoClose) {
-    promoClose.addEventListener("click", function (e) {
-      e.preventDefault();
-      closePromo();
-    });
-  }
-
-  if (promoOverlay) {
-    promoOverlay.addEventListener("click", function (e) {
-      e.preventDefault();
-      closePromo();
-    });
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && promo.classList.contains("promo--active")) {
-      closePromo();
+    function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
     }
-  });
 
-  setTimeout(openPromo, 5000); // default 35000
+    function openPromo() {
+      if (promo.classList.contains("promo--active")) return;
 
-  const form = document.querySelector(".promo__form");
+      const scrollBarWidth = getScrollbarWidth();
+      document.body.style.maxWidth = window.innerWidth - scrollBarWidth + "px";
+      document.body.style.overflow = "hidden";
+      promo.classList.add("promo--active");
+    }
 
-  if (form) {
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const sendButton = document.querySelector(".promo__button");
+    function closePromo() {
+      promo.classList.remove("promo--active");
+      document.body.style.overflow = "";
+      document.body.style.maxWidth = "";
+    }
 
-    // Create error elements for name and email
-    const nameError = document.createElement("p");
-    nameError.textContent = "Required field";
-    nameError.classList.add("promo__error-field");
-    nameError.style.display = "none";
-    nameInput.parentNode.appendChild(nameError);
+    if (promoOpen) {
+      promoOpen.addEventListener("click", function (e) {
+        e.preventDefault();
+        openPromo();
+      });
+    }
 
-    const emailError = document.createElement("p");
-    emailError.textContent = "Required field";
-    emailError.classList.add("promo__error-field");
-    emailError.style.display = "none";
-    emailInput.parentNode.appendChild(emailError);
+    if (promoClose) {
+      promoClose.addEventListener("click", function (e) {
+        e.preventDefault();
+        closePromo();
+      });
+    }
 
-    // Create global error element
-    const globalError = document.createElement("div");
-    globalError.classList.add("promo__error-global");
-    globalError.style.display = "none";
+    if (promoOverlay) {
+      promoOverlay.addEventListener("click", function (e) {
+        e.preventDefault();
+        closePromo();
+      });
+    }
 
-    const errorText = document.createElement("p");
-    errorText.textContent = "Please fill out all required fields";
-    errorText.classList.add("promo__error-text");
-
-    globalError.appendChild(errorText);
-    form.insertBefore(globalError, sendButton);
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      let isValid = true;
-
-      if (!nameInput.value.trim()) {
-        nameError.style.display = "block";
-        nameInput.classList.add("promo__input--error");
-        isValid = false;
-      } else {
-        nameError.style.display = "none";
-        nameInput.classList.remove("promo__input--error");
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && promo.classList.contains("promo--active")) {
+        closePromo();
       }
-
-      if (!emailInput.value.trim()) {
-        emailError.style.display = "block";
-        emailInput.classList.add("promo__input--error");
-        isValid = false;
-      } else {
-        emailError.style.display = "none";
-        emailInput.classList.remove("promo__input--error");
-      }
-
-      if (!isValid) {
-        globalError.style.display = "block";
-        return;
-      }
-
-      // If valid, prepare and send the AJAX request
-      let action = form.getAttribute("data-form-action");
-      if (!action) {
-        // Fallback if the data attribute is missing
-        action = "/wp-admin/admin-ajax.php";
-      }
-      let formData = new FormData(form);
-      formData.append("action", "send_custom_form"); // Important for your AJAX handler
-
-      fetch(action, {
-        method: "POST",
-        body: formData
-      })
-        .then((response) => response.text())
-        .then((result) => {
-          // Update UI after successful submission
-          nameInput.style.display = "none";
-          emailInput.style.display = "none";
-          sendButton.style.display = "none";
-          errorText.textContent = "Thank you!";
-          globalError.style.display = "block";
-          globalError.style.backgroundColor = "#62C584";
-        })
-        .catch((error) => {
-          console.error(error);
-          // Optionally, show an error message
-          errorText.textContent = "An error occurred. Please try again.";
-          globalError.style.display = "block";
-          globalError.style.backgroundColor = "#ff0000";
-        });
     });
-  }
-}
 
+    setTimeout(openPromo, 35000); // default 35000
+
+    const form = document.querySelector(".promo__form");
+
+    if (form) {
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const sendButton = document.querySelector(".promo__button");
+
+      const nameError = document.createElement("p");
+      nameError.textContent = "Required field";
+      nameError.classList.add("promo__error-field");
+      nameError.style.display = "none";
+      nameInput.parentNode.appendChild(nameError);
+
+      const emailError = document.createElement("p");
+      emailError.textContent = "Required field";
+      emailError.classList.add("promo__error-field");
+      emailError.style.display = "none";
+      emailInput.parentNode.appendChild(emailError);
+
+      const globalError = document.createElement("div");
+      globalError.classList.add("promo__error-global");
+      globalError.style.display = "none";
+
+      const errorText = document.createElement("p");
+      errorText.textContent = "Please fill out all required fields";
+      errorText.classList.add("promo__error-text");
+
+      globalError.appendChild(errorText);
+      form.insertBefore(globalError, sendButton);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let isValid = true;
+
+        if (!nameInput.value.trim()) {
+          nameError.style.display = "block";
+          nameInput.classList.add("promo__input--error");
+          isValid = false;
+        } else {
+          nameError.style.display = "none";
+          nameInput.classList.remove("promo__input--error");
+        }
+
+        if (!emailInput.value.trim()) {
+          emailError.style.display = "block";
+          emailInput.classList.add("promo__input--error");
+          isValid = false;
+        } else {
+          emailError.style.display = "none";
+          emailInput.classList.remove("promo__input--error");
+        }
+
+        if (!isValid) {
+          globalError.style.display = "block";
+          return;
+        }
+
+        let action = form.getAttribute("data-form-action");
+        if (!action) {
+          action = "/wp-admin/admin-ajax.php";
+        }
+        let formData = new FormData(form);
+        formData.append("action", "send_custom_form");
+
+        fetch(action, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            nameInput.style.display = "none";
+            emailInput.style.display = "none";
+            sendButton.style.display = "none";
+            errorText.textContent = "Thank you!";
+            globalError.style.display = "block";
+            globalError.style.backgroundColor = "#62C584";
+          })
+          .catch((error) => {
+            console.error(error);
+            errorText.textContent = "An error occurred. Please try again.";
+            globalError.style.display = "block";
+            globalError.style.backgroundColor = "#ff0000";
+          });
+      });
+    }
+  }
 
   //SUCCESS
   function openSuccessWindow() {
@@ -363,11 +356,16 @@ if (window.location.pathname.indexOf("/wp-admin") === -1) {
           privacyGroup.classList.add("hide-error-message");
         }, 3000);
       }
+
       if (isValid) {
         e.preventDefault();
         let action = contactsForm.getAttribute("data-form-action");
         let formData = new FormData(contactsForm);
-        formData.append("action", "send_custom_form"); // Important
+        let quizData = {
+          question: questionTextarea.value,
+        };
+        formData.append("quizData", JSON.stringify(quizData));
+        formData.append("action", "send_custom_form");
 
         fetch(action, {
           method: "POST",
@@ -375,7 +373,9 @@ if (window.location.pathname.indexOf("/wp-admin") === -1) {
         })
           .then((response) => response.text())
           .then((result) => {
-            // TODO create and show popup
+            console.log(result);
+            // Open the success window after successful submission
+            openSuccessWindow();
           })
           .catch((error) => console.error(error));
       }

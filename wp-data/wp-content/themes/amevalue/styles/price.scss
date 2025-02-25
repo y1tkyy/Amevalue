@@ -497,11 +497,11 @@ body {
 }
 
 @media (max-width: 1199px) {
-   .quiz {
+  .quiz {
     margin-top: 86px;
     &::before {
-    top: 87px;
-  }
+      top: 87px;
+    }
   }
 }
 
@@ -509,8 +509,8 @@ body {
   .quiz {
     margin-top: 103px;
     &::before {
-    top: 104px;
-  }
+      top: 104px;
+    }
   }
   .quiz__header {
     max-width: 600px;
@@ -532,8 +532,8 @@ body {
   .quiz {
     margin-top: 90px;
     &::before {
-    top: 91px;
-  }
+      top: 91px;
+    }
   }
   .quiz__form {
     max-width: 100%;
@@ -561,7 +561,7 @@ body {
   .quiz {
     margin-top: 101px;
     &::before {
-    top: 102px;
-  }
+      top: 102px;
+    }
   }
 }

@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function toggleLastSlideText() {
     const infoContainer = document.querySelector(".quiz__info-container");
-    const lastSlideText = document.querySelector(".quiz__info-container--last-slide-text");
+    const lastSlideText = document.querySelector(
+      ".quiz__info-container--last-slide-text"
+    );
 
     if (currentSlide === slides.length - 1) {
       if (infoContainer) infoContainer.style.display = "none";
@@ -37,47 +39,59 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     prevBtn.style.visibility = index > 0 ? "visible" : "hidden";
     nextBtn.style.display = index < slides.length - 2 ? "inline-block" : "none";
-    lastStepBtn.style.display = index === slides.length - 2 ? "inline-block" : "none";
-    submitBtn.style.display = index === slides.length - 1 ? "inline-block" : "none";
+    lastStepBtn.style.display =
+      index === slides.length - 2 ? "inline-block" : "none";
+    submitBtn.style.display =
+      index === slides.length - 1 ? "inline-block" : "none";
 
     updateCounter();
     toggleLastSlideText();
   }
 
-function saveAnswers() {
-  const activeSlide = slides[currentSlide];
+  function saveAnswers() {
+    const activeSlide = slides[currentSlide];
 
-  // Save radio inputs
-  const radioInputs = activeSlide.querySelectorAll("input[type='radio']:checked");
-  radioInputs.forEach((radio) => {
-    const labelSpan = radio.closest("label").querySelector(".quiz__radio-label");
-    quizData[radio.name] = labelSpan ? labelSpan.textContent.trim() : radio.value;
-  });
+    const radioInputs = activeSlide.querySelectorAll(
+      "input[type='radio']:checked"
+    );
+    radioInputs.forEach((radio) => {
+      const labelSpan = radio
+        .closest("label")
+        .querySelector(".quiz__radio-label");
+      quizData[radio.name] = labelSpan
+        ? labelSpan.textContent.trim()
+        : radio.value;
+    });
 
-  // Save checkbox inputs
-  const checkboxInputs = activeSlide.querySelectorAll("input[type='checkbox']");
-  checkboxInputs.forEach((checkbox) => {
-    if (!quizData[checkbox.name]) {
-      quizData[checkbox.name] = [];
-    }
-    if (checkbox.checked) {
-      const labelSpan = checkbox.closest("label").querySelector(".quiz__checkbox-label");
-      quizData[checkbox.name].push(labelSpan ? labelSpan.textContent.trim() : checkbox.value);
-    }
-  });
+    const checkboxInputs = activeSlide.querySelectorAll(
+      "input[type='checkbox']"
+    );
+    checkboxInputs.forEach((checkbox) => {
+      if (!quizData[checkbox.name]) {
+        quizData[checkbox.name] = [];
+      }
+      if (checkbox.checked) {
+        const labelSpan = checkbox
+          .closest("label")
+          .querySelector(".quiz__checkbox-label");
+        quizData[checkbox.name].push(
+          labelSpan ? labelSpan.textContent.trim() : checkbox.value
+        );
+      }
+    });
 
-  // Capture text and email inputs (including name and email fields)
-  const textAndEmailInputs = activeSlide.querySelectorAll("input[type='text'], input[type='email']");
-  textAndEmailInputs.forEach((input) => {
-    quizData[input.name] = input.value.trim();
-  });
+    const textAndEmailInputs = activeSlide.querySelectorAll(
+      "input[type='text'], input[type='email']"
+    );
+    textAndEmailInputs.forEach((input) => {
+      quizData[input.name] = input.value.trim();
+    });
 
-  // Calculate the estimated price based on the current quizData
-  calculatePrice();
+    // Calculate the estimated price based on the current quizData
+    calculatePrice();
 
-  console.log("Collected data:", quizData);
-}
-
+    console.log("Collected data:", quizData);
+  }
 
   function calculatePrice() {
     let price = 1500; // Base price
@@ -106,7 +120,9 @@ function saveAnswers() {
   function validateSlide() {
     const activeSlide = slides[currentSlide];
     const radioInputs = activeSlide.querySelectorAll("input[type='radio']");
-    const checkboxInputs = activeSlide.querySelectorAll("input[type='checkbox']");
+    const checkboxInputs = activeSlide.querySelectorAll(
+      "input[type='checkbox']"
+    );
     const textInputs = activeSlide.querySelectorAll("input[type='text']");
     const errorMessage = activeSlide.querySelector(".quiz__slide-error");
 
@@ -114,7 +130,9 @@ function saveAnswers() {
 
     // If radio buttons exist, ensure one is selected
     if (radioInputs.length > 0) {
-      const checkedRadio = activeSlide.querySelector("input[type='radio']:checked");
+      const checkedRadio = activeSlide.querySelector(
+        "input[type='radio']:checked"
+      );
       if (!checkedRadio) {
         isValid = false;
       }
@@ -122,7 +140,9 @@ function saveAnswers() {
 
     // If checkboxes exist, ensure at least one is checked
     if (checkboxInputs.length > 0) {
-      const checkedCheckbox = activeSlide.querySelector("input[type='checkbox']:checked");
+      const checkedCheckbox = activeSlide.querySelector(
+        "input[type='checkbox']:checked"
+      );
       if (!checkedCheckbox) {
         isValid = false;
       }
@@ -224,7 +244,8 @@ function saveAnswers() {
     }
 
     // Build the AJAX request using FormData
-    let actionURL = form.getAttribute("data-form-action") || "/wp-admin/admin-ajax.php";
+    let actionURL =
+      form.getAttribute("data-form-action") || "/wp-admin/admin-ajax.php";
     let formData = new FormData(form);
 
     // Append the quiz data as a JSON string
@@ -236,7 +257,7 @@ function saveAnswers() {
     // Send the AJAX request
     fetch(actionURL, {
       method: "POST",
-      body: formData
+      body: formData,
     })
       .then((response) => response.text())
       .then((result) => {
@@ -249,7 +270,9 @@ function saveAnswers() {
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("An error occurred while submitting your data. Please try again.");
+        alert(
+          "An error occurred while submitting your data. Please try again."
+        );
       });
   });
 

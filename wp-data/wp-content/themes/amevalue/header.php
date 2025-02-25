@@ -4,7 +4,10 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php wp_title(''); ?><?php bloginfo('name'); ?></title>
+  <title><?php
+  wp_title('');
+  bloginfo('name');
+  ?></title>
   <meta name="description" content="customer support outsourcing company">
   <meta property="og:url" content="https://ame-value.com">
   <meta property="og:title" content="Amevalue">
@@ -26,7 +29,7 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-   <header class="header">
+  <header class="header">
     <div class="success">
       <div class="success__overlay"></div>
       <div class="success__container">
@@ -46,28 +49,29 @@
   <div class="promo">
     <div class="promo__overlay"></div>
         <?php
-$promo = get_field('promo');
-if ($promo):
-    $title = $promo['title'];
-    $subtitle = $promo['subtitle'];
-    $button = $promo['button'];
-    $consent_statement = $promo['consent_statement'];
-?>
+        $promo = get_field('promo');
+        if ($promo):
+
+          $title = $promo['title'];
+          $subtitle = $promo['subtitle'];
+          $button = $promo['button'];
+          $consent_statement = $promo['consent_statement'];
+          ?>
     <a href="#" class="promo__close-button" aria-label="Close menu"></a>
     <div class="promo__container">
       <?php if ($title): ?>
         <h2 class="promo__title"><?php echo esc_html($title); ?></h2>
-      <?php
-    endif; ?>
+      <?php endif; ?>
       
       <?php if ($subtitle): ?>
         <p class="promo__description">
           <?php echo esc_html($subtitle); ?>
         </p>
-      <?php
-    endif; ?>
+      <?php endif; ?>
       
-      <form data-form-action="<?php echo admin_url('admin-ajax.php'); ?>" method="POST" class="promo__form" novalidate>
+      <form data-form-action="<?php echo admin_url(
+        'admin-ajax.php'
+      ); ?>" method="POST" class="promo__form" novalidate>
   <div>
     <label for="name" class="promo__label">Name</label>
     <input id="name" name="name" type="text" class="promo__input" placeholder="Name" required />
@@ -80,21 +84,18 @@ if ($promo):
     <?php echo esc_html($button); ?>
   </button>
 </form>
-      
-      <?php if ($consent_statement): ?>
-        <p class="promo__text">
-          <?php echo wp_kses_post($consent_statement); ?>
-        </p>
-      <?php
-    else: ?>
-        <p class="promo__text">
-          By clicking on the button, you agree to the <a href="./policy" class="promo__link">privacy policy</a> and the personal data processing.
-        </p>
-      <?php
-    endif; ?>
-          <?php
-endif;
-?>
+            <?php if ($consent_statement): ?>
+              <p class="promo__text">
+                <?php echo wp_kses_post($consent_statement); ?>
+              </p>
+            <?php else: ?>
+              <p class="promo__text">
+                By clicking on the button, you agree to the <a href="./policy" class="promo__link">privacy policy</a> and the personal data processing.
+              </p>
+            <?php endif; ?>
+                <?php
+        endif;
+        ?>
     </div>
   </div>
     <div class="header__overlay"></div>
@@ -105,50 +106,45 @@ endif;
           <a class="sidebar__link" href="../../../..">
             <img
               class="sidebar__logo-img unselectable"
-              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo-dots.svg"
+              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo/logo-dots.svg"
               alt="Amevalue burger logo"
               draggable="false"
             />
           </a>
         </div>
-         <?php
-wp_nav_menu(array(
-    'menu' => 'sidebar_menu',
-    'container' => 'nav', // Контейнер для меню, это будет тег <nav>
-    'container_class' => 'sidebar__nav', // Класс для <nav>
-    'menu_class' => 'sidebar__list', // Класс для <ul>
-    'items_wrap' => '<ul class="%2$s">%3$s</ul>', // Рендерит список <ul> с классом
-    'walker' => new Custom_Walker_Sidebar_Menu() , // Наш кастомный walker
-    
-));
-?>
+        <?php wp_nav_menu([
+          'menu' => 'sidebar_menu',
+          'container' => 'nav', // Контейнер для меню, это будет тег <nav>
+          'container_class' => 'sidebar__nav', // Класс для <nav>
+          'menu_class' => 'sidebar__list', // Класс для <ul>
+          'items_wrap' => '<ul class="%2$s">%3$s</ul>', // Рендерит список <ul> с классом
+          'walker' => new Custom_Walker_Sidebar_Menu(), // Наш кастомный walker
+        ]); ?>
       </aside>
       <ul class="header__list">
         <li class="header__logo">
           <a class="header__logo-link" href="../../../..">
             <img
               class="header__logo-img unselectable"
-              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo.svg"
+              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo/logo.svg"
               alt="Amevalue logo"
               draggable="false"
             />
             <img
               class="header__logo-img header__logo-img--blured"
-              src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo/logo.svg"
+              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo/logo.svg"
               alt="Amevalue logo blur"
               draggable="false"
             />
           </a>
         </li>
-         <?php
-wp_nav_menu(array(
-    'menu' => 'Header menu',
-    'items_wrap' => '%3$s', // Убираем <ul> (оно уже есть в верстке)
-    'container' => false, // Убираем контейнер <nav>
-    'menu_class' => 'header__list-item',
-    'walker' => new Custom_Walker_Nav_Menu()
-));
-?>
+        <?php wp_nav_menu([
+          'menu' => 'Header menu',
+          'items_wrap' => '%3$s', // Убираем <ul> (оно уже есть в верстке)
+          'container' => false, // Убираем контейнер <nav>
+          'menu_class' => 'header__list-item',
+          'walker' => new Custom_Walker_Nav_Menu(),
+        ]); ?>
       </ul>
       <a href="#" class="header__burger unselectable"></a>
     </nav>
