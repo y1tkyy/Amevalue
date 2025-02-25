@@ -56,7 +56,7 @@
           <div class="contacts__form-group">
             <input type="checkbox" id="privacy" name="privacy" class="contacts__form-checkbox" required />
             <label for="privacy" class="contacts__form-privacy">
-              !TODO add link!: I agree with the terms of <a href="#" target="_blank">Privacy Policy</a>
+              I agree with the terms of <a href="./policy" target="_blank">Privacy Policy</a>
             </label>
           </div>
 

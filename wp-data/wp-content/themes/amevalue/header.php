@@ -43,32 +43,60 @@
         </p>
       </div>
     </div>
-    <div class="promo">
-      <div class="promo__overlay"></div>
-      <a href="#" class="promo__close-button" aria-label="Close menu"></a>
-      <div class="promo__container">
-        <h2 class="promo__title">Get the discount</h2>
+  <div class="promo">
+    <div class="promo__overlay"></div>
+        <?php
+$promo = get_field('promo');
+if ($promo):
+    $title = $promo['title'];
+    $subtitle = $promo['subtitle'];
+    $button = $promo['button'];
+    $consent_statement = $promo['consent_statement'];
+?>
+    <a href="#" class="promo__close-button" aria-label="Close menu"></a>
+    <div class="promo__container">
+      <?php if ($title): ?>
+        <h2 class="promo__title"><?php echo esc_html($title); ?></h2>
+      <?php
+    endif; ?>
+      
+      <?php if ($subtitle): ?>
         <p class="promo__description">
-          Register now and get a yearly discount of 7% on your first agent.
+          <?php echo esc_html($subtitle); ?>
         </p>
-        <form action="/submit" method="POST" class="promo__form" novalidate>
-          <div>
-            <label for="name" class="promo__label">Name</label>
-            <input id="name" name="name" type="text" class="promo__input" placeholder="Name" required />
-          </div>
-          <div>
-            <label for="email" class="promo__label">E-mail</label>
-            <input id="email" name="email" type="email" class="promo__input" placeholder="E-mail" required />
-          </div>
-          <button type="submit" class="promo__button">Send</button>
-        </form>
+      <?php
+    endif; ?>
+      
+      <form data-form-action="<?php echo admin_url('admin-ajax.php'); ?>" method="POST" class="promo__form" novalidate>
+  <div>
+    <label for="name" class="promo__label">Name</label>
+    <input id="name" name="name" type="text" class="promo__input" placeholder="Name" required />
+  </div>
+  <div>
+    <label for="email" class="promo__label">E-mail</label>
+    <input id="email" name="email" type="email" class="promo__input" placeholder="E-mail" required />
+  </div>
+  <button type="submit" class="promo__button">
+    <?php echo esc_html($button); ?>
+  </button>
+</form>
+      
+      <?php if ($consent_statement): ?>
         <p class="promo__text">
-          By clicking on the button, you agree to the
-          <a href="#" class="promo__link">privacy policy</a> and the personal
-          data processing.
+          <?php echo wp_kses_post($consent_statement); ?>
         </p>
-      </div>
+      <?php
+    else: ?>
+        <p class="promo__text">
+          By clicking on the button, you agree to the <a href="./policy" class="promo__link">privacy policy</a> and the personal data processing.
+        </p>
+      <?php
+    endif; ?>
+          <?php
+endif;
+?>
     </div>
+  </div>
     <div class="header__overlay"></div>
     <nav class="header__nav">
       <aside class="sidebar">
@@ -84,15 +112,16 @@
           </a>
         </div>
          <?php
-            wp_nav_menu( array(
-              'menu' => 'sidebar_menu',
-              'container' => 'nav',  // Контейнер для меню, это будет тег <nav>
-              'container_class' => 'sidebar__nav', // Класс для <nav>
-              'menu_class' => 'sidebar__list', // Класс для <ul>
-              'items_wrap' => '<ul class="%2$s">%3$s</ul>',  // Рендерит список <ul> с классом
-              'walker' => new Custom_Walker_Sidebar_Menu(), // Наш кастомный walker
-            ) );
-          ?>
+wp_nav_menu(array(
+    'menu' => 'sidebar_menu',
+    'container' => 'nav', // Контейнер для меню, это будет тег <nav>
+    'container_class' => 'sidebar__nav', // Класс для <nav>
+    'menu_class' => 'sidebar__list', // Класс для <ul>
+    'items_wrap' => '<ul class="%2$s">%3$s</ul>', // Рендерит список <ul> с классом
+    'walker' => new Custom_Walker_Sidebar_Menu() , // Наш кастомный walker
+    
+));
+?>
       </aside>
       <ul class="header__list">
         <li class="header__logo">
@@ -112,14 +141,14 @@
           </a>
         </li>
          <?php
-            wp_nav_menu( array(
-            'menu' => 'Header menu',
-                'items_wrap'     => '%3$s', // Убираем <ul> (оно уже есть в верстке)
-                'container'      => false,  // Убираем контейнер <nav>
-                'menu_class'     => 'header__list-item',
-                'walker'         => new Custom_Walker_Nav_Menu()
-            ) );
-        ?>
+wp_nav_menu(array(
+    'menu' => 'Header menu',
+    'items_wrap' => '%3$s', // Убираем <ul> (оно уже есть в верстке)
+    'container' => false, // Убираем контейнер <nav>
+    'menu_class' => 'header__list-item',
+    'walker' => new Custom_Walker_Nav_Menu()
+));
+?>
       </ul>
       <a href="#" class="header__burger unselectable"></a>
     </nav>

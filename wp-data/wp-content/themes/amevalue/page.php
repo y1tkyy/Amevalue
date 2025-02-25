@@ -16,5 +16,9 @@ get_header();
       get_template_part('parts/price-page');
     }
 
+    if ( is_page('policy') ) {
+      get_template_part('parts/privacy-policy');
+    }
+
 get_footer();
 ?>
