@@ -1,12 +1,23 @@
 @use "./reset.css";
 
-html {
-  background-color: #f5f8ff;
+body {
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Urbanist", Arial, sans-serif;
+  line-height: normal;
+  color: #14134f;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 1s linear;
+  background-color: rgb(245, 248, 255);
 }
 
-body {
-  font-family: "Urbanist", Arial, sans-serif;
-  color: #000;
+main {
+  flex: 1;
 }
 
 .quiz {
@@ -23,6 +34,18 @@ body {
   }
 
   gap: 20px;
+
+  &__success {
+    background-color: rgb(250, 250, 250);
+    padding: 20px;
+    margin-bottom: 20px;
+    &-text {
+      color: #14134f;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+  }
 
   &__wrapper {
     max-width: 1200px;
@@ -68,7 +91,7 @@ body {
 
   &__form {
     max-width: 560px;
-    margin: 0 auto 60px;
+    margin: 0 auto;
 
     background-color: #ffffff;
     border-radius: 32px;

@@ -1928,7 +1928,7 @@ section {
     content: "";
     position: absolute;
     width: 94%;
-    height: 1px;
+    height: 2px;
     top: 1px;
     background-color: rgba($primary-color, $alpha: 0.5);
   }
@@ -2066,7 +2066,68 @@ section {
   transform: translateY(-50%) rotate(-45deg);
 }
 
+.privacy {
+  margin-top: 111px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 1px;
+    top: 112px;
+    background-color: rgba($primary-color, $alpha: 0.5);
+  }
+  &__wrapper {
+    max-width: 960px;
+    width: 100%;
+    padding: 0px 20px 45px 20px;
+  }
+  &__title {
+    color: $primary-color;
+    font-size: 50px;
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  &__content {
+    padding-top: 8px;
+    padding-bottom: 6px;
+    p {
+      color: $primary-color;
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 400;
+      font-family: "Urbanist";
+    }
+    strong {
+      font-weight: 700;
+    }
+    ul {
+      list-style: inside;
+      margin-bottom: 10px;
+    }
+    ul li {
+      padding-left: 20px;
+      text-indent: -20px;
+    }
+    a {
+      color: #ff8562;
+      text-decoration: none;
+    }
+  }
+}
+
 @media (max-width: 1199px) {
+  .privacy {
+    margin-top: 86px;
+    &::before {
+      top: 87px;
+    }
+  }
   .faq {
     margin-top: 86px;
     &__wrapper {
@@ -2416,6 +2477,12 @@ section {
   }
 }
 @media (max-width: 980px) {
+  .privacy {
+    margin-top: 70px;
+    &::before {
+      top: 71px;
+    }
+  }
   .header {
     height: 70px;
     &__burger {
@@ -2467,6 +2534,15 @@ section {
   }
 }
 @media (max-width: 959px) {
+  .privacy {
+    margin-top: 103px;
+    &__wrapper {
+      max-width: 600px;
+    }
+    &::before {
+      top: 104px;
+    }
+  }
   .faq {
     margin-top: 103px;
     &__wrapper {
@@ -2773,6 +2849,12 @@ section {
 }
 
 @media (max-width: 639px) {
+  .privacy {
+    margin-top: 90px;
+    &::before {
+      top: 91px;
+    }
+  }
   .faq {
     margin-top: 90px;
     &__wrapper {
@@ -3114,6 +3196,12 @@ section {
 }
 
 @media (max-width: 481px) {
+  .privacy {
+    margin-top: 101px;
+    &::before {
+      top: 102px;
+    }
+  }
   .faq {
     margin-top: 101px;
   }

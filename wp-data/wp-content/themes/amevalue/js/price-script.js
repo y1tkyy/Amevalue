@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const counter = document.getElementById("quizCounter");
   const progressBar = document.querySelector(".quiz__info-progress");
   const form = document.getElementById("quizForm");
-
-  // Object to store quiz answers
   let quizData = {};
 
   function updateCounter() {
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastSlideText = document.querySelector(
       ".quiz__info-container--last-slide-text"
     );
-
     if (currentSlide === slides.length - 1) {
       if (infoContainer) infoContainer.style.display = "none";
       if (lastSlideText) lastSlideText.style.display = "block";
@@ -43,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
       index === slides.length - 2 ? "inline-block" : "none";
     submitBtn.style.display =
       index === slides.length - 1 ? "inline-block" : "none";
-
     updateCounter();
     toggleLastSlideText();
   }
 
   function saveAnswers() {
     const activeSlide = slides[currentSlide];
-
     const radioInputs = activeSlide.querySelectorAll(
       "input[type='radio']:checked"
     );
@@ -62,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ? labelSpan.textContent.trim()
         : radio.value;
     });
-
     const checkboxInputs = activeSlide.querySelectorAll(
       "input[type='checkbox']"
     );
@@ -79,23 +73,18 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       }
     });
-
     const textAndEmailInputs = activeSlide.querySelectorAll(
       "input[type='text'], input[type='email']"
     );
     textAndEmailInputs.forEach((input) => {
       quizData[input.name] = input.value.trim();
     });
-
-    // Calculate the estimated price based on the current quizData
     calculatePrice();
-
     console.log("Collected data:", quizData);
   }
 
   function calculatePrice() {
-    let price = 1500; // Base price
-    // Adjust these conditions to match your quiz data structure
+    let price = 1500;
     if (
       quizData["number-of-tickets-per-month"] === "over 1000" &&
       quizData["number-of-calls-per-month"] === "over 200"
@@ -107,10 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       price = 1650;
     }
-
     quizData["estimated_price"] = `${price} €`;
-
-    // Update the slide that displays the estimated price (if applicable)
     const priceElement = document.querySelector(".quiz__slide-info");
     if (priceElement) {
       priceElement.textContent = `${price} €`;
@@ -125,10 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const textInputs = activeSlide.querySelectorAll("input[type='text']");
     const errorMessage = activeSlide.querySelector(".quiz__slide-error");
-
     let isValid = true;
-
-    // If radio buttons exist, ensure one is selected
     if (radioInputs.length > 0) {
       const checkedRadio = activeSlide.querySelector(
         "input[type='radio']:checked"
@@ -137,8 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         isValid = false;
       }
     }
-
-    // If checkboxes exist, ensure at least one is checked
     if (checkboxInputs.length > 0) {
       const checkedCheckbox = activeSlide.querySelector(
         "input[type='checkbox']:checked"
@@ -147,8 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         isValid = false;
       }
     }
-
-    // Validate text inputs (for example, on the final slide for email and name)
     if (textInputs.length > 0) {
       textInputs.forEach((input) => {
         if (input.name === "Name" && input.value.trim().length < 2) {
@@ -165,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-
     if (errorMessage) {
       if (!isValid) {
         errorMessage.classList.add("quiz__slide-error--active");
@@ -173,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
         errorMessage.classList.remove("quiz__slide-error--active");
       }
     }
-
     return isValid;
   }
 
@@ -192,8 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
       saveAnswers();
       currentSlide++;
       showSlide(currentSlide);
-    } else {
-      alert("Please fill in all required fields before proceeding.");
     }
   });
 
@@ -206,17 +181,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    // Collect any remaining answers
     saveAnswers();
-
     let isValid = true;
     const emailInput = document.querySelector("input[name='email']");
     const nameInput = document.querySelector("input[name='name']");
     const emailError = emailInput ? emailInput.nextElementSibling : null;
     const nameError = nameInput ? nameInput.nextElementSibling : null;
-
-    // Validate email field
     if (
       !emailInput.value.trim() ||
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())
@@ -228,8 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.classList.remove("quiz__slide-form-input--error");
       if (emailError) emailError.classList.remove("quiz__slide-error--active");
     }
-
-    // Validate name field
     if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
       nameInput.classList.add("quiz__slide-form-input--error");
       if (nameError) nameError.classList.add("quiz__slide-error--active");
@@ -238,23 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nameInput.classList.remove("quiz__slide-form-input--error");
       if (nameError) nameError.classList.remove("quiz__slide-error--active");
     }
-
-    if (!isValid) {
-      return;
-    }
-
-    // Build the AJAX request using FormData
+    if (!isValid) return;
     let actionURL =
       form.getAttribute("data-form-action") || "/wp-admin/admin-ajax.php";
     let formData = new FormData(form);
-
-    // Append the quiz data as a JSON string
     formData.append("quizData", JSON.stringify(quizData));
-
-    // IMPORTANT: Append the 'action' parameter so WordPress knows which handler to use
     formData.append("action", "send_custom_form");
-
-    // Send the AJAX request
     fetch(actionURL, {
       method: "POST",
       body: formData,
@@ -262,20 +219,27 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.text())
       .then((result) => {
         console.log("Success:", result);
-        // Example UI updates after a successful submission
         emailInput.style.display = "none";
         nameInput.style.display = "none";
-        document.getElementById("submit").style.display = "none";
-        alert("Thank you! Your data was submitted successfully.");
+        submitBtn.style.display = "none";
+        prevBtn.style.display = "none";
+
+        const successContainer = document.createElement("div");
+        successContainer.classList.add("quiz__success");
+
+        const successText = document.createElement("p");
+        successText.classList.add("quiz__success-text");
+        successText.textContent = "Thanks for your answers";
+
+        successContainer.appendChild(successText);
+        document
+          .querySelector(".quiz__slide.quiz__slide--active")
+          .appendChild(successContainer);
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert(
-          "An error occurred while submitting your data. Please try again."
-        );
       });
   });
 
-  // Initialize the first slide on load
   showSlide(currentSlide);
 });

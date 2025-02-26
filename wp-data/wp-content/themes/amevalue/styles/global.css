@@ -1967,7 +1967,7 @@ section {
   content: "";
   position: absolute;
   width: 94%;
-  height: 1px;
+  height: 2px;
   top: 1px;
   background-color: rgba(20, 19, 79, 0.5);
 }
@@ -2084,7 +2084,68 @@ section {
   transform: translateY(-50%) rotate(-45deg);
 }
 
+.privacy {
+  margin-top: 111px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.privacy::before {
+  content: "";
+  position: absolute;
+  width: 94%;
+  height: 1px;
+  top: 112px;
+  background-color: rgba(20, 19, 79, 0.5);
+}
+.privacy__wrapper {
+  max-width: 960px;
+  width: 100%;
+  padding: 0px 20px 45px 20px;
+}
+.privacy__title {
+  color: #14134f;
+  font-size: 50px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+.privacy__content {
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+.privacy__content p {
+  color: #14134f;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 400;
+  font-family: "Urbanist";
+}
+.privacy__content strong {
+  font-weight: 700;
+}
+.privacy__content ul {
+  list-style: inside;
+  margin-bottom: 10px;
+}
+.privacy__content ul li {
+  padding-left: 20px;
+  text-indent: -20px;
+}
+.privacy__content a {
+  color: #ff8562;
+  text-decoration: none;
+}
+
 @media (max-width: 1199px) {
+  .privacy {
+    margin-top: 86px;
+  }
+  .privacy::before {
+    top: 87px;
+  }
   .faq {
     margin-top: 86px;
   }
@@ -2404,6 +2465,12 @@ section {
   }
 }
 @media (max-width: 980px) {
+  .privacy {
+    margin-top: 70px;
+  }
+  .privacy::before {
+    top: 71px;
+  }
   .header {
     height: 70px;
   }
@@ -2450,6 +2517,15 @@ section {
   }
 }
 @media (max-width: 959px) {
+  .privacy {
+    margin-top: 103px;
+  }
+  .privacy__wrapper {
+    max-width: 600px;
+  }
+  .privacy::before {
+    top: 104px;
+  }
   .faq {
     margin-top: 103px;
   }
@@ -2736,6 +2812,12 @@ section {
   }
 }
 @media (max-width: 639px) {
+  .privacy {
+    margin-top: 90px;
+  }
+  .privacy::before {
+    top: 91px;
+  }
   .faq {
     margin-top: 90px;
   }
@@ -3066,6 +3148,12 @@ section {
   }
 }
 @media (max-width: 481px) {
+  .privacy {
+    margin-top: 101px;
+  }
+  .privacy::before {
+    top: 102px;
+  }
   .faq {
     margin-top: 101px;
   }
