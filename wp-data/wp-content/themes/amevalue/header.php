@@ -2,26 +2,36 @@
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php wp_title(''); bloginfo('name'); ?></title>
-  <meta name="description" content="customer support outsourcing company">
-  <meta property="og:url" content="https://ame-value.com">
-  <meta property="og:title" content="Amevalue">
-  <meta property="og:description" content="customer support outsourcing company">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/thumbnail.webp">
-  <link rel="canonical" href="https://ame-value.com">
-  <meta name="format-detection" content="telephone=no">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" type="image/x-icon">
+
+  <?php
+    // Load page-specific SEO meta tags
+    if ( is_page('main') ) {
+      get_template_part('parts/meta', 'main');
+    } elseif ( is_page('faq') ) {
+      get_template_part('parts/meta', 'faq');
+    } elseif ( is_page('prices') ) {
+      get_template_part('parts/meta', 'price');
+    } elseif ( is_page('policy') ) {
+      get_template_part('parts/meta', 'policy');
+    }
+  ?>
+
+  <!-- Preconnect and DNS Prefetch -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" type="text/css">
+  
   <?php wp_head(); ?>
 </head>
+
+
 <body <?php body_class(); ?>>
   <header class="header">
     <div class="success">
@@ -105,7 +115,7 @@
           'walker' => new Custom_Walker_Nav_Menu(),
         ]); ?>
       </ul>
-      <a href="#" class="header__burger unselectable"></a>
+      <div class="header__burger unselectable"></div>
     </nav>
   </header>
 </body>

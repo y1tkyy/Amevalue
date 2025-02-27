@@ -96,8 +96,8 @@ if( $services_line ):
       $title = $game_plan["title"];
       $items = $game_plan["items"];
     ?>
-      <div class="game-plan__button game-plan__button--left" aria-label="Slider button left"></div>
-      <div class="game-plan__button game-plan__button--right" aria-label="Slider button right"></div>
+      <div class="game-plan__button game-plan__button--left"></div>
+      <div class="game-plan__button game-plan__button--right"></div>
       <div class="game-plan__container">
         <?php if ($title): ?>
           <h2 class="game-plan__title unselectable"><?php echo esc_html($title); ?></h2>

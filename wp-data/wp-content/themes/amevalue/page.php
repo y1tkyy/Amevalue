@@ -14,7 +14,7 @@ get_header();
     get_template_part('parts/contacts');
   }
 
-  if ( is_page('price') ) {
+  if ( is_page('prices') ) {
     get_template_part('parts/price-page');
   }
 

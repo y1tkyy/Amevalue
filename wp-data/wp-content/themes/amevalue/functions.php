@@ -33,6 +33,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 class Custom_Walker_Sidebar_Menu extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+		$output .= '<li class="sidebar__item">';
 		$main_links = array('Values', 'Game plan', 'Results', 'Clients', 'Contacts');
 		if ( in_array( $item->title, $main_links ) ) {
 			if ( ! is_front_page() ) {
@@ -93,7 +94,16 @@ function send_custom_form() {
 		}
 	}
 
-	wp_mail("admin@example.com", "New Submission", $message);
+	$custom_email = get_field('mail', 'option');
+	if (empty($custom_email)) {
+		$custom_email = 'admin@example.com'; 
+	}
+	$custom_topic = get_field('topic', 'option');
+	if (empty($custom_topic)) {
+		$custom_topic = 'New Submission'; 
+	}
+
+	wp_mail($custom_email, $custom_topic, $message);
 	error_log("Form submitted: $name");
 	wp_send_json_success("Form submitted successfully");
 }
@@ -105,7 +115,7 @@ function theme_enqueue_assets() {
 	wp_enqueue_style("global-style", get_template_directory_uri() . "/styles/global.css", [], "1.0.0", "all");
 	wp_enqueue_script("theme-scripts", get_template_directory_uri() . "/js/script.js", [], "1.0.0", true);
 
-	if (is_page("price")) {
+	if (is_page("prices")) {
 		wp_enqueue_style("price-style", get_template_directory_uri() . "/styles/price.css", [], "1.0.0", "all");
 		wp_enqueue_script("price-scripts", get_template_directory_uri() . "/js/price-script.js", [], "1.0.0", true);
 	}
