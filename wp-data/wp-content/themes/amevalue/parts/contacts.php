@@ -1,43 +1,49 @@
 <section class="contacts" id="contacts">
   <div class="contacts__wrapper">
     <div class="contacts__content">
-      <?php if ( have_rows('field_67b9c53f5d275') ) : ?>
-        <?php $contacts_block = get_field('field_67b9c53f5d275'); ?>
-        <h2 class="contacts__title"><?php echo $contacts_block['title']; ?></h2>
-        <a class="contacts__telephone" href="tel:<?php echo $contacts_block['phone']; ?>">
-          <?php echo $contacts_block['phone']; ?>
+      <?php 
+        $contacts_block = get_field('contacts_block');
+        if ( $contacts_block ) :
+      ?>
+        <h2 class="contacts__title"><?php echo esc_html( $contacts_block['title'] ); ?></h2>
+        <a class="contacts__telephone" href="tel:<?php echo esc_attr( $contacts_block['phone'] ); ?>">
+          <?php echo esc_html( $contacts_block['phone'] ); ?>
         </a>
-        <a class="contacts__mail" href="mailto:<?php echo $contacts_block['email']; ?>">
-          E-Mail: <?php echo $contacts_block['email']; ?>
+        <a class="contacts__mail" href="mailto:<?php echo esc_attr( $contacts_block['email'] ); ?>">
+          E-Mail: <?php echo esc_html( $contacts_block['email'] ); ?>
         </a>
         <p class="contacts__address">
-          <?php echo $contacts_block['adress']; ?>
+          <?php echo esc_html( $contacts_block['adress'] ); ?>
         </p>
-        <div class="contacts__container">
-          <a href="https://www.linkedin.com/company/amevalue/" class="contacts__link">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/linkedin.svg" 
-                alt="LinkedIn icon" 
-                class="contacts__link-icon" 
-                width="24px" />
-          </a>
-          <p class="contacts__link">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/message_fb.svg" 
-                alt="Facebook icon" 
-                class="contacts__link-icon" 
-                width="28px" />
-          </p>
-          <a href="https://wa.me/qr/XCGJBVLQCL4TI1" class="contacts__link contacts__link--square">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/whatsapp_qr.webp" 
-                alt="Whatsapp QR code icon" 
-                class="contacts__link-icon" 
-                width="50px" />
-          </a>
-        </div>
+        <?php if ( !empty( $contacts_block['links'] ) ) : ?>
+          <div class="contacts__links">
+            <?php foreach ( $contacts_block['links'] as $link ) : 
+                    $item = $link['item'];
+                    if ( $item ) : ?>
+              <a class="contacts__link" target="_blank" href="<?php echo esc_url( $item['href_link'] ); ?>">
+                <?php 
+                  if ( !empty( $item['icon'] ) ) {
+                      $icon_id = is_array($item['icon']) ? $item['icon']['ID'] : $item['icon'];
+                      echo wp_get_attachment_image( 
+                          $icon_id, 
+                          'full', 
+                          false, 
+                          array(
+                              'class' => 'contacts__link-icon',
+                              'style' => 'width:' . esc_attr( $item['icon_width'] ) . 'px;'
+                          ) 
+                      );
+                  }
+                ?>
+              </a>
+            <?php endif; endforeach; ?>
+          </div>
+        <?php endif; ?>
         <div class="contacts__info">
           <p class="contacts__info-text">
-            <?php echo $contacts_block['pdf_text']; ?>
+            <?php echo esc_html( $contacts_block['pdf_text'] ); ?>
           </p>
-          <a href="<?php echo $contacts_block['pdf_link']; ?>" class="contacts__info-link" target="_blank">
+          <a href="<?php echo esc_url( $contacts_block['pdf_link'] ); ?>" class="contacts__info-link" target="_blank">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pdf.svg" 
                 alt="PDF icon" 
                 class="contacts__info-icon" />

@@ -31,7 +31,7 @@
           ?>
         </div>
       </div>
-      <a href="#" class="why-choose-us-mobile__button"><?php the_sub_field("button_text"); ?></a>
+      <a href="./price/" class="why-choose-us-mobile__button"><?php the_sub_field("button_text"); ?></a>
     <?php endwhile; ?>
   <?php endif; ?>
 </section>
