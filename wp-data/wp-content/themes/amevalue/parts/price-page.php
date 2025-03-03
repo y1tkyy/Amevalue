@@ -90,5 +90,15 @@
         <button type="submit" id="submit" class="quiz__button quiz__button--submit" style="display: none;">Submit</button>
       </div>
     </form>
+    <?php
+      $default_price = get_field('default_price', 'option'); 
+      $tickets_calls = get_field('tickets_calls', 'option'); 
+      $language_price = get_field('language_price', 'option'); 
+    ?>
+    <div id="quizPriceData" style="display: none;"
+      data-default-price="<?php echo esc_attr($default_price); ?>"
+      data-tickets-calls="<?php echo esc_attr($tickets_calls); ?>"
+      data-language-price="<?php echo esc_attr($language_price); ?>">
+    </div>
   </div>
 </section>

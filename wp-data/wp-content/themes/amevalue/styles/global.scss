@@ -1473,12 +1473,17 @@ section {
     background-color: $bg-color;
     box-shadow: 10px 10px 40px 4px rgba(140, 139, 193, 0.1);
     border-radius: 20px;
+    transition: transform 0.3s ease-in-out; 
     &-link {
       display: flex;
+      cursor: pointer;
     }
     &-img {
       max-width: 100%;
       height: auto;
+    }
+    &:hover{
+      transform: scale(1.05);
     }
   }
   &__title {
@@ -3249,8 +3254,8 @@ section {
       margin-left: 25px;
     }
     &__item {
-      width: 375px;
-      height: 375px;
+      width: 315px;
+      height: 315px;
     }
     &__container {
       padding-left: 25px;
@@ -3388,7 +3393,7 @@ section {
       }
     }
     &__form-privacy {
-      font-size: 21px;
+      font-size: 16px;
     }
     &__info-text {
       line-height: 27px;

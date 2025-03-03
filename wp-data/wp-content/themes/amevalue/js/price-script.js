@@ -46,56 +46,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function saveAnswers() {
     const activeSlide = slides[currentSlide];
-    const radioInputs = activeSlide.querySelectorAll(
-      "input[type='radio']:checked"
-    );
+    const radioInputs = activeSlide.querySelectorAll("input[type='radio']:checked");
     radioInputs.forEach((radio) => {
-      const labelSpan = radio
-        .closest("label")
-        .querySelector(".quiz__radio-label");
-      quizData[radio.name] = labelSpan
-        ? labelSpan.textContent.trim()
-        : radio.value;
+      const labelSpan = radio.closest("label").querySelector(".quiz__radio-label");
+      quizData[radio.name] = labelSpan ? labelSpan.textContent.trim() : radio.value;
     });
-    const checkboxInputs = activeSlide.querySelectorAll(
-      "input[type='checkbox']"
-    );
+
+    const checkboxInputs = activeSlide.querySelectorAll("input[type='checkbox']");
+    const checkboxNames = new Set();
     checkboxInputs.forEach((checkbox) => {
-      if (!quizData[checkbox.name]) {
-        quizData[checkbox.name] = [];
-      }
+      checkboxNames.add(checkbox.name);
+    });
+    checkboxNames.forEach((name) => {
+      quizData[name] = [];
+    });
+    checkboxInputs.forEach((checkbox) => {
       if (checkbox.checked) {
-        const labelSpan = checkbox
-          .closest("label")
-          .querySelector(".quiz__checkbox-label");
-        quizData[checkbox.name].push(
-          labelSpan ? labelSpan.textContent.trim() : checkbox.value
-        );
+        const labelSpan = checkbox.closest("label").querySelector(".quiz__checkbox-label");
+        quizData[checkbox.name].push(labelSpan ? labelSpan.textContent.trim() : checkbox.value);
       }
     });
-    const textAndEmailInputs = activeSlide.querySelectorAll(
-      "input[type='text'], input[type='email']"
-    );
+
+    const textAndEmailInputs = activeSlide.querySelectorAll("input[type='text'], input[type='email']");
     textAndEmailInputs.forEach((input) => {
       quizData[input.name] = input.value.trim();
     });
+
     calculatePrice();
     console.log("Collected data:", quizData);
   }
 
   function calculatePrice() {
-    let price = 1500;
+    const priceDataEl = document.getElementById('quizPriceData');
+    if (!priceDataEl) return;
+
+    const defaultPrice = parseInt(priceDataEl.getAttribute('data-default-price'), 10);
+    const ticketsCallsPrice = parseInt(priceDataEl.getAttribute('data-tickets-calls'), 10);
+    const languagePrice = parseInt(priceDataEl.getAttribute('data-language-price'), 10);
+
+    let price = defaultPrice;
+
     if (
       quizData["number-of-tickets-per-month"] === "over 1000" &&
       quizData["number-of-calls-per-month"] === "over 200"
     ) {
-      price = 1800;
+      price = ticketsCallsPrice;
     } else if (
-      quizData["communication-languages"] &&
-      quizData["communication-languages"].includes("German")
+      quizData["communication-languages[]"] &&
+      quizData["communication-languages[]"].includes("German")
     ) {
-      price = 1650;
+      price = languagePrice;
     }
+
     quizData["estimated_price"] = `${price} €`;
     const priceElement = document.querySelector(".quiz__slide-info");
     if (priceElement) {

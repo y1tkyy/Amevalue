@@ -1521,13 +1521,18 @@ section {
   background-color: #fafafa;
   box-shadow: 10px 10px 40px 4px rgba(140, 139, 193, 0.1);
   border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 .trusted-us__item-link {
   display: flex;
+  cursor: pointer;
 }
 .trusted-us__item-img {
   max-width: 100%;
   height: auto;
+}
+.trusted-us__item:hover {
+  transform: scale(1.05);
 }
 .trusted-us__title {
   line-height: 55px;
@@ -3200,8 +3205,8 @@ section {
     margin-left: 25px;
   }
   .why-choose-us-mobile__item {
-    width: 375px;
-    height: 375px;
+    width: 315px;
+    height: 315px;
   }
   .why-choose-us-mobile__container {
     padding-left: 25px;
@@ -3334,7 +3339,7 @@ section {
     font-size: 24px;
   }
   .contacts__form-privacy {
-    font-size: 21px;
+    font-size: 16px;
   }
   .contacts__info-text {
     line-height: 27px;
