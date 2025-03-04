@@ -204,7 +204,7 @@ if( $services_line ):
           ?>
             <div class="trusted-us__item">
               <?php if ($company_link): ?>
-                <a class="trusted-us__item-link" href="<?php echo esc_url($company_link); ?>">
+                <a class="trusted-us__item-link" target="_blank" href="<?php echo esc_url($company_link); ?>">
               <?php endif; ?>
               <?php if ($image): ?>
                 <img class="trusted-us__item-img" src="<?php echo esc_url($image["url"]); ?>" alt="<?php echo esc_attr($image["alt"]); ?>" width="<?php echo esc_attr($image_width); ?>" />

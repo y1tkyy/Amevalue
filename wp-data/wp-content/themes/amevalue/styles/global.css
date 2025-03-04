@@ -1525,7 +1525,11 @@ section {
 }
 .trusted-us__item-link {
   display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 .trusted-us__item-img {
   max-width: 100%;

@@ -12,7 +12,7 @@
         <span class="quiz__header-title-text"><?php echo esc_html($page_title); ?></span>
       </h1>
     </div>
-    <form id="quizForm" class="quiz__form" data-form-action="<?php echo admin_url('admin-ajax.php'); ?>">
+    <form id="quizForm" novalidate class="quiz__form" data-form-action="<?php echo admin_url('admin-ajax.php'); ?>">
       <div class="quiz__form-top">
         <div class="quiz__form-top-info">
           <div class="quiz__info-container">
@@ -75,12 +75,12 @@
       </div>
       <div class="quiz__slide">
         <div class="quiz__slide-form-container">
-          <input class="quiz__slide-form-input" type="text" name="email" placeholder="Your email" />
-          <div class="quiz__slide-error">Required field</div>
+          <input id="emailInput" class="quiz__slide-form-input" type="text" name="email" placeholder="Your email" />
+          <div id="emailError" class="quiz__slide-error">Required field</div>
         </div>
         <div class="quiz__slide-form-container">
-          <input class="quiz__slide-form-input" type="text" name="name" placeholder="Your name and company" />
-          <div class="quiz__slide-error">Please fill out all required fields</div>
+          <input id="nameInput" class="quiz__slide-form-input" type="text" name="name" placeholder="Your name and company" />
+          <div id="nameError" class="quiz__slide-error">Please fill out all required fields</div>
         </div>
       </div>
       <div class="quiz__actions-buttons">
@@ -90,15 +90,15 @@
         <button type="submit" id="submit" class="quiz__button quiz__button--submit" style="display: none;">Submit</button>
       </div>
     </form>
-    <?php
-      $default_price = get_field('default_price', 'option'); 
-      $tickets_calls = get_field('tickets_calls', 'option'); 
-      $language_price = get_field('language_price', 'option'); 
-    ?>
-    <div id="quizPriceData" style="display: none;"
-      data-default-price="<?php echo esc_attr($default_price); ?>"
-      data-tickets-calls="<?php echo esc_attr($tickets_calls); ?>"
-      data-language-price="<?php echo esc_attr($language_price); ?>">
-    </div>
   </div>
 </section>
+<?php
+$default_price = get_field('default_price', 'option'); 
+$tickets_calls = get_field('tickets_calls', 'option'); 
+$language_price = get_field('language_price', 'option'); 
+?>
+<div id="quizPriceData" style="display: none;"
+  data-default-price="<?php echo esc_attr($default_price); ?>"
+  data-tickets-calls="<?php echo esc_attr($tickets_calls); ?>"
+  data-language-price="<?php echo esc_attr($language_price); ?>">
+</div>

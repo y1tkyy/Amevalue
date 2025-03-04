@@ -132,11 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (textInputs.length > 0) {
       textInputs.forEach((input) => {
-        if (input.name === "Name" && input.value.trim().length < 2) {
+        if (input.name === "name" && input.value.trim().length < 2) {
           isValid = false;
           input.classList.add("input-error");
         } else if (
-          input.name === "Email" &&
+          input.name === "email" &&
           !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())
         ) {
           isValid = false;
@@ -182,66 +182,73 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    saveAnswers();
-    let isValid = true;
-    const emailInput = document.querySelector("input[name='email']");
-    const nameInput = document.querySelector("input[name='name']");
-    const emailError = emailInput ? emailInput.nextElementSibling : null;
-    const nameError = nameInput ? nameInput.nextElementSibling : null;
-    if (
-      !emailInput.value.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())
-    ) {
-      emailInput.classList.add("quiz__slide-form-input--error");
-      if (emailError) emailError.classList.add("quiz__slide-error--active");
-      isValid = false;
-    } else {
-      emailInput.classList.remove("quiz__slide-form-input--error");
-      if (emailError) emailError.classList.remove("quiz__slide-error--active");
-    }
-    if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-      nameInput.classList.add("quiz__slide-form-input--error");
-      if (nameError) nameError.classList.add("quiz__slide-error--active");
-      isValid = false;
-    } else {
-      nameInput.classList.remove("quiz__slide-form-input--error");
-      if (nameError) nameError.classList.remove("quiz__slide-error--active");
-    }
-    if (!isValid) return;
-    let actionURL =
-      form.getAttribute("data-form-action") || "/wp-admin/admin-ajax.php";
-    let formData = new FormData(form);
-    formData.append("quizData", JSON.stringify(quizData));
-    formData.append("action", "send_custom_form");
-    fetch(actionURL, {
-      method: "POST",
-      body: formData,
+    console.log(1);
+  event.preventDefault();
+  saveAnswers();
+  console.log(2)
+  let isValid = true;
+  const emailInput = document.getElementById("emailInput");
+  const nameInput = document.getElementById("nameInput");
+  const emailError = document.getElementById("emailError");
+  const nameError = document.getElementById("nameError");
+
+  if (
+    !emailInput.value.trim() ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())
+  ) {
+    emailInput.classList.add("quiz__slide-form-input--error");
+    if (emailError) emailError.classList.add("quiz__slide-error--active");
+    isValid = false;
+  } else {
+    emailInput.classList.remove("quiz__slide-form-input--error");
+    if (emailError) emailError.classList.remove("quiz__slide-error--active");
+  }
+  
+  if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+    nameInput.classList.add("quiz__slide-form-input--error");
+    if (nameError) nameError.classList.add("quiz__slide-error--active");
+    isValid = false;
+  } else {
+    nameInput.classList.remove("quiz__slide-form-input--error");
+    if (nameError) nameError.classList.remove("quiz__slide-error--active");
+  }
+
+  if (!isValid) return;
+
+  let actionURL =
+    form.getAttribute("data-form-action") || "/wp-admin/admin-ajax.php";
+  let formData = new FormData(form);
+  formData.append("quizData", JSON.stringify(quizData));
+  formData.append("action", "send_custom_form");
+  
+  fetch(actionURL, {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((result) => {
+      console.log("Success:", result);
+      emailInput.style.display = "none";
+      nameInput.style.display = "none";
+      submitBtn.style.display = "none";
+      prevBtn.style.display = "none";
+
+      const successContainer = document.createElement("div");
+      successContainer.classList.add("quiz__success");
+
+      const successText = document.createElement("p");
+      successText.classList.add("quiz__success-text");
+      successText.textContent = "Thanks for your answers";
+
+      successContainer.appendChild(successText);
+      document
+        .querySelector(".quiz__slide.quiz__slide--active")
+        .appendChild(successContainer);
     })
-      .then((response) => response.text())
-      .then((result) => {
-        console.log("Success:", result);
-        emailInput.style.display = "none";
-        nameInput.style.display = "none";
-        submitBtn.style.display = "none";
-        prevBtn.style.display = "none";
-
-        const successContainer = document.createElement("div");
-        successContainer.classList.add("quiz__success");
-
-        const successText = document.createElement("p");
-        successText.classList.add("quiz__success-text");
-        successText.textContent = "Thanks for your answers";
-
-        successContainer.appendChild(successText);
-        document
-          .querySelector(".quiz__slide.quiz__slide--active")
-          .appendChild(successContainer);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  });
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+});
 
   showSlide(currentSlide);
 });
